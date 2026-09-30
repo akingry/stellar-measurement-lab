@@ -1,37 +1,28 @@
 {
-  "version": 12,
-  "overall": "passed for adaptive conditional-fit workflow",
-  "scope": "Adaptive conditional relative-fit workflow; not calibrated physical probabilities or all-star coverage",
+  "version": 13,
+  "overall": "local checks passed; publishing",
   "implementation": {
     "status": "passed",
-    "evidence": [
-      "public/ranking.js",
-      "public/app.js"
+    "features": [
+      "computed lithium equal-fit markers",
+      "gradient saturation tracks lead",
+      "two named color labels",
+      "crossover recomputed for current candidates"
     ]
   },
   "validation": {
     "status": "passed",
     "evidence": [
-      "validation/v12-ranking.json",
-      "validation/v12-browser.json",
-      "validation/point-science.json"
+      "validation/v13-browser.json",
+      "validation/v13-lithium.png"
     ],
+    "crossoverMilliangstroms": 75.5,
     "screenshotsInspected": true
   },
   "publication": {
-    "status": "passed",
-    "commit": "59113f63cfc567b759bd2b4c2fee32309464b739",
-    "url": "https://akingry.github.io/stellar-measurement-lab/?v=12"
+    "status": "running"
   },
   "live": {
-    "status": "passed",
-    "evidence": [
-      "validation/v12-live.json",
-      "validation/v12-live-assets.json"
-    ]
-  },
-  "handoff": {
-    "status": "passed",
-    "limitation": "Conditional fit shares are not calibrated physical probabilities; unavailable stages and diagnostics remain explicit."
+    "status": "pending"
   }
 }
