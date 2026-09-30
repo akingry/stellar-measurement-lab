@@ -1,1 +1,35 @@
-{"data":{"status":"running"},"implementation":{"status":"pending"},"scientific_validation":{"status":"pending"},"ui_validation":{"status":"pending"},"publication":{"status":"pending"},"live_validation":{"status":"pending"},"handoff":{"status":"pending"}}
+{
+    "data":  {
+                 "status":  "passed",
+                 "evidence":  "public/data/manifest.json",
+                 "rows":  1071066
+             },
+    "implementation":  {
+                           "evidence":  "public/index.html",
+                           "status":  "passed"
+                       },
+    "scientific_validation":  {
+                                  "evidence":  "validation/science.json",
+                                  "status":  "passed"
+                              },
+    "ui_validation":  {
+                          "evidence":  "validation/browser.json",
+                          "status":  "passed"
+                      },
+    "publication":  {
+                        "evidence":  "https://github.com/akingry/stellar-measurement-lab/actions/runs/36667217120",
+                        "status":  "passed",
+                        "url":  "https://akingry.github.io/stellar-measurement-lab/",
+                        "commit":  "ada0d777478df86bbacd6d57021d45a15f378a8d"
+                    },
+    "live_validation":  {
+                            "status":  "passed",
+                            "evidence":  "validation/live-browser.json",
+                            "load_ms":  2139
+                        },
+    "handoff":  {
+                    "status":  "passed",
+                    "limitations":  "Finite sampled MIST single nonrotating stellar grid; unresolved phases shown; no binary or oscillation fitting; visuals illustrative.",
+                    "opening_path":  "https://akingry.github.io/stellar-measurement-lab/"
+                }
+}
