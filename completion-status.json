@@ -17,10 +17,10 @@
                           "status":  "passed"
                       },
     "publication":  {
-                        "evidence":  "https://github.com/akingry/stellar-measurement-lab/actions/runs/36712381638",
+                        "evidence":  "https://github.com/akingry/stellar-measurement-lab/actions/runs/36713239589",
                         "status":  "passed",
                         "url":  "https://akingry.github.io/stellar-measurement-lab/",
-                        "commit":  "535f1f93f03b969d8eea74ff29a9e93c664f6606"
+                        "commit":  "a9889e889dc868d6c45734472e70ecea8c44f0c7"
                     },
     "live_validation":  {
                             "status":  "passed",
@@ -39,5 +39,11 @@
                            "publication_commit":  "535f1f93f03b969d8eea74ff29a9e93c664f6606",
                            "local_verification":  "passed",
                            "live_verification":  "validation/live-browser.json"
+                       },
+    "touch_controls":  {
+                           "limitation":  "Live Chromium touch emulation passed; actual iPhone/Telegram native gestures unverified.",
+                           "status":  "passed",
+                           "evidence":  "validation/touch.json",
+                           "commit":  "a9889e889dc868d6c45734472e70ecea8c44f0c7"
                        }
 }
