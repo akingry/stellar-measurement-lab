@@ -1,10 +1,10 @@
 # Star Lab — measurements to meaning
 
-A mobile-first, measurement-driven stellar explorer. Inputs are effective temperature, bolometric luminosity, optional gravitational surface acceleration, optional bulk surface metallicity, and matching tolerances. Evolutionary stages are outputs, never a required user choice.
+A mobile-first, measurement-driven stellar explorer. The interface exposes only effective temperature, bolometric luminosity, and their matching tolerances. Gravity and composition constraints are disabled in every preset. Evolutionary stages are outputs, never a required user choice.
 
 ## Science
 
-- Radius from Stefan–Boltzmann; mass from gravitational acceleration and radius. No main-sequence mass shortcut.
+- Radius from Stefan–Boltzmann. The displayed mass range spans compatible model points, not a direct mass measurement. No main-sequence mass shortcut. The inference engine retains gravity/composition support for scientific validation, but those constraints are not supplied in this two-control interface.
 - 1,071,066 MIST 1.2 nonrotating, solar-scaled model points across initial [Fe/H] −2 to +0.5 and log age 5.0–10.10.
 - All supplied measurement windows must match simultaneously. All compatible phase labels survive; no fabricated confidence percentages or probability weighting.
 - Source phase 6 remains **post-AGB / white-dwarf cooling**, not a falsely precise white-dwarf label. Phase 2 remains post-main-sequence / RGB.
