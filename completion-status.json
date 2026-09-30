@@ -1,6 +1,6 @@
 {
   "version": 20,
-  "overall": "local display checks passed; publishing",
+  "overall": "passed",
   "implementation": {
     "status": "passed",
     "scope": "magnesium color contrast and unavailable calibration state; no score changes"
@@ -15,9 +15,14 @@
     "screenshotsInspected": true
   },
   "publication": {
-    "status": "running"
+    "status": "passed",
+    "commit": "a83ca36468ace38956f873e578f37ef4110531de",
+    "url": "https://akingry.github.io/stellar-measurement-lab/?v=20"
   },
   "live": {
-    "status": "pending"
+    "status": "passed",
+    "evidence": [
+      "validation/v20-live.json"
+    ]
   }
 }
