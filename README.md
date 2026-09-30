@@ -1,3 +1,9 @@
+# Star Lab version ten
+
+Optional brightness-oscillation and technetium-spectrum controls now produce evidence-based diagnostic estimates. No typing, no hidden stage selection. Temperature/luminosity still determine the illustration and radius; the diagnostics are not a joint stellar fit. See public/details.html for scientific scope.
+
+Reproduce: python diagnostics/build_browser_evidence.py; node validate-evidence.mjs; node v10-browser.cjs (server port 8768; TEST_URL for live).
+
 # Star Lab version nine
 
 Scientific-accuracy correction: independent light-only sliders, no typing or snapping, no forced stage or mass. One illustration and `Stage unresolved`. Magnesium absorption is not currently fitted. Radius follows temperature and bolometric luminosity under the fixed assumptions in public/details.html. See SCIENCE-REVIEW.md for diagnostic limitations and primary-source investigation.

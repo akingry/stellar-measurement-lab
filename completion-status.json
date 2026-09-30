@@ -1,39 +1,35 @@
 {
-  "version": 9,
+  "version": 10,
+  "overall": "running",
   "implementation": {
     "status": "passed",
-    "evidence": "public/app.js"
+    "evidence": [
+      "public/app.js",
+      "public/evidence.js",
+      "public/data/evidence.json"
+    ]
   },
   "scienceReview": {
     "status": "passed",
-    "evidence": "SCIENCE-REVIEW.md",
-    "finding": "No claimed stage inference; no forced matching. No validated seismic calibration available."
+    "evidence": "public/details.html",
+    "limitation": "Separate empirical diagnostics; not a joint or universal stage classifier"
   },
-  "mobile": {
-    "status": "passed",
-    "evidence": "validation/v9-browser.json",
-    "limitation": "Physical iPhone and Telegram gestures unverified"
-  },
-  "publication": {
-    "status": "passed",
-    "sourceCommit": "4bccd96",
-    "publicCommit": "a9b0629",
-    "url": "https://akingry.github.io/stellar-measurement-lab/?v=9"
-  },
-  "live": {
+  "validation": {
     "status": "passed",
     "evidence": [
-      "validation/v9-live.json",
-      "validation/v9-live-assets.json"
+      "validation/v10-science.json",
+      "validation/v10-browser.json",
+      "validation/v10-390.png"
     ],
-    "checks": "Independent inputs across touch drags and 15 range samples; unresolved stage throughout; radius law; no mass; no typing; no overflow."
+    "screenshotInspected": true
+  },
+  "publication": {
+    "status": "running"
+  },
+  "live": {
+    "status": "pending"
   },
   "handoff": {
-    "status": "passed",
-    "limitations": "Stage classification unavailable; magnesium input not fitted. Arbitrary joint inputs are not certified physically realizable. Physical iPhone/Telegram unverified."
-  },
-  "stageClassifier": {
-    "status": "blocked",
-    "reason": "Validated uncertainty-aware diagnostic classifier and seismic predictions absent; UI explicitly shows Stage unresolved."
+    "status": "pending"
   }
 }

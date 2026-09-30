@@ -1,0 +1,99 @@
+{
+  "source": "https://arxiv.org/html/2507.20812v1",
+  "version": "Author preprint v1; not silently equated to final journal tables",
+  "sha256": "6a5d853995a01c6596cf466045b0141ebf5f2f403f25f406f8777c600f9873d2",
+  "tables": [
+    "A2.T4",
+    "A2.T5"
+  ],
+  "rows": 64,
+  "groups": {
+    "M/technetium-rich": {
+      "count": 13,
+      "ranges": {
+        "blend_center_4238_angstrom": [
+          4237.9615,
+          4238.2564
+        ],
+        "blend_center_4262_angstrom": [
+          4262.2322,
+          4262.3909
+        ],
+        "titanium_oxide_index": [
+          0.47977,
+          0.714870044
+        ],
+        "zirconium_oxide_index": [
+          0.1990222,
+          0.35682944
+        ]
+      }
+    },
+    "M/technetium-poor": {
+      "count": 21,
+      "ranges": {
+        "blend_center_4238_angstrom": [
+          4238.3112,
+          4238.4243
+        ],
+        "blend_center_4262_angstrom": [
+          4261.9544,
+          4262.1604
+        ],
+        "titanium_oxide_index": [
+          0.33834036,
+          0.6871382
+        ],
+        "zirconium_oxide_index": [
+          0.1746332018,
+          0.324166
+        ]
+      }
+    },
+    "S/technetium-rich": {
+      "count": 16,
+      "ranges": {
+        "blend_center_4238_angstrom": [
+          4238.057,
+          4238.2366
+        ],
+        "blend_center_4262_angstrom": [
+          4262.2005,
+          4262.2847
+        ],
+        "titanium_oxide_index": [
+          0.0523934,
+          0.480474339
+        ],
+        "zirconium_oxide_index": [
+          0.2372964,
+          0.5627953
+        ]
+      }
+    },
+    "S/technetium-poor": {
+      "count": 14,
+      "ranges": {
+        "blend_center_4238_angstrom": [
+          4238.3488,
+          4238.3928
+        ],
+        "blend_center_4262_angstrom": [
+          4262.0893,
+          4262.139
+        ],
+        "titanium_oxide_index": [
+          0.1471063,
+          0.2436218
+        ],
+        "zirconium_oxide_index": [
+          0.1526027,
+          0.2184628
+        ]
+      }
+    }
+  },
+  "interpretation": "Reference labels are technetium detection categories, not independent evolutionary-stage ground truth.",
+  "uncertainties": "Per-feature uncertainties are not supplied in these extracted tables; ranges are descriptive, not confidence intervals.",
+  "deployment": "Not a deployed rule. Blend centers require wavelength/rest-frame calibration; molecular indices require the paper definitions."
+}

@@ -1,7 +1,5 @@
-# Scientific accuracy correction
+# Version ten science review
 
-Version nine removes nearest-row selection from the runtime, all input snapping, the model-mass output and forced stage labels. Three independent light quantities remain. Every result is conservatively `Stage unresolved`; this means inference is unavailable, not that every star is inherently unclassifiable. Radius and blackbody illustration depend only on temperature and bolometric luminosity. Arbitrary combinations are not certified realizable. Magnesium absorption currently does not constrain a fit.
+The seismic tree reproduces the existing held-out catalog benchmark, with a convex-envelope domain guard and period-spacing interval handling. JavaScript reproduces all 1,000 supported held-out predictions; 16 held-out points are rejected as outside the training envelope. Labels share seismic information and are not independent truth.
 
-Reviewed primary source: https://arxiv.org/abs/1103.5805 (fetched successfully September 30, 2026). Bedding et al., Nature 471, 608–611, DOI 10.1038/nature09935. Long-duration Kepler photometry and dipole gravity-mode period spacings distinguish hydrogen-shell and core-helium burning in applicable red giants. This does not justify a universal threshold or classify all phases. Observed mixed-mode spacings must not be silently equated with an asymptotic spacing or single pulsation period.
-
-Current evolutionary rows and 585-spectrum absorption calibration lack mode frequencies, seismic predictions, observational uncertainties and a validated stage classifier. No additional diagnostic has been implemented without those prerequisites. The old selection module remains for historical validation only, not imported as an inference routine by the interface.
+Technetium uses paired blend-center envelopes from 64 published observations. These are spectral-pattern evidence, not a unique thermal-pulse-stage classifier. No non-detection-to-early-stage shortcut is used. No mass or hidden stage selector is introduced. No joint fit or physical validity of arbitrary slider combinations is claimed. See public/details.html and validation/v10-science.json.
