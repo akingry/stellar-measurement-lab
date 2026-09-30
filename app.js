@@ -1,19 +1,20 @@
-import{derived,phases}from './engine.js';
+import{derived,phases}from './engine.js?v=22';
 import{enhanceSliders}from './touch-sliders.js';
 import{evidence}from './evidence.js';
-import{rank}from './ranking.js?v=21';
-import{decorateOscillations}from './oscillation-scale.js?v=21';
-import{decorateLithium}from './lithium-scale.js?v=21';
-import{decorateMagnesium}from './magnesium-scale.js?v=21';
-import{observedMeasurements,randomIndex,compareReference}from './observed.js?v=21';
+import{rank}from './ranking.js?v=22';
+import{decorateOscillations}from './oscillation-scale.js?v=22';
+import{decorateLithium}from './lithium-scale.js?v=22';
+import{decorateMagnesium}from './magnesium-scale.js?v=22';
+import{observedMeasurements,randomIndex,compareReference}from './observed.js?v=22';
 const $=id=>document.getElementById(id);
 const initial={T:5772,logL:0,tolT:0,tolL:0,useSeismic:true,useTechnetium:true,Dnu:4.45,numax:46.5,DPi1:251.2,spacingError:3,tc4238:4238.15,tc4262:4262.28};
 initial.measurements=[];initial.diagnostic='none';initial.lithium=100;initial.wing=.15;
 let selected=null,ranking=null,scoreData=null;
 let observedStar=null,observedEdited=false,observedCatalog=null;
+let exampleCatalog=null,exampleMode=false;
 let q={...initial},visual=derived(q),rgb=[255,245,225],plot=[],result=null,ready=false,calibration=null,phase=0,paused=matchMedia('(prefers-reduced-motion: reduce)').matches;
 let modelReady=false,candidates=null,queryId=0,lastPoint='',pending=false;
-const worker=new Worker('./candidate-worker.js?v=21',{type:'module'});
+const worker=new Worker('./candidate-worker.js?v=22',{type:'module'});
 const fmt=(n,d=5)=>n.toLocaleString('en-US',{maximumSignificantDigits:d});
 const fields=[
  ['T','Temperature','kelvin','controls',Math.log10(2500),Math.log10(50000),.0001],
@@ -98,34 +99,41 @@ function apply(){selected=null;$('preview').hidden=true;$('readings').hidden=tru
  fields.forEach(([id,label,unit])=>{const finite=Number.isFinite(q[id]);$(id+'Slider').disabled=!finite;$(id+'Slider').value=id==='T'?Math.log10(q.T):finite?q[id]:$(id+'Slider').min;$(id).textContent=finite?(id.startsWith('tc')?q[id].toFixed(4):fmt(id==='logL'?10**q.logL:q[id],6))+' '+unit:'Not recorded'});
  requestCandidates();renderEvidence();$('radius').textContent=fmt(visual.radius,3)+' solar radii';$('tempBadge').textContent=fmt(q.T,4)+' kelvin';drawHR();drawStar();
 }
-$('reset').onclick=()=>{observedStar=null;observedEdited=false;q={...initial,measurements:[]};setControlBounds();apply();$('observedPanel').hidden=true};
+$('reset').onclick=()=>{observedStar=null;observedEdited=false;exampleMode=false;q={...initial,measurements:[]};setControlBounds();apply();$('observedPanel').hidden=true};
 function setControlBounds(){
  for(const[id,, , ,min,max,step]of fields){if(id==='wing')continue;const slider=$(id+'Slider'),v=id==='T'?Math.log10(q.T):q[id],bounds=calibration?.seismic.bounds[id]||[min,max];slider.min=Number.isFinite(v)?Math.min(bounds[0],v):bounds[0];slider.max=Number.isFinite(v)?Math.max(bounds[1],v):bounds[1];slider.step=observedStar?'any':step}
 }
-function loadObservedStar(star){
+function loadObservedStar(star,asExample=false){
+ exampleMode=asExample;
  observedStar=star;observedEdited=false;q={...initial,...observedMeasurements(star),useTechnetium:false};
+ if(asExample){const recorded=q.measurements;q.measurements=star.exampleSetup.measurements.filter(n=>recorded.includes(n));q.diagnostic=q.measurements.at(-1)||'none'}
  setControlBounds();apply();
 }
 function renderObserved(checking=false){
  $('observedPanel').hidden=!observedStar;if(!observedStar)return;
- const s=observedStar;$('observedName').textContent='Kepler Input Catalog '+s.id;
+ const s=observedStar;$('observedName').textContent=(s.displayName||'Kepler Input Catalog '+s.id)+(exampleMode?' · Diagnostic example':'');
  $('observedReference').textContent='Catalog: '+s.catalogClass+(s.stageReference?' · '+s.stageReference.label:'')+(s.spectralType?' · '+s.spectralType:'');
  $('observedComparison').textContent=observedEdited?'Exploration: measurements changed; no longer the recorded-star test.':checking?'Checking recorded data…':compareReference(s,ranking);
  const shown=(x,unit)=>Number.isFinite(x)?fmt(x,6)+' '+unit:'not recorded';
  const lines=[['Temperature',shown(s.T,'kelvin')],['Luminosity',shown(s.luminosity,'solar luminosities')],['Magnesium',shown(s.wing,'flux index')],['Lithium',shown(s.lithium,'milliangstroms')+(s.lithiumLimit?' (limit; excluded)':'')],['Radial spacing',shown(s.Dnu,'microhertz')],['Peak frequency',shown(s.numax,'microhertz')],['Period spacing',shown(s.DPi1,'seconds')+(s.oscillationAlias?' (alias flag; excluded)':'')]];
  $('observedMeasurements').replaceChildren();for(const[name,value]of lines){const row=document.createElement('p');row.textContent=name+': '+value;$('observedMeasurements').append(row)}
  $('observedCaution').textContent='Reference labels never enter the fit. Missing data are excluded; partial oscillation sets cannot enter the three-measurement calibration.'+(s.binaryFlag?' Catalog binary flag: '+s.binaryFlag+'.':'');
+ if(exampleMode){$('observedCaution').textContent+=' '+s.exampleSetup.basis+(s.exampleSetup.otherRecordedDiagnostics.length?' Other recorded diagnostic sets are retained but not enabled for this example: '+s.exampleSetup.otherRecordedDiagnostics.join(', ')+'.':'')+' '+(s.measurementNotes||[]).join(' ')}
 }
+$('randomExample').onclick=async()=>{const b=$('randomExample');b.disabled=true;b.textContent='Loading examples…';try{
+ if(!exampleCatalog){const r=await fetch('data/diagnostic-stars.json?v=22');if(!r.ok)throw Error('Example database could not load');exampleCatalog=await r.json()}
+ loadObservedStar(exampleCatalog.stars[randomIndex(exampleCatalog.stars.length)],true);
+ }catch(e){$('observedPanel').hidden=false;$('observedComparison').textContent=e.message}finally{b.textContent='Random diagnostic example';b.disabled=false}};
 $('randomStar').onclick=async()=>{const button=$('randomStar');button.disabled=true;button.textContent='Loading…';try{
- if(!observedCatalog){const r=await fetch('data/observed-stars.json?v=21');if(!r.ok)throw Error('Catalog download failed');observedCatalog=await r.json()}
+ if(!observedCatalog){const r=await fetch('data/observed-stars.json?v=22');if(!r.ok)throw Error('Catalog download failed');observedCatalog=await r.json()}
  loadObservedStar(observedCatalog.stars[randomIndex(observedCatalog.stars.length)]);
  }catch(e){$('observedPanel').hidden=false;$('observedComparison').textContent=e.message}finally{button.textContent='Random star';button.disabled=false}};
 $('pause').onclick=()=>{paused=!paused;$('pause').textContent=paused?'Resume':'Pause';$('pause').setAttribute('aria-pressed',String(paused))};
 $('pause').textContent=paused?'Resume':'Pause';$('sizeMode').onchange=drawStar;
 async function load(){try{
- const r=await fetch('data/evidence.json?v=21');if(!r.ok)throw Error('Evidence calibration could not load');calibration=await r.json();const extra=await Promise.all(['lithium-grid','spectral-index','seismic-density'].map(async n=>{const r=await fetch('data/'+n+'.json');if(!r.ok)throw Error('Ranking data unavailable');return r.json()}));scoreData={lithium:extra[0],spectrum:extra[1],seismic:extra[2],evidence:calibration};
+ const r=await fetch('data/evidence.json?v=22');if(!r.ok)throw Error('Evidence calibration could not load');calibration=await r.json();const extra=await Promise.all(['lithium-grid','spectral-index','seismic-density'].map(async n=>{const r=await fetch('data/'+n+'.json');if(!r.ok)throw Error('Ranking data unavailable');return r.json()}));scoreData={lithium:extra[0],spectrum:extra[1],seismic:extra[2],evidence:calibration};
  const bounds=calibration.seismic.bounds;for(const id of ['Dnu','numax','DPi1']){$(id+'Slider').min=bounds[id][0];$(id+'Slider').max=bounds[id][1]}
- fields.forEach(([id])=>$(id+'Slider').disabled=false);$('reset').disabled=false;$('randomStar').disabled=false;ready=true;apply();
+ fields.forEach(([id])=>$(id+'Slider').disabled=false);$('reset').disabled=false;$('randomStar').disabled=false;$('randomExample').disabled=false;ready=true;apply();
  }catch(e){$('loading').hidden=false;$('loading').textContent=e.message;}}
 window.starLab={loadObservedStar,get observed(){return observedStar},get ready(){return ready},get modelReady(){return modelReady&&!pending&&candidates!==null},get state(){return {...q}},get result(){return result},get candidates(){return candidates},get ranking(){return ranking},get selected(){return selected},get physical(){return visual},get calibration(){return calibration}};
 function blackbody(T){let X=0,Y=0,Z=0;for(let nm=380;nm<=780;nm+=5){const gauss=(mu,a,b)=>Math.exp(-.5*((nm-mu)*(nm<mu?a:b))**2),x=.362*gauss(442,.0624,.0374)+1.056*gauss(599.8,.0264,.0323)-.065*gauss(501.1,.049,.0382),y=.821*gauss(568.8,.0213,.0247)+.286*gauss(530.9,.0613,.0322),z=1.217*gauss(437,.0845,.0278)+.681*gauss(459,.0385,.0725),p=1/(nm**5*Math.expm1(1.438776877e7/(nm*T)));X+=p*x;Y+=p*y;Z+=p*z}X/=Y;Z/=Y;Y=1;let c=[3.2406*X-1.5372*Y-.4986*Z,-.9689*X+1.8758*Y+.0415*Z,.0557*X-.204*Y+1.057*Z],max=Math.max(...c);return c.map(v=>{v=Math.max(0,v/max);return Math.round(255*(v<=.0031308?12.92*v:1.055*v**(1/2.4)-.055))})}

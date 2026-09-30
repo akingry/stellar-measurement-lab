@@ -24,7 +24,7 @@ export function compareReference(star,ranking){
  if(leaders.length>1)return 'Unresolved: tied leading fits; no match forced.';
  const qualify=text=>ranking.partial?'Provisional: '+text+' Untested solutions remain.':text;
  const phase=leaders[0].phase;
- if(star.stageReference)return qualify(star.stageReference.phases.includes(phase)?'Leading fit is consistent with the catalog stage group (shared seismic evidence).':'Leading fit disagrees with the catalog stage group.');
+ if(star.stageReference)return qualify(star.stageReference.phases.includes(phase)?'Leading fit is consistent with the reference stage group; reference evidence may overlap.':'Leading fit disagrees with the reference stage group.');
  if(phase===2)return 'Not directly comparable: the model combines subgiants and red-giant-branch stars.';
  const broad=phase===0?0:[3,4,5].includes(phase)?2:null;
  if(broad===null)return 'Not directly comparable: different catalog and model categories.';
