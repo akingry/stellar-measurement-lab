@@ -1,6 +1,6 @@
 {
   "version": 15,
-  "overall": "local checks passed; publishing",
+  "overall": "passed",
   "implementation": {
     "status": "passed",
     "defaultLinearRange": [
@@ -16,9 +16,14 @@
     ]
   },
   "publication": {
-    "status": "running"
+    "status": "passed",
+    "commit": "55f0f7a5996489d626a350950a81ce442210ac34",
+    "url": "https://akingry.github.io/stellar-measurement-lab/?v=15"
   },
   "live": {
-    "status": "pending"
+    "status": "passed",
+    "evidence": [
+      "validation/v15-live.json"
+    ]
   }
 }
