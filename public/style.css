@@ -13,3 +13,5 @@ html,body{overscroll-behavior-x:none}
 .stage-chip small{display:block;margin-top:4px;color:#b7c6d8;font-size:11px}
 
 .stage-chip{max-width:100%;overflow-wrap:break-word}.legend span{line-height:1.5}.readings strong{font-size:16px}.control-head small{display:inline-block}
+
+.spectral-control{padding:12px 0;border-top:1px solid #29374b}.spectral-control summary{cursor:pointer;padding:8px 0}.spectral-enable{display:flex;align-items:center;gap:10px;min-height:48px}.spectral-enable input{width:24px;height:24px}.spectral-control .control-head{margin:12px 0}.spectral-control input[type=number]{max-width:100px;min-height:44px}#spectralStatus{font-size:12px;color:#c2cedd}

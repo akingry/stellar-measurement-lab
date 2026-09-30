@@ -8,3 +8,9 @@
 - [x] Inspect mobile and desktop interaction and rendering.
 - [x] Publish the tested artifact and verify live interaction.
 - [x] Deliver link, scientific scope, and limitations.
+
+## Spectral measurement
+- [x] Published atmosphere calibration and provenance
+- [x] Optional measured absorption input and conditional mass filtering
+- [x] Scientific recovery, coverage, phone controls and layout checks
+- [ ] Publish and verify live application

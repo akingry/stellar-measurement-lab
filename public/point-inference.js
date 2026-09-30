@@ -1,3 +1,4 @@
+import {spectralGravity} from './spectral.js';
 import {phases} from './engine.js';
 // Piecewise-linear inverse interpolation on the native (log age, EEP) mesh.
 // Each metallicity is a separate surface. Never connect different phases,
@@ -22,12 +23,17 @@ const vb=new Map();for(let i=0;i<a.length;i+=9){const key=cell(a[i],a[i+1]);let 
 const vertices=new Map();for(const[key,list]of vb)vertices.set(key,new Uint32Array(list));
 return{a,indices:new Uint32Array(indices),bins,vertices,triangles:indices.length/3,rejected};
 }
-export function inferPoint(meshes,q){const x=Math.log10(q.T),y=q.logL,key=cell(x,y),groups={};let count=0,maxResidual=0;
-function record(mesh,ids,w){const a=mesh.a,phase=Math.round(a[ids[0]+7]),v=col=>ids.reduce((sum,i,n)=>sum+w[n]*a[i+col],0),mass=v(4),age=v(5),initial=v(6),tx=v(0),ly=v(1);maxResidual=Math.max(maxResidual,Math.abs(tx-x),Math.abs(ly-y));let p=groups[phase];if(!p)p=groups[phase]={phase,count:0,mass:[Infinity,-Infinity],age:[Infinity,-Infinity],initialMass:[Infinity,-Infinity],solutions:[]};p.count++;p.mass[0]=Math.min(p.mass[0],mass);p.mass[1]=Math.max(p.mass[1],mass);p.age[0]=Math.min(p.age[0],age);p.age[1]=Math.max(p.age[1],age);p.initialMass[0]=Math.min(p.initialMass[0],initial);p.initialMass[1]=Math.max(p.initialMass[1],initial);count++;if(p.solutions.length<8)p.solutions.push({logT:tx,logL:ly,mass,age,initialMass:initial,phase})}
+export function inferPoint(meshes,q,predict=null){const x=Math.log10(q.T),y=q.logL,key=cell(x,y),groups={};let count=0,maxResidual=0,tested=0,excluded=0,untested=0;
+function record(mesh,ids,w){const a=mesh.a,phase=Math.round(a[ids[0]+7]),v=col=>ids.reduce((sum,i,n)=>sum+w[n]*a[i+col],0),mass=v(4),age=v(5),initial=v(6),tx=v(0),ly=v(1);maxResidual=Math.max(maxResidual,Math.abs(tx-x),Math.abs(ly-y));let spectralUntested=false;
+if(q.useSpectrum){
+ const predicted=([-1,0,2,3].includes(phase)&&predict)?predict(q.T,spectralGravity(q.T,q.logL,mass),mesh.metallicity):null;
+ if(predicted===null){untested++;spectralUntested=true}else{tested++;if(Math.abs(predicted-q.wing)>q.wingError){excluded++;return}}
+}
+const groupKey=phase+':'+spectralUntested;let p=groups[groupKey];if(!p)p=groups[groupKey]={phase,spectralUntested,count:0,mass:[Infinity,-Infinity],age:[Infinity,-Infinity],initialMass:[Infinity,-Infinity],solutions:[]};p.count++;p.mass[0]=Math.min(p.mass[0],mass);p.mass[1]=Math.max(p.mass[1],mass);p.age[0]=Math.min(p.age[0],age);p.age[1]=Math.max(p.age[1],age);p.initialMass[0]=Math.min(p.initialMass[0],initial);p.initialMass[1]=Math.max(p.initialMass[1],initial);count++;if(p.solutions.length<8)p.solutions.push({logT:tx,logL:ly,mass,age,initialMass:initial,phase})}
 for(const mesh of meshes){const{a,indices,bins,vertices}=mesh;
 for(const i of vertices.get(key)||[]){if(Math.abs(a[i]-x)<1e-10&&Math.abs(a[i+1]-y)<1e-10)record(mesh,[i],[1])}
 for(const n of bins.get(key)||[]){const i=indices[n],j=indices[n+1],k=indices[n+2],ax=a[j]-a[i],ay=a[j+1]-a[i+1],bx=a[k]-a[i],by=a[k+1]-a[i+1],qx=x-a[i],qy=y-a[i+1],det=ax*by-bx*ay,u=(qx*by-bx*qy)/det,v=(ax*qy-qx*ay)/det,w=1-u-v;
 if(u< -EPS||v< -EPS||w< -EPS||u>1+EPS||v>1+EPS||w>1+EPS)continue;
 record(mesh,[i,j,k],[w,u,v]);
 }}
-return{groups:Object.values(groups).sort((a,b)=>a.phase-b.phase),count,dims:2,mode:'point-interpolation',maxResidual};}
+return{groups:Object.values(groups).sort((a,b)=>a.phase-b.phase),count,spectral:{tested,excluded,untested},dims:q.useSpectrum?3:2,mode:'point-interpolation',maxResidual};}
