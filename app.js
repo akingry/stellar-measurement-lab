@@ -4,7 +4,7 @@ import{evidence}from './evidence.js';
 import{rank}from './ranking.js?v=19';
 import{decorateOscillations}from './oscillation-scale.js?v=19';
 import{decorateLithium}from './lithium-scale.js?v=13';
-import{decorateMagnesium}from './magnesium-scale.js?v=17';
+import{decorateMagnesium}from './magnesium-scale.js?v=20';
 const $=id=>document.getElementById(id);
 const initial={T:5772,logL:0,tolT:0,tolL:0,useSeismic:true,useTechnetium:true,Dnu:4.45,numax:46.5,DPi1:251.2,spacingError:3,tc4238:4238.15,tc4262:4262.28};
 initial.measurements=[];initial.diagnostic='none';initial.lithium=100;initial.wing=.15;
