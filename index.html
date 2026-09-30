@@ -1,13 +1,14 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>Star Lab</title><link rel="icon" href="icon.svg"><link rel="stylesheet" href="style.css?v=11"></head><body><main>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>Star Lab</title><link rel="icon" href="icon.svg"><link rel="stylesheet" href="style.css?v=12"></head><body><main>
 <header><a href="./" class="brand">Star Lab</a><button id="reset" disabled>Reset</button></header>
-<section class="scene"><canvas id="star" aria-label="Illustrative star based on temperature and luminosity, compared with the Sun"></canvas><div class="scene-top" id="tempBadge"></div><a class="scene-label" id="starStage" href="#verdict">Checking stages</a><div class="scene-bottom"><select id="sizeMode" aria-label="Radius scale"><option value="compressed">Compressed radii</option><option value="linear">True radius ratio</option></select><button id="pause" aria-pressed="false">Pause</button></div></section>
+<section class="scene" id="preview" hidden><canvas id="star" aria-label="Illustrative star based on temperature and luminosity, compared with the Sun"></canvas><div class="scene-top" id="tempBadge"></div><a class="scene-label" id="starStage" href="#verdict">Checking stages</a><div class="scene-bottom"><select id="sizeMode" aria-label="Radius scale"><option value="compressed">Compressed radii</option><option value="linear">True radius ratio</option></select><button id="pause" aria-pressed="false">Pause</button></div></section>
 <section class="diagram"><h1>Hertzsprung–Russell diagram</h1><canvas id="hr" aria-label="Luminosity versus temperature"></canvas></section>
 <section class="measurements" aria-label="Light measurements"><div id="controls"></div>
-<h2 class="control-group">Brightness oscillations</h2><div id="seismicControls"></div>
-<h2 class="control-group">Technetium spectrum</h2><div id="tcControls"></div></section>
-<section class="estimate"><h2>Possible stellar stages</h2><div id="loading" role="status">Loading model candidates…</div><h3 id="verdict" aria-live="polite">Sun-like point</h3><div class="coverage" id="evidenceNote"></div><div id="candidateList"></div><div id="seismicResult" class="coverage"></div><div id="tcResult" class="coverage"></div><div class="coverage">Model candidates and separate diagnostic estimates</div></section>
-<section class="guidance"><h2 id="guidanceTitle">What to measure next</h2><ul id="guidanceText"></ul><div id="guideActions"></div><div id="actionNote" role="status"></div></section>
-
-<div class="readings"><div><span>Inferred radius</span><strong id="radius">—</strong></div></div>
-<footer><a href="details.html?v=11">Evidence and sources</a><span>Illustrative animation</span></footer>
-</main><script type="module" src="app.js?v=11"></script></body></html>
+<div id="diagnosticOptions" hidden><h2 id="guidanceTitle">Add a measurement</h2><p id="guidanceText"></p><div class="diagnostic-switches"><button id="noneChoice">Temperature + luminosity only</button><button id="lithiumChoice">Lithium</button><button id="spectrumChoice">Magnesium</button><button id="seismicChoice">Oscillations</button></div></div>
+<div id="lithiumPanel" hidden><div id="lithiumControls"></div></div>
+<div id="spectrumPanel" hidden><div id="spectrumControls"></div></div>
+<div id="seismicPanel" hidden><div id="seismicControls"></div></div>
+<div id="tcControls" hidden></div><p id="actionNote" role="status"></p></section>
+<section class="estimate"><div id="loading" role="status">Loading model candidates…</div><h2 id="verdict" aria-live="polite">Possible stages</h2><p id="evidenceNote"></p><div id="candidateList"></div><p id="selectionNote"></p></section>
+<div id="readings" class="readings" hidden><div><span>Radius</span><strong id="radius"></strong></div><div><span>Selected model</span><strong id="selectedMass"></strong></div></div>
+<footer><a href="details.html?v=12">Evidence and sources</a><span>Illustrative animation</span></footer>
+</main><script type="module" src="app.js?v=12"></script></body></html>

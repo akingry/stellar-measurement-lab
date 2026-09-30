@@ -1,4 +1,4 @@
-import{buildMesh,inferPoint}from './point-inference.js';
+import{buildMesh,inferPoint}from './point-inference.js?v=12';
 const meshes=[];let ready=false;
 onmessage=e=>{if(ready&&e.data.type==='infer')postMessage({type:'result',id:e.data.id,result:inferPoint(meshes,e.data.q)})};
 async function load(){try{
