@@ -1,17 +1,19 @@
 import{derived,phases}from './engine.js';
 import{enhanceSliders}from './touch-sliders.js';
 import{evidence}from './evidence.js';
-import{rank}from './ranking.js?v=19';
-import{decorateOscillations}from './oscillation-scale.js?v=19';
-import{decorateLithium}from './lithium-scale.js?v=13';
-import{decorateMagnesium}from './magnesium-scale.js?v=20';
+import{rank}from './ranking.js?v=21';
+import{decorateOscillations}from './oscillation-scale.js?v=21';
+import{decorateLithium}from './lithium-scale.js?v=21';
+import{decorateMagnesium}from './magnesium-scale.js?v=21';
+import{observedMeasurements,randomIndex,compareReference}from './observed.js?v=21';
 const $=id=>document.getElementById(id);
 const initial={T:5772,logL:0,tolT:0,tolL:0,useSeismic:true,useTechnetium:true,Dnu:4.45,numax:46.5,DPi1:251.2,spacingError:3,tc4238:4238.15,tc4262:4262.28};
 initial.measurements=[];initial.diagnostic='none';initial.lithium=100;initial.wing=.15;
 let selected=null,ranking=null,scoreData=null;
+let observedStar=null,observedEdited=false,observedCatalog=null;
 let q={...initial},visual=derived(q),rgb=[255,245,225],plot=[],result=null,ready=false,calibration=null,phase=0,paused=matchMedia('(prefers-reduced-motion: reduce)').matches;
 let modelReady=false,candidates=null,queryId=0,lastPoint='',pending=false;
-const worker=new Worker('./candidate-worker.js?v=12',{type:'module'});
+const worker=new Worker('./candidate-worker.js?v=21',{type:'module'});
 const fmt=(n,d=5)=>n.toLocaleString('en-US',{maximumSignificantDigits:d});
 const fields=[
  ['T','Temperature','kelvin','controls',Math.log10(2500),Math.log10(50000),.0001],
@@ -28,7 +30,7 @@ const fields=[
 fields.forEach(([id,label,unit,group,min,max,step])=>{
  const box=document.createElement('div');box.className='control';
  box.innerHTML='<div class="control-head"><label for="'+id+'Slider">'+label+'</label><output id="'+id+'"></output></div><input type="range" id="'+id+'Slider" aria-label="'+label+' slider" min="'+min+'" max="'+max+'" step="'+step+'" disabled>';
- $(group).append(box);$(id+'Slider').oninput=e=>{q[id]=id==='T'?10**Number(e.target.value):id==='wing'?updateMagnesiumScale.decode(Number(e.target.value)):Number(e.target.value);apply()};
+ $(group).append(box);$(id+'Slider').oninput=e=>{if(observedStar)observedEdited=true;q[id]=id==='T'?10**Number(e.target.value):id==='wing'?updateMagnesiumScale.decode(Number(e.target.value)):Number(e.target.value);apply()};
 });
 enhanceSliders();
 const updateLithiumScale=decorateLithium($('lithiumSlider'));
@@ -60,14 +62,15 @@ function renderEvidence(){
    $(name+'Choice').hidden=!allowed[name]&&!enabled.has(name);
    $(name+'Choice').setAttribute('aria-pressed',String(enabled.has(name)));
    $(name+'Panel').hidden=!enabled.has(name);
+   $(name+'Choice').disabled=Boolean(observedStar&&!observedMeasurements(observedStar).measurements.includes(name));
  }
  $('diagnosticOptions').hidden=!ambiguous&&!enabled.size;
  $('noneChoice').setAttribute('aria-pressed',String(!enabled.size));
- if(candidates===null){$('verdict').textContent='Checking this point…';$('evidenceNote').textContent='';return}
+ if(candidates===null){$('verdict').textContent='Checking this point…';$('evidenceNote').textContent='';renderObserved(true);return}
  if(enabled.has('spectrum'))updateMagnesiumScale(candidates,q,scoreData.spectrum);
  ranking=rank(candidates,q,scoreData);
  if(enabled.has('seismic'))updateOscillationScales(q,scoreData);
- if(enabled.has('seismic')&&!$('oscillationExamples')){const box=document.createElement('div');box.id='oscillationExamples';box.className='diagnostic-switches';for(const e of calibration.seismic.examples){const b=document.createElement('button');b.textContent=e.label===1?'Explore shell-burning measurements':'Explore helium-burning measurements';b.title=e.Dnu+' microhertz; '+e.numax+' microhertz; '+e.DPi1+' seconds';b.onclick=()=>{q.Dnu=e.Dnu;q.numax=e.numax;q.DPi1=e.DPi1;apply()};box.append(b)}$('seismicPanel').append(box)}
+ if(enabled.has('seismic')&&!$('oscillationExamples')){const box=document.createElement('div');box.id='oscillationExamples';box.className='diagnostic-switches';for(const e of calibration.seismic.examples){const b=document.createElement('button');b.textContent=e.label===1?'Explore shell-burning measurements':'Explore helium-burning measurements';b.title=e.Dnu+' microhertz; '+e.numax+' microhertz; '+e.DPi1+' seconds';b.onclick=()=>{if(observedStar)observedEdited=true;q.Dnu=e.Dnu;q.numax=e.numax;q.DPi1=e.DPi1;apply()};box.append(b)}$('seismicPanel').append(box)}
  if(enabled.has('lithium'))updateLithiumScale(candidates,q,scoreData.lithium);
  $('verdict').textContent=!candidates.length?'No model match':ranking.conflict?'Measurement conflicts with models':'Overall relative fit';
  const names={lithium:'Lithium',spectrum:'Magnesium',seismic:'Oscillations'};
@@ -88,21 +91,43 @@ function renderEvidence(){
   $('candidateList').append(b);
  }
  $('selectionNote').textContent=candidates.length?'Select any candidate to inspect it. Selection does not change its fit.':'';
+ renderObserved();
 }
-for(const name of ['none','lithium','spectrum','seismic'])$(name+'Choice').onclick=()=>{q.measurements=name==='none'?[]:q.measurements.includes(name)?q.measurements.filter(x=>x!==name):[...q.measurements,name];q.diagnostic=q.measurements.at(-1)||'none';apply()};
+for(const name of ['none','lithium','spectrum','seismic'])$(name+'Choice').onclick=()=>{if(observedStar)observedEdited=true;q.measurements=name==='none'?[]:q.measurements.includes(name)?q.measurements.filter(x=>x!==name):[...q.measurements,name];q.diagnostic=q.measurements.at(-1)||'none';apply()};
 function apply(){selected=null;$('preview').hidden=true;$('readings').hidden=true;visual=derived(q);rgb=blackbody(q.T);$('actionNote').textContent='';
- fields.forEach(([id,label,unit])=>{$(id+'Slider').value=id==='T'?Math.log10(q.T):q[id];$(id).textContent=(id.startsWith('tc')?q[id].toFixed(4):fmt(id==='logL'?10**q.logL:q[id],6))+' '+unit});
+ fields.forEach(([id,label,unit])=>{const finite=Number.isFinite(q[id]);$(id+'Slider').disabled=!finite;$(id+'Slider').value=id==='T'?Math.log10(q.T):finite?q[id]:$(id+'Slider').min;$(id).textContent=finite?(id.startsWith('tc')?q[id].toFixed(4):fmt(id==='logL'?10**q.logL:q[id],6))+' '+unit:'Not recorded'});
  requestCandidates();renderEvidence();$('radius').textContent=fmt(visual.radius,3)+' solar radii';$('tempBadge').textContent=fmt(q.T,4)+' kelvin';drawHR();drawStar();
 }
-$('reset').onclick=()=>{q={...initial};apply()};
+$('reset').onclick=()=>{observedStar=null;observedEdited=false;q={...initial,measurements:[]};setControlBounds();apply();$('observedPanel').hidden=true};
+function setControlBounds(){
+ for(const[id,, , ,min,max,step]of fields){if(id==='wing')continue;const slider=$(id+'Slider'),v=id==='T'?Math.log10(q.T):q[id],bounds=calibration?.seismic.bounds[id]||[min,max];slider.min=Number.isFinite(v)?Math.min(bounds[0],v):bounds[0];slider.max=Number.isFinite(v)?Math.max(bounds[1],v):bounds[1];slider.step=observedStar?'any':step}
+}
+function loadObservedStar(star){
+ observedStar=star;observedEdited=false;q={...initial,...observedMeasurements(star),useTechnetium:false};
+ setControlBounds();apply();
+}
+function renderObserved(checking=false){
+ $('observedPanel').hidden=!observedStar;if(!observedStar)return;
+ const s=observedStar;$('observedName').textContent='Kepler Input Catalog '+s.id;
+ $('observedReference').textContent='Catalog: '+s.catalogClass+(s.stageReference?' · '+s.stageReference.label:'')+(s.spectralType?' · '+s.spectralType:'');
+ $('observedComparison').textContent=observedEdited?'Exploration: measurements changed; no longer the recorded-star test.':checking?'Checking recorded data…':compareReference(s,ranking);
+ const shown=(x,unit)=>Number.isFinite(x)?fmt(x,6)+' '+unit:'not recorded';
+ const lines=[['Temperature',shown(s.T,'kelvin')],['Luminosity',shown(s.luminosity,'solar luminosities')],['Magnesium',shown(s.wing,'flux index')],['Lithium',shown(s.lithium,'milliangstroms')+(s.lithiumLimit?' (limit; excluded)':'')],['Radial spacing',shown(s.Dnu,'microhertz')],['Peak frequency',shown(s.numax,'microhertz')],['Period spacing',shown(s.DPi1,'seconds')+(s.oscillationAlias?' (alias flag; excluded)':'')]];
+ $('observedMeasurements').replaceChildren();for(const[name,value]of lines){const row=document.createElement('p');row.textContent=name+': '+value;$('observedMeasurements').append(row)}
+ $('observedCaution').textContent='Reference labels never enter the fit. Missing data are excluded; partial oscillation sets cannot enter the three-measurement calibration.'+(s.binaryFlag?' Catalog binary flag: '+s.binaryFlag+'.':'');
+}
+$('randomStar').onclick=async()=>{const button=$('randomStar');button.disabled=true;button.textContent='Loading…';try{
+ if(!observedCatalog){const r=await fetch('data/observed-stars.json?v=21');if(!r.ok)throw Error('Catalog download failed');observedCatalog=await r.json()}
+ loadObservedStar(observedCatalog.stars[randomIndex(observedCatalog.stars.length)]);
+ }catch(e){$('observedPanel').hidden=false;$('observedComparison').textContent=e.message}finally{button.textContent='Random star';button.disabled=false}};
 $('pause').onclick=()=>{paused=!paused;$('pause').textContent=paused?'Resume':'Pause';$('pause').setAttribute('aria-pressed',String(paused))};
 $('pause').textContent=paused?'Resume':'Pause';$('sizeMode').onchange=drawStar;
 async function load(){try{
- const r=await fetch('data/evidence.json?v=12');if(!r.ok)throw Error('Evidence calibration could not load');calibration=await r.json();const extra=await Promise.all(['lithium-grid','spectral-index','seismic-density'].map(async n=>{const r=await fetch('data/'+n+'.json');if(!r.ok)throw Error('Ranking data unavailable');return r.json()}));scoreData={lithium:extra[0],spectrum:extra[1],seismic:extra[2],evidence:calibration};
+ const r=await fetch('data/evidence.json?v=21');if(!r.ok)throw Error('Evidence calibration could not load');calibration=await r.json();const extra=await Promise.all(['lithium-grid','spectral-index','seismic-density'].map(async n=>{const r=await fetch('data/'+n+'.json');if(!r.ok)throw Error('Ranking data unavailable');return r.json()}));scoreData={lithium:extra[0],spectrum:extra[1],seismic:extra[2],evidence:calibration};
  const bounds=calibration.seismic.bounds;for(const id of ['Dnu','numax','DPi1']){$(id+'Slider').min=bounds[id][0];$(id+'Slider').max=bounds[id][1]}
- fields.forEach(([id])=>$(id+'Slider').disabled=false);$('reset').disabled=false;ready=true;apply();
+ fields.forEach(([id])=>$(id+'Slider').disabled=false);$('reset').disabled=false;$('randomStar').disabled=false;ready=true;apply();
  }catch(e){$('loading').hidden=false;$('loading').textContent=e.message;}}
-window.starLab={get ready(){return ready},get modelReady(){return modelReady&&!pending&&candidates!==null},get state(){return {...q}},get result(){return result},get candidates(){return candidates},get ranking(){return ranking},get selected(){return selected},get physical(){return visual},get calibration(){return calibration}};
+window.starLab={loadObservedStar,get observed(){return observedStar},get ready(){return ready},get modelReady(){return modelReady&&!pending&&candidates!==null},get state(){return {...q}},get result(){return result},get candidates(){return candidates},get ranking(){return ranking},get selected(){return selected},get physical(){return visual},get calibration(){return calibration}};
 function blackbody(T){let X=0,Y=0,Z=0;for(let nm=380;nm<=780;nm+=5){const gauss=(mu,a,b)=>Math.exp(-.5*((nm-mu)*(nm<mu?a:b))**2),x=.362*gauss(442,.0624,.0374)+1.056*gauss(599.8,.0264,.0323)-.065*gauss(501.1,.049,.0382),y=.821*gauss(568.8,.0213,.0247)+.286*gauss(530.9,.0613,.0322),z=1.217*gauss(437,.0845,.0278)+.681*gauss(459,.0385,.0725),p=1/(nm**5*Math.expm1(1.438776877e7/(nm*T)));X+=p*x;Y+=p*y;Z+=p*z}X/=Y;Z/=Y;Y=1;let c=[3.2406*X-1.5372*Y-.4986*Z,-.9689*X+1.8758*Y+.0415*Z,.0557*X-.204*Y+1.057*Z],max=Math.max(...c);return c.map(v=>{v=Math.max(0,v/max);return Math.round(255*(v<=.0031308?12.92*v:1.055*v**(1/2.4)-.055))})}
 function context(id){const c=$(id),w=c.clientWidth,h=c.clientHeight,d=Math.min(devicePixelRatio||1,2);if(c.width!==Math.round(w*d)||c.height!==Math.round(h*d)){c.width=Math.round(w*d);c.height=Math.round(h*d)}const g=c.getContext('2d');g.setTransform(d,0,0,d,0,0);g.clearRect(0,0,w,h);return{g,w,h}}
 function drawStar(){if($('preview').hidden)return;const{g,w,h}=context('star'),linear=$('sizeMode').value==='linear',ratio=linear?visual.radius:visual.radius**.18,max=Math.min(w*.2,h*.29),unit=max/Math.max(ratio,1),r=Math.max(.6,unit*ratio),sun=Math.max(.6,unit),x=w*.67,y=h*.49,sx=w*.26;for(let i=0;i<95;i++){g.fillStyle='rgba(190,214,247,'+(.08+(i%4)*.045)+')';g.fillRect((Math.sin(i*83.2)*.5+.5)*w,(Math.cos(i*54.3)*.5+.5)*h,1,1)}const halo=g.createRadialGradient(x,y,r*.75,x,y,r*2);halo.addColorStop(0,'rgba('+rgb+','+(.16+.5*(q.logL+5)/12)+')');halo.addColorStop(1,'rgba('+rgb+',0)');g.fillStyle=halo;g.beginPath();g.arc(x,y,r*2,0,Math.PI*2);g.fill();g.save();g.beginPath();g.arc(x,y,r,0,Math.PI*2);g.clip();const grad=g.createRadialGradient(x-r*.2,y-r*.25,0,x,y,r);grad.addColorStop(0,'rgb('+rgb+')');grad.addColorStop(.7,'rgb('+rgb.map(v=>Math.round(v*.84))+')');grad.addColorStop(1,'rgb('+rgb.map(v=>Math.round(v*.4))+')');g.fillStyle=grad;g.fillRect(x-r,y-r,2*r,2*r);for(let i=0;i<420;i++){const u=((i*.61803398875+phase*.004)%1)*2-1,v=Math.sin(i*17.7)*.97;if(u*u+v*v>.97)continue;g.fillStyle=i%3?'rgba(25,10,8,.07)':'rgba(255,255,240,.1)';g.beginPath();g.ellipse(x+u*r,y+v*r,Math.max(.3,r*.023*Math.sqrt(1-u*u)),Math.max(.3,r*.01),0,0,Math.PI*2);g.fill()}g.restore();g.strokeStyle='#a8b2bd';g.lineWidth=.8;g.setLineDash([2,3]);g.beginPath();g.arc(sx,y,sun,0,Math.PI*2);g.stroke();g.setLineDash([]);g.font='10px system-ui';g.textAlign='center';g.fillStyle='#96a7bc';g.fillText('Sun',sx,Math.min(h-62,y+sun+18));g.fillStyle='#d5e4f6';g.fillText('Illustrative star',x,Math.min(h-62,y+r+18));g.textAlign='left';}

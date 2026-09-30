@@ -20,7 +20,7 @@ export function rank(groups,q,data){
   for(const s of g.solutions){let log=0,chi=0;
    if(has('lithium')){
     const p=[-1,0].includes(g.phase)?lithiumPrediction(data.lithium,q.T,s.age,s.metallicity):null;
-    if(!p)continue;const sigma=Math.hypot(p[1],5),residual=((q.lithium-p[0])/sigma)**2;chi+=residual;log+=-.5*residual-Math.log(sigma);
+    if(!p)continue;const sigma=Math.hypot(p[1],Number.isFinite(q.lithiumError)?q.lithiumError:5),residual=((q.lithium-p[0])/sigma)**2;chi+=residual;log+=-.5*residual-Math.log(sigma);
    }
    if(has('seismic')){
     if(![2,3,4,5].includes(g.phase))continue;

@@ -1,28 +1,28 @@
 {
-  "version": 20,
-  "overall": "passed",
-  "implementation": {
+  "version": 21,
+  "overall": "running",
+  "dataset": {
     "status": "passed",
-    "scope": "magnesium color contrast and unavailable calibration state; no score changes"
+    "scope": "15000 real Kepler targets, proportionate broad classes",
+    "evidence": "validation/observed-source-audit.json"
+  },
+  "completeMeasurementCoverage": {
+    "status": "blocked",
+    "reason": "Catalog joins supply zero compatible observed magnesium indices; lithium and complete oscillations are sparse. No synthetic filling."
+  },
+  "randomUI": {
+    "status": "passed"
   },
   "validation": {
     "status": "passed",
     "evidence": [
-      "validation/v20-browser.json",
-      "validation/v20-blue.png",
-      "validation/v20-unsupported.png"
+      "validation/v21-browser.json",
+      "validation/observed-source-audit.json",
+      "validation/v20-browser.json"
     ],
-    "screenshotsInspected": true
+    "screenshotInspected": true
   },
   "publication": {
-    "status": "passed",
-    "commit": "a83ca36468ace38956f873e578f37ef4110531de",
-    "url": "https://akingry.github.io/stellar-measurement-lab/?v=20"
-  },
-  "live": {
-    "status": "passed",
-    "evidence": [
-      "validation/v20-live.json"
-    ]
+    "status": "running"
   }
 }

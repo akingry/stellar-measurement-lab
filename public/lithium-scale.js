@@ -1,8 +1,8 @@
-import{lithiumPrediction}from './ranking.js?v=12';
+import{lithiumPrediction}from './ranking.js?v=21';
 export function lithiumScale(groups,q,data){
  const models=[-1,0].map(phase=>groups.filter(g=>g.phase===phase).flatMap(g=>g.solutions).map(s=>lithiumPrediction(data,q.T,s.age,s.metallicity)).filter(Boolean));
  if(models.some(m=>!m.length))return null;
- const share=x=>{const logs=models.map(m=>Math.max(...m.map(([mu,s])=>{const sigma=Math.hypot(s,5);return -.5*((x-mu)/sigma)**2-Math.log(sigma)})));return 1/(1+Math.exp(logs[1]-logs[0]))};
+ const share=x=>{const logs=models.map(m=>Math.max(...m.map(([mu,s])=>{const sigma=Math.hypot(s,Number.isFinite(q.lithiumError)?q.lithiumError:5);return -.5*((x-mu)/sigma)**2-Math.log(sigma)})));return 1/(1+Math.exp(logs[1]-logs[0]))};
  const crossings=[];let last=share(0)-.5;
  for(let x=1;x<=400;x++){const now=share(x)-.5;if(now*last<0||now===0){let lo=x-1,hi=x;for(let i=0;i<24;i++){const mid=(lo+hi)/2;if((share(lo)-.5)*(share(mid)-.5)<=0)hi=mid;else lo=mid}crossings.push((lo+hi)/2)}last=now}
  const stops=[];for(let x=0;x<=400;x+=2){const p=share(x),strength=Math.abs(2*p-1),base=[83,91,105],target=p>=.5?[255,161,72]:[74,177,255];const rgb=base.map((n,i)=>Math.round(n+(target[i]-n)*strength));stops.push('rgb('+rgb.join(',')+') '+x/4+'%')}
@@ -14,9 +14,9 @@ export function decorateLithium(slider){
  const marks=document.createElement('div');marks.className='lithium-marks';wrap.append(marks);
  const caption=document.createElement('div');caption.className='lithium-key';slider.closest('.control').append(caption);
  slider.setAttribute('aria-describedby','lithiumKey');caption.id='lithiumKey';
- let previous=null,temperature=null,scale=null;
+ let previous=null,temperature=null,uncertainty=null,scale=null;
  return(groups,q,data)=>{
-  if(groups!==previous||temperature!==q.T){previous=groups;temperature=q.T;scale=groups?lithiumScale(groups,q,data):null;
+  if(groups!==previous||temperature!==q.T||uncertainty!==q.lithiumError){previous=groups;temperature=q.T;uncertainty=q.lithiumError;scale=groups?lithiumScale(groups,q,data):null;
    marks.replaceChildren();rail.style.background=scale?.gradient||'#535b69';
    for(const value of scale?.crossings||[]){const mark=document.createElement('span');mark.className='lithium-crossover';mark.style.left=value/4+'%';mark.title='Equal fit at '+value.toFixed(1)+' milliangstroms';marks.append(mark)}
   }
