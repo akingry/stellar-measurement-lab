@@ -1,40 +1,30 @@
 {
-  "version": 11,
-  "overall": "passed for visible-controls and guidance update",
+  "version": 12,
+  "overall": "local checks passed; publication pending",
+  "scope": "Adaptive conditional relative-fit workflow; not calibrated physical probabilities or all-star coverage",
   "implementation": {
     "status": "passed",
     "evidence": [
-      "public/app.js",
-      "public/guidance.js",
-      "public/candidate-worker.js"
+      "public/ranking.js",
+      "public/app.js"
     ]
   },
   "validation": {
     "status": "passed",
     "evidence": [
-      "validation/v11-browser.json",
-      "validation/v11-sun.png",
-      "validation/v11-giant.png",
-      "validation/point-science.json",
-      "validation/v10-science.json"
+      "validation/v12-ranking.json",
+      "validation/v12-browser.json",
+      "validation/point-science.json"
     ],
     "screenshotsInspected": true
   },
   "publication": {
-    "status": "passed",
-    "publicCommit": "d14e9323dbc0977878b2182903d7a315c21c1dd3",
-    "url": "https://akingry.github.io/stellar-measurement-lab/?v=11"
+    "status": "running"
   },
   "live": {
-    "status": "passed",
-    "evidence": [
-      "validation/v11-live.json",
-      "validation/v11-live-assets.json"
-    ]
+    "status": "pending"
   },
   "handoff": {
-    "status": "passed",
-    "limitations": "Candidate stages from exact-position model interpolation. Separate diagnostic evidence and exploratory guidance, not a universal joint fit."
-  },
-  "limitations": "Candidate stages from exact-position model interpolation. Separate diagnostic evidence and exploratory guidance, not a universal joint fit."
+    "status": "pending"
+  }
 }
