@@ -8,8 +8,8 @@
                    "spectroscopicGravityExperiment":  "passed",
                    "referenceComparisonFix":  "passed",
                    "phoneChecks":  "passed",
-                   "publication":  "running",
-                   "liveVerification":  "pending"
+                   "publication":  "passed",
+                   "liveVerification":  "passed"
                },
     "counts":  {
                    "tied":  1,
@@ -27,6 +27,10 @@
                      "public/data/sample-audit.json",
                      "public/data/sample-audit.sqlite",
                      "validation/v24-audit.json",
-                     "validation/v24-browser.json"
-                 ]
+                     "validation/v24-browser.json",
+                     "validation/v24-live.json",
+                     "validation/v22-source-audit.json"
+                 ],
+    "url":  "https://akingry.github.io/stellar-measurement-lab/audit.html",
+    "deployment":  "https://github.com/akingry/stellar-measurement-lab/actions/runs/36776982371"
 }
