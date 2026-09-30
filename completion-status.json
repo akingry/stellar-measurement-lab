@@ -1,6 +1,6 @@
 {
   "version": 14,
-  "overall": "local checks passed; publication pending",
+  "overall": "passed",
   "implementation": {
     "status": "passed"
   },
@@ -13,9 +13,15 @@
     "checks": "701 sampled shares identical to ranking; markers verified; mobile touch and overflow passed"
   },
   "publication": {
-    "status": "running"
+    "status": "passed",
+    "commit": "ae4f5e7e0aa17bf7ac10014e4223af0e7e577bdf",
+    "url": "https://akingry.github.io/stellar-measurement-lab/?v=14"
   },
   "live": {
-    "status": "pending"
+    "status": "passed",
+    "evidence": [
+      "validation/v14-live.json",
+      "validation/v14-live-magnesium.png"
+    ]
   }
 }
