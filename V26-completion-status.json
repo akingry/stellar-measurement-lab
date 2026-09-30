@@ -1,6 +1,26 @@
 {
   "implementation": "passed",
-  "verification": "running",
-  "publication": "pending",
-  "liveVerification": "pending"
+  "verification": "passed",
+  "publication": "passed",
+  "liveVerification": "passed",
+  "evidence": [
+    "validation/v26-local.json",
+    "validation/v26-mobile.png",
+    "validation/v26-results.png",
+    "validation/v26-desktop.png",
+    "validation/v26-live.json"
+  ],
+  "retiredPublicFiles": [
+    "observed.html",
+    "data/observed-stars.json",
+    "data/observed-stars.sqlite",
+    "data/observed-manifest.json"
+  ],
+  "retainedExamples": 133,
+  "removedUrlChecks": {
+    "data/observed-stars.json": 404,
+    "data/observed-stars.sqlite": 404,
+    "observed.html": 404
+  },
+  "url": "https://akingry.github.io/stellar-measurement-lab/?v=26"
 }
