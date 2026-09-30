@@ -1,0 +1,337 @@
+{
+  "source": "https://mist.science/data/tarballs_v1.2/MIST_v1.2_vvcrit0.0_basic_isos.txz",
+  "source_sha256": "4a70f193fe869331a327d2e31efea00798d5dfec4c4832424665cfbbcc1ab3f2",
+  "version": "MIST 1.2 / MESA 7503",
+  "rotation": 0,
+  "alpha_enhancement": 0,
+  "columns": [
+    "log_Teff",
+    "log_L",
+    "log_g_gravitational",
+    "surface_MH",
+    "star_mass",
+    "log_age_yr",
+    "initial_mass",
+    "phase",
+    "EEP"
+  ],
+  "dtype": "little-endian float32",
+  "files": [
+    {
+      "name": "mist_m2.00.bin.gz",
+      "initial_feh": -2.0,
+      "rows": 96270,
+      "bytes": 2129390,
+      "sha256": "e5bc269b5f52c23af9038088366a54c82c9c3008a7635a641c877ae7bfc359b3",
+      "surface_MH_unavailable_rows": 0,
+      "phases": {
+        "-1": 7160,
+        "0": 21896,
+        "2": 11476,
+        "3": 8171,
+        "4": 6568,
+        "5": 27968,
+        "6": 12684,
+        "9": 347
+      }
+    },
+    {
+      "name": "mist_m1.75.bin.gz",
+      "initial_feh": -1.75,
+      "rows": 96417,
+      "bytes": 2136744,
+      "sha256": "500bcb0e5ed27dd92281c49457e49da3c9730e320e3080fa7a3b6ace9d7ee405",
+      "surface_MH_unavailable_rows": 0,
+      "phases": {
+        "-1": 7288,
+        "0": 21955,
+        "2": 11476,
+        "3": 8026,
+        "4": 6871,
+        "5": 27065,
+        "6": 13590,
+        "9": 146
+      }
+    },
+    {
+      "name": "mist_m1.50.bin.gz",
+      "initial_feh": -1.5,
+      "rows": 95963,
+      "bytes": 2114844,
+      "sha256": "11377e2b1f95438bd36dbf672561f4602e4be7af2ae7f3d1d81343523158640d",
+      "surface_MH_unavailable_rows": 0,
+      "phases": {
+        "-1": 7233,
+        "0": 22033,
+        "2": 11174,
+        "3": 7596,
+        "4": 6971,
+        "5": 27067,
+        "6": 13590,
+        "9": 299
+      }
+    },
+    {
+      "name": "mist_m1.25.bin.gz",
+      "initial_feh": -1.25,
+      "rows": 97465,
+      "bytes": 2139066,
+      "sha256": "13d24df61f14746df04b25da4dc854524c6ecda4c55513f3ecf4c98991ac7a5f",
+      "surface_MH_unavailable_rows": 0,
+      "phases": {
+        "-1": 7444,
+        "0": 21955,
+        "2": 11476,
+        "3": 7810,
+        "4": 7072,
+        "5": 27668,
+        "6": 13892,
+        "9": 148
+      }
+    },
+    {
+      "name": "mist_m1.00.bin.gz",
+      "initial_feh": -1.0,
+      "rows": 96725,
+      "bytes": 2124738,
+      "sha256": "99b14a729d7926c0ef8ec4ce271e181d99d9baadf3e6185e514905443c6a9b74",
+      "surface_MH_unavailable_rows": 0,
+      "phases": {
+        "-1": 7550,
+        "0": 21993,
+        "2": 11476,
+        "3": 7535,
+        "4": 6973,
+        "5": 27065,
+        "6": 13590,
+        "9": 543
+      }
+    },
+    {
+      "name": "mist_m0.75.bin.gz",
+      "initial_feh": -0.75,
+      "rows": 97760,
+      "bytes": 2159259,
+      "sha256": "8639486c89f962f52de43a957879f30761d4c57526ddcc9a424ba4f474e48afb",
+      "surface_MH_unavailable_rows": 0,
+      "phases": {
+        "-1": 7620,
+        "0": 21950,
+        "2": 11476,
+        "3": 7548,
+        "4": 7035,
+        "5": 27666,
+        "6": 13892,
+        "9": 573
+      }
+    },
+    {
+      "name": "mist_m0.50.bin.gz",
+      "initial_feh": -0.5,
+      "rows": 97968,
+      "bytes": 2173300,
+      "sha256": "d09d0555a0deee99ddad35c19c575a4249a97c20782780613d0d44c7332b5210",
+      "surface_MH_unavailable_rows": 1,
+      "phases": {
+        "-1": 7715,
+        "0": 21947,
+        "2": 11476,
+        "3": 7559,
+        "4": 7102,
+        "5": 27968,
+        "6": 13591,
+        "9": 610
+      }
+    },
+    {
+      "name": "mist_m0.25.bin.gz",
+      "initial_feh": -0.25,
+      "rows": 98169,
+      "bytes": 2192294,
+      "sha256": "72ecb664884cafa9cc0346ea91a5c63d39b9334969a99ab4aab693b52cc4aa10",
+      "surface_MH_unavailable_rows": 0,
+      "phases": {
+        "-1": 7965,
+        "0": 24606,
+        "2": 9966,
+        "3": 7112,
+        "4": 8329,
+        "5": 28223,
+        "6": 11487,
+        "9": 481
+      }
+    },
+    {
+      "name": "mist_p0.00.bin.gz",
+      "initial_feh": 0.0,
+      "rows": 98146,
+      "bytes": 2239300,
+      "sha256": "04bea492f16411eabee9b914041a42bee3785544f4d4c5701d8be865db7cd4c3",
+      "surface_MH_unavailable_rows": 0,
+      "phases": {
+        "-1": 8160,
+        "0": 21814,
+        "2": 11023,
+        "3": 7434,
+        "4": 7795,
+        "5": 27063,
+        "6": 13590,
+        "9": 1267
+      }
+    },
+    {
+      "name": "mist_p0.25.bin.gz",
+      "initial_feh": 0.25,
+      "rows": 96699,
+      "bytes": 2142585,
+      "sha256": "4018f41f5840a5cc8056367290b43f7461d104fe9d3ff7663b4afb4a5cd540b4",
+      "surface_MH_unavailable_rows": 0,
+      "phases": {
+        "-1": 8359,
+        "0": 23938,
+        "2": 8758,
+        "3": 10865,
+        "4": 4850,
+        "5": 26493,
+        "6": 12335,
+        "9": 1101
+      }
+    },
+    {
+      "name": "mist_p0.50.bin.gz",
+      "initial_feh": 0.5,
+      "rows": 99484,
+      "bytes": 2178003,
+      "sha256": "57fcc40b81a18a8a5752484bffcd3ea7958ad9962f6faaf0e76519172ee3d009",
+      "surface_MH_unavailable_rows": 0,
+      "phases": {
+        "-1": 9319,
+        "0": 22948,
+        "2": 10419,
+        "3": 12036,
+        "4": 6168,
+        "5": 26334,
+        "6": 10906,
+        "9": 1354
+      }
+    }
+  ],
+  "filters": "Initial [Fe/H] -2.0 to +0.5 inclusive; ages <=13.8 Gyr; all EEP rows retained. No interpolation or phase thinning.",
+  "surface_MH_definition": "log10((1-X_H1-X_He3-X_He4)/X_H1) - log10(0.0142857/0.7154143). Bulk surface metals/H, not spectroscopic [Fe/H].",
+  "phase_names": {
+    "-1": "Pre-main sequence",
+    "0": "Main sequence",
+    "2": "Post-main sequence / RGB",
+    "3": "Core helium burning",
+    "4": "Early asymptotic giant branch",
+    "5": "Thermally pulsing AGB",
+    "6": "Post-AGB / white-dwarf cooling",
+    "9": "Wolf\u2013Rayet flag"
+  },
+  "total_rows": 1071066,
+  "total_bytes": 23729523,
+  "gravity_definition": "Gravitational log g (cgs) recomputed from published star_mass and Stefan\u2013Boltzmann radius using the app constants. Raw MIST isochrone log_g is NOT used: its separately tabulated/interpolated values do not always satisfy GM/R\u00b2 with the other columns.",
+  "validation": {
+    "max_relative_radius_difference_from_MIST": 5.5240508270548716e-05,
+    "max_relative_mass_difference_if_raw_MIST_log_g_were_used": 0.32405957708984867,
+    "note": "The radius agrees to ~0.006%. Raw tabulated log_g can yield mass discrepancies up to ~32%; therefore gravity is recomputed consistently from model mass and radius, and this transformation is explicit."
+  },
+  "examples": [
+    {
+      "name": "Sun-like",
+      "row": [
+        3.760989189147949,
+        0.002690883120521903,
+        4.420829772949219,
+        -0.06889867782592773,
+        0.970038890838623,
+        9.75,
+        0.9702144265174866,
+        0.0,
+        365.0
+      ],
+      "source_file": "MIST_v1.2_vvcrit0.0_basic_isos/MIST_v1.2_feh_p0.00_afe_p0.0_vvcrit0.0_basic.iso",
+      "row_index_after_age_filter": 86484
+    },
+    {
+      "name": "Young star",
+      "row": [
+        3.6239840984344482,
+        0.31437355279922485,
+        3.4354453086853027,
+        1.3028778994339518e-05,
+        0.7262865900993347,
+        5.699999809265137,
+        0.726287305355072,
+        -1.0,
+        100.0
+      ],
+      "source_file": "MIST_v1.2_vvcrit0.0_basic_isos/MIST_v1.2_feh_p0.00_afe_p0.0_vvcrit0.0_basic.iso",
+      "row_index_after_age_filter": 3947
+    },
+    {
+      "name": "Red giant",
+      "row": [
+        3.622619152069092,
+        1.996883511543274,
+        1.9138929843902588,
+        0.007551571354269981,
+        1.0654304027557373,
+        9.949999809265137,
+        1.0685551166534424,
+        2.0,
+        543.0
+      ],
+      "source_file": "MIST_v1.2_vvcrit0.0_basic_isos/MIST_v1.2_feh_p0.00_afe_p0.0_vvcrit0.0_basic.iso",
+      "row_index_after_age_filter": 92571
+    },
+    {
+      "name": "Helium-burning",
+      "row": [
+        3.6828715801239014,
+        1.7823610305786133,
+        2.694312572479248,
+        0.016302650794386864,
+        2.2511940002441406,
+        8.899999618530273,
+        2.2529735565185547,
+        3.0,
+        645.0
+      ],
+      "source_file": "MIST_v1.2_vvcrit0.0_basic_isos/MIST_v1.2_feh_p0.00_afe_p0.0_vvcrit0.0_basic.iso",
+      "row_index_after_age_filter": 61232
+    },
+    {
+      "name": "AGB star",
+      "row": [
+        3.5184528827667236,
+        3.4784324169158936,
+        0.23241862654685974,
+        0.013656806200742722,
+        1.754952311515808,
+        9.199999809265137,
+        1.8404710292816162,
+        5.0,
+        1113.0
+      ],
+      "source_file": "MIST_v1.2_vvcrit0.0_basic_isos/MIST_v1.2_feh_p0.00_afe_p0.0_vvcrit0.0_basic.iso",
+      "row_index_after_age_filter": 70787
+    },
+    {
+      "name": "Hot remnant",
+      "row": [
+        4.348893642425537,
+        -1.3125144243240356,
+        7.842321872711182,
+        0.01260383427143097,
+        0.5513905882835388,
+        9.75,
+        1.2299234867095947,
+        6.0,
+        1710.0
+      ],
+      "source_file": "MIST_v1.2_vvcrit0.0_basic_isos/MIST_v1.2_feh_p0.00_afe_p0.0_vvcrit0.0_basic.iso",
+      "row_index_after_age_filter": 87829
+    }
+  ]
+}

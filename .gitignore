@@ -1,0 +1,4 @@
+raw/
+validation/
+*.log
+__pycache__/
