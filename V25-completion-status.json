@@ -7,8 +7,8 @@
                    "allRecordedDiagnosticRouting":  "passed",
                    "all133Regression":  "passed",
                    "phoneTests":  "passed",
-                   "publication":  "running",
-                   "liveVerification":  "pending"
+                   "publication":  "passed",
+                   "liveVerification":  "passed"
                },
     "counts":  {
                    "match":  108,
@@ -26,6 +26,9 @@
     "evidence":  [
                      "public/data/v25-validation.json",
                      "validation/v25-science.json",
-                     "validation/v25-browser.json"
-                 ]
+                     "validation/v25-browser.json",
+                     "validation/v25-live.json"
+                 ],
+    "url":  "https://akingry.github.io/stellar-measurement-lab/?v=25",
+    "deployment":  "https://github.com/akingry/stellar-measurement-lab/actions/runs/36778953725"
 }

@@ -6,4 +6,4 @@
 - [x] Use all recorded, applicable diagnostic sets without inventing missing values.
 - [x] Compare all 133 fixed examples, preserve regressions and report partial coverage honestly.
 - [x] Verify uncertainty behavior, label independence, grid weights, manual-mode compatibility and phone behavior.
-- [ ] Publish and verify working implementation, not just a report.
+- [x] Publish and verify working implementation, not just a report.
