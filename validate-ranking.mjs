@@ -10,6 +10,6 @@ assert.equal(rank(groups.map(g=>({...g,solutions:[...g.solutions,...g.solutions]
 assert.equal(lithiumPrediction(d.lithium,7000,8,0),null);assert.equal(lithiumPrediction(d.lithium,5772,10,0),null);
 assert.equal(rank([{phase:6,solutions:[{age:8,mass:.6,metallicity:0}]}],q,d).rows[0].percent,null);
 const giant=[2,3,4,5].map(phase=>({phase,solutions:[{age:9,mass:1,metallicity:0}]}));
-for(const e of d.evidence.seismic.examples){const r=rank(giant,{...q,...e,diagnostic:'seismic'},d);assert.ok(r.rows.some(x=>x.percent!==null));assert.equal(r.rows.find(x=>x.phase===2).percent,r.rows.find(x=>x.phase===5).percent)}
+for(const e of d.evidence.seismic.examples){const r=rank(giant,{...q,...e,diagnostic:'seismic'},d);assert.ok(r.rows.some(x=>x.percent!==null));assert.equal(r.rows.find(x=>x.phase===2).percent,r.rows.find(x=>x.phase===5).percent);assert.equal(r.rows[0].phase===3,e.label===2)}
 assert.ok(rank(giant,{...q,diagnostic:'seismic',Dnu:1e5,numax:1e5,DPi1:1e5},d).rows.every(r=>r.percent===null));
 fs.writeFileSync('validation/v12-ranking.json',JSON.stringify({passed:true,checks:['equal starting shares','lithium shifts ranking','normalization','duplication invariance','unsupported age and temperature','unscored remnants','shell phases remain tied','seismic hull guard'],meaning:'Conditional relative-fit shares, not calibrated posterior probabilities'},null,2));console.log('Ranking checks passed');

@@ -1,6 +1,6 @@
 {
   "version": 12,
-  "overall": "local checks passed; publication pending",
+  "overall": "passed for adaptive conditional-fit workflow",
   "scope": "Adaptive conditional relative-fit workflow; not calibrated physical probabilities or all-star coverage",
   "implementation": {
     "status": "passed",
@@ -19,12 +19,19 @@
     "screenshotsInspected": true
   },
   "publication": {
-    "status": "running"
+    "status": "passed",
+    "commit": "59113f63cfc567b759bd2b4c2fee32309464b739",
+    "url": "https://akingry.github.io/stellar-measurement-lab/?v=12"
   },
   "live": {
-    "status": "pending"
+    "status": "passed",
+    "evidence": [
+      "validation/v12-live.json",
+      "validation/v12-live-assets.json"
+    ]
   },
   "handoff": {
-    "status": "pending"
+    "status": "passed",
+    "limitation": "Conditional fit shares are not calibrated physical probabilities; unavailable stages and diagnostics remain explicit."
   }
 }
