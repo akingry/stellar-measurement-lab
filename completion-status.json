@@ -1,47 +1,33 @@
 {
-  "version": 10,
-  "overall": "passed for evidence-diagnostic update",
+  "version": 11,
+  "overall": "running",
   "implementation": {
     "status": "passed",
     "evidence": [
       "public/app.js",
-      "public/evidence.js",
-      "public/data/evidence.json"
+      "public/guidance.js",
+      "public/candidate-worker.js"
     ]
-  },
-  "scienceReview": {
-    "status": "passed",
-    "evidence": "public/details.html",
-    "limitation": "Separate empirical diagnostics; not a joint or universal stage classifier"
   },
   "validation": {
     "status": "passed",
     "evidence": [
-      "validation/v10-science.json",
-      "validation/v10-browser.json",
-      "validation/v10-390.png"
+      "validation/v11-browser.json",
+      "validation/v11-sun.png",
+      "validation/v11-giant.png",
+      "validation/point-science.json",
+      "validation/v10-science.json"
     ],
-    "screenshotInspected": true
+    "screenshotsInspected": true
   },
   "publication": {
-    "status": "passed",
-    "publicCommit": "aa1a5530cc65bdb47f3d3355ae2c7fee3382802e",
-    "url": "https://akingry.github.io/stellar-measurement-lab/?v=10"
+    "status": "running"
   },
   "live": {
-    "status": "passed",
-    "evidence": [
-      "validation/v10-live.json",
-      "validation/v10-live-assets.json"
-    ],
-    "hashConvention": "Text assets normalized from CRLF to LF"
+    "status": "pending"
   },
   "handoff": {
-    "status": "passed",
-    "limitations": "Empirical diagnostic estimates, not a joint all-stage classifier. Physical iPhone gestures unverified."
+    "status": "pending"
   },
-  "universalClassifier": {
-    "status": "blocked",
-    "reason": "No scientifically validated joint classifier for all requested types and stages has been established; this update does not claim one."
-  }
+  "limitations": "Candidate stages from exact-position model interpolation. Separate diagnostic evidence and exploratory guidance, not a universal joint fit."
 }

@@ -1,3 +1,9 @@
+# Star Lab version eleven
+
+Star above diagram, all eight sliders visible, exact-position model candidates and contextual guidance with exploratory measurement-combination buttons. Diagnostics remain separate, not a universal joint stage fit.
+
+Run node v11-browser.cjs with a public-folder server on port 8768. TEST_URL overrides the target.
+
 # Star Lab version ten
 
 Optional brightness-oscillation and technetium-spectrum controls now produce evidence-based diagnostic estimates. No typing, no hidden stage selection. Temperature/luminosity still determine the illustration and radius; the diagnostics are not a joint stellar fit. See public/details.html for scientific scope.

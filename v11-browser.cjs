@@ -1,0 +1,28 @@
+const {chromium}=require('../stellar-properties-lab/node_modules/playwright-core');const assert=require('node:assert/strict'),fs=require('fs');
+(async()=>{const browser=await chromium.launch({executablePath:'C:/Program Files/Google/Chrome/Application/chrome.exe',headless:true});try{
+const page=await browser.newPage({viewport:{width:390,height:844},isMobile:true,hasTouch:true,deviceScaleFactor:2});const errors=[];page.on('pageerror',e=>errors.push(String(e)));
+await page.goto(process.env.TEST_URL||'http://127.0.0.1:8768/?v=11');await page.waitForFunction(()=>starLab.ready&&starLab.modelReady,null,{timeout:120000});
+assert.equal(await page.locator('input:visible').count(),8);assert.equal(await page.locator('input:not([type=range]),textarea').count(),0);
+assert.ok(await page.evaluate(()=>document.getElementById('star').getBoundingClientRect().top<document.getElementById('hr').getBoundingClientRect().top));
+assert.deepEqual(await page.evaluate(()=>starLab.candidates.map(p=>p.phase)),[-1,0]);assert.match(await page.locator('#verdict').innerText(),/Sun-like/);assert.match(await page.locator('#guidanceText').innerText(),/cannot separate/);
+await page.screenshot({path:'validation/v11-'+(process.env.TEST_URL?'live-':'')+'sun.png',fullPage:true});
+await page.getByRole('button',{name:'Explore giant point',exact:true}).tap();await page.waitForFunction(()=>starLab.modelReady);
+assert.ok((await page.evaluate(()=>starLab.candidates.map(p=>p.phase))).includes(3));
+const before=await page.evaluate(()=>starLab.state);
+const shell=page.getByRole('button',{name:'Try shell-burning spacing',exact:true});assert.equal(await shell.count(),1);await shell.tap();
+assert.equal(await page.evaluate(()=>starLab.result.seismic.code),1);assert.equal(await page.evaluate(()=>starLab.state.T),before.T);assert.equal(await page.evaluate(()=>starLab.state.logL),before.logL);
+await page.getByRole('button',{name:'Try helium-burning spacing',exact:true}).tap();assert.equal(await page.evaluate(()=>starLab.result.seismic.code),2);
+const set=async(values)=>page.evaluate(values=>{for(const[id,v]of Object.entries(values)){const el=document.getElementById(id+'Slider');el.value=v;el.dispatchEvent(new Event('input'))}},values);
+await set({T:Math.log10(4000),logL:4});await page.waitForFunction(()=>starLab.modelReady);
+assert.ok((await page.evaluate(()=>starLab.candidates.map(p=>p.phase))).includes(5));await page.getByRole('button',{name:'Try technetium-rich pair',exact:true}).tap();assert.equal(await page.evaluate(()=>starLab.result.technetium.rich),true);
+await page.getByRole('button',{name:'Try technetium-poor pair',exact:true}).tap();assert.equal(await page.evaluate(()=>starLab.result.technetium.rich),false);
+// No old candidates while a new position is being processed, including rapid motion.
+await page.evaluate(()=>{for(const v of [5,1,6]){const e=document.getElementById('logLSlider');e.value=v;e.dispatchEvent(new Event('input'))}if(starLab.candidates!==null)throw Error('Stale candidates');});await page.waitForFunction(()=>starLab.modelReady);
+await set({T:Math.log10(2500),logL:6});await page.waitForFunction(()=>starLab.modelReady);assert.equal(await page.locator('#verdict').innerText(),'No model match at this point');
+await page.getByRole('button',{name:'Reset',exact:true}).tap();await page.waitForFunction(()=>starLab.modelReady);assert.equal(await page.locator('input:visible').count(),8);
+for(const id of ['T','logL','Dnu','numax','DPi1','spacingError','tc4238','tc4262']){const slider=page.locator('#'+id+'Slider');await slider.scrollIntoViewIfNeeded();const b=await slider.boundingBox();assert.ok(b.x>=44);assert.equal(await slider.evaluate(e=>getComputedStyle(e).touchAction),'none');const prior=await page.evaluate(()=>({q:starLab.state,y:scrollY})),cdp=await page.context().newCDPSession(page),y=b.y+b.height/2;await cdp.send('Input.dispatchTouchEvent',{type:'touchStart',touchPoints:[{x:b.x+b.width*.2,y}]});await cdp.send('Input.dispatchTouchEvent',{type:'touchMove',touchPoints:[{x:b.x+b.width*.7,y}]});await cdp.send('Input.dispatchTouchEvent',{type:'touchEnd',touchPoints:[]});await cdp.detach();const after=await page.evaluate(()=>starLab.state);assert.notEqual(after[id],prior.q[id]);for(const k of Object.keys(prior.q).filter(k=>k!==id))assert.equal(after[k],prior.q[k]);assert.ok(Math.abs(await page.evaluate(()=>scrollY)-prior.y)<2)}
+await page.getByRole('button',{name:'Reset',exact:true}).tap();await page.waitForFunction(()=>starLab.modelReady);
+for(const width of [320,390,430,1440]){await page.setViewportSize({width,height:844});assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));assert.equal(await page.locator('input:visible').count(),8)}
+await page.setViewportSize({width:390,height:844});await page.getByRole('button',{name:'Explore giant point',exact:true}).tap();await page.waitForFunction(()=>starLab.modelReady);await page.screenshot({path:'validation/v11-'+(process.env.TEST_URL?'live-':'')+'giant.png',fullPage:true});
+assert.deepEqual(errors,[]);const report={passed:true,url:page.url(),checks:['All eight sliders visible','Star above diagram','Sun-like exact-point candidates','Guidance and paired diagnostic changes','No hidden temperature/luminosity changes','Rapid-query stale-result guard','No-match guidance','Touch capture and overflow'],limitations:'Model candidates and diagnostic estimates remain separate; no universal joint stage fit. Physical iPhone gestures unverified.'};fs.writeFileSync('validation/v11-'+(process.env.TEST_URL?'live':'browser')+'.json',JSON.stringify(report,null,2));console.log(report);
+}finally{await browser.close()}})().catch(e=>{console.error(e);process.exit(1)});
