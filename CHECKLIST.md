@@ -1,16 +1,9 @@
-# Measurement-driven Star Lab
+# Star Lab version eight
 
-- [x] Acquire published MIST data and verify column/phase definitions.
-- [x] Build derived-properties calculations and measured-input constraints.
-- [x] Infer compatible evolutionary phases from the data, retaining ambiguity.
-- [x] Build mobile controls and live star/H–R visualization.
-- [x] Validate model recovery, physics identities, and out-of-grid behavior.
-- [x] Inspect mobile and desktop interaction and rendering.
-- [x] Publish the tested artifact and verify live interaction.
-- [x] Deliver link, scientific scope, and limitations.
-
-## Spectral measurement
-- [x] Published atmosphere calibration and provenance
-- [x] Optional measured absorption input and conditional mass filtering
-- [x] Scientific recovery, coverage, phone controls and layout checks
-- [x] Publish and verify live application
+- [x] Read existing implementation and calibration limitations.
+- [x] Implement three touch sliders and one calibrated model estimate.
+- [x] Restrict coverage; document fixed composition and deterministic snapping.
+- [x] Validate every selected candidate against physical and spectral models.
+- [x] Verify mobile touch, no typing, layout and inspect screenshots.
+- [ ] Publish source main and public subtree.
+- [ ] Verify live deployment and report evidence and limitations.

@@ -1,3 +1,11 @@
+# Star Lab version eight
+
+Current interface: three touch sliders, no editable numbers, one best-fitting model estimate, and live star illustration. Controls snap together to one of 22,269 spectrally calibrated, initially solar-composition model rows. No physical uniqueness is claimed. Full selection rule, calibration, coverage and assumptions: public/details.html.
+
+Run node validate-selection.mjs and node v8-browser.cjs (local server port 8767). TEST_URL selects the live browser target. Prior-version tests below are historical and do not describe the current interface.
+
+## Historical implementation notes
+
 # Star Lab — measurements to meaning
 
 A mobile-first, measurement-driven stellar explorer. The interface exposes only effective temperature and bolometric luminosity. Gravity and composition constraints are disabled in every preset. Evolutionary stages are outputs, never a required user choice.

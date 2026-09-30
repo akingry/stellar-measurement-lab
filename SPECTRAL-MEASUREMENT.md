@@ -1,3 +1,7 @@
+# Version eight update
+
+The numeric input interface below is historical. Version eight uses a calibrated absorption slider and a single snapped model estimate. It excludes all untested candidates and fixes initial composition to solar. The original 585-spectrum calibration is unchanged. See public/details.html for the exact metric, tie-break and coverage.
+
 # Measured light constraint
 
 The optional input is integrated, continuum-normalized magnesium-region wing absorption, not surface gravity and not an invented universal line-width/mass relation. The interface retains the temperature and luminosity sliders and adds expandable numeric measurement and uncertainty inputs.
