@@ -11,7 +11,7 @@
 - [x] Add bounded published cooling-grid coverage; check against observed compact-star benchmarks.
 - [x] Test all sample records numerically and against source tables.
 - [x] Test eight reference groups in phone-sized browser; inspect screenshot.
-- [ ] Publish and verify live interactions and database downloads.
+- [x] Publish and verify live interactions and database downloads.
 
 ## Scope remaining incomplete
 

@@ -1,6 +1,6 @@
 {
   "version": 22,
-  "overall": "publishing",
+  "overall": "example_sample_delivered; exhaustive_stellar_coverage_incomplete",
   "sampleCount": 133,
   "referenceGroups": {
     "Carbon-rich asymptotic giant branch": 1,
@@ -21,8 +21,8 @@
     "numericValidation": "passed",
     "sourceValidation": "passed",
     "phoneValidation": "passed",
-    "publication": "running",
-    "liveValidation": "pending"
+    "publication": "passed",
+    "liveValidation": "passed"
   },
   "evidence": [
     "public/data/diagnostic-stars.json",
@@ -30,7 +30,9 @@
     "validation/v22-science.json",
     "validation/v22-source-audit.json",
     "validation/v22-browser.json",
-    "validation/v21-browser.json"
+    "validation/v21-browser.json",
+    "validation/v22-live.json",
+    "validation/v22-live-downloads.json"
   ],
   "remainingScientificCoverage": [
     "Not an unbiased accuracy estimate: selection requires model coverage or differential diagnostic support.",
@@ -41,5 +43,8 @@
     "Temperature/luminosity uncertainties are recorded where available but not propagated by the exact-position fitting interface.",
     "Seismic-training IDs are excluded. Independence from all external calibration data is not established."
   ],
-  "broadAllTypesGoal": "incomplete; this is a cross-category diagnostic example sample, not exhaustive validation of every stage"
+  "broadAllTypesGoal": "incomplete; this is a cross-category diagnostic example sample, not exhaustive validation of every stage",
+  "url": "https://akingry.github.io/stellar-measurement-lab/?v=22",
+  "deployment": "https://github.com/akingry/stellar-measurement-lab/actions/runs/36774289198",
+  "runningProcesses": false
 }
