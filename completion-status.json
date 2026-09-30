@@ -1,6 +1,6 @@
 {
   "version": 13,
-  "overall": "local checks passed; publishing",
+  "overall": "passed",
   "implementation": {
     "status": "passed",
     "features": [
@@ -20,9 +20,15 @@
     "screenshotsInspected": true
   },
   "publication": {
-    "status": "running"
+    "status": "passed",
+    "commit": "5e599d13770ac0e649a946b5cc1d553a2b9ca387",
+    "url": "https://akingry.github.io/stellar-measurement-lab/?v=13"
   },
   "live": {
-    "status": "pending"
+    "status": "passed",
+    "evidence": [
+      "validation/v13-live.json",
+      "validation/v13-live-lithium.png"
+    ]
   }
 }
