@@ -11,3 +11,5 @@ html,body{overscroll-behavior-x:none}
 @media(max-width:600px){.tolerance input{font-size:16px;min-height:32px}.slider-touch-row{gap:10px}}
 
 .stage-chip small{display:block;margin-top:4px;color:#b7c6d8;font-size:11px}
+
+.stage-chip{max-width:100%;overflow-wrap:break-word}.legend span{line-height:1.5}.readings strong{font-size:16px}.control-head small{display:inline-block}
