@@ -5,7 +5,7 @@ import{rank}from './ranking.js?v=22';
 import{decorateOscillations}from './oscillation-scale.js?v=22';
 import{decorateLithium}from './lithium-scale.js?v=22';
 import{decorateMagnesium}from './magnesium-scale.js?v=22';
-import{observedMeasurements,randomIndex,compareReference}from './observed.js?v=22';
+import{observedMeasurements,randomIndex,compareReference,referenceIndicator}from './observed.js?v=23';
 const $=id=>document.getElementById(id);
 const initial={T:5772,logL:0,tolT:0,tolL:0,useSeismic:true,useTechnetium:true,Dnu:4.45,numax:46.5,DPi1:251.2,spacingError:3,tc4238:4238.15,tc4262:4262.28};
 initial.measurements=[];initial.diagnostic='none';initial.lithium=100;initial.wing=.15;
@@ -85,9 +85,13 @@ function renderEvidence(){
   const pct=r.percent===null?'Not scored':r.percent<.1?'<0.1%':r.percent>99.9&&ranking.rows.filter(x=>x.percent!==null).length>1?'>99.9%':r.percent.toFixed(1)+'%';
   const title=document.createElement('span');title.textContent=phases[r.phase]?.name||'Unspecified stage';
   const value=document.createElement('strong');value.textContent=pct;b.append(title,value);
+  if(r===ranking.rows[0]){
+   const indicator=referenceIndicator(observedStar,ranking,observedEdited);
+   if(indicator){const badge=document.createElement('small');badge.className='catalog-indicator '+indicator.status;badge.textContent=indicator.symbol+' '+indicator.label;badge.title=indicator.detail;badge.setAttribute('aria-label',indicator.detail);b.append(badge)}
+  }
   if(r.partial){const n=document.createElement('small');n.textContent='Some model solutions untested';b.append(n)}
   const example=r.chosen||r.solutions[0];b.disabled=!example;b.setAttribute('aria-pressed',String(selected===r.phase));
-  b.setAttribute('aria-label',title.textContent+' '+pct+(b.disabled?'':' — inspect candidate'));
+  b.setAttribute('aria-label',title.textContent+' '+pct+(r===ranking.rows[0]&&observedStar?' — '+referenceIndicator(observedStar,ranking,observedEdited).detail:'')+(b.disabled?'':' — inspect candidate'));
   b.onclick=()=>{selected=r.phase;for(const button of $('candidateList').children)button.setAttribute('aria-pressed',String(button===b));$('preview').hidden=false;$('readings').hidden=false;$('starStage').textContent=title.textContent;$('selectedMass').textContent=fmt(example.mass,3)+' solar masses ('+(r.chosen?'illustrative fit':'untested candidate example')+')';drawStar();$('preview').scrollIntoView({behavior:'smooth',block:'start'})};
   $('candidateList').append(b);
  }

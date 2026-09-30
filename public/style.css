@@ -18,3 +18,5 @@
 .evidence-slider~.lithium-marks{z-index:1}.result-card[aria-pressed=true]{outline:2px solid #fff}
 
 #wingSlider::-webkit-slider-thumb{border-color:var(--magnesium-thumb,#fff);background:var(--magnesium-thumb,#15263b)}#wingSlider::-moz-range-thumb{border-color:var(--magnesium-thumb,#fff);background:var(--magnesium-thumb,#15263b)}
+
+.result-card .catalog-indicator{font-size:14px;font-weight:700}.result-card .catalog-indicator.match{color:#7eebb1}.result-card .catalog-indicator.mismatch{color:#ff9393}.result-card .catalog-indicator.neutral{color:#d0d6e2}
