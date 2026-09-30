@@ -27,7 +27,7 @@ export function decorateLithium(slider){
   const right=document.createElement('span');right.className='lithium-young';right.textContent='Orange: pre-main sequence';
   const middle=document.createElement('span');middle.className='lithium-crossing-label';middle.textContent=scale.crossings.length?'50 / 50 at '+scale.crossings.map(x=>x.toFixed(1)).join(', ')+' milliangstroms':'No 50 / 50 crossing in range';
   const percentage=100*Math.max(p,1-p),shown=percentage>99.9?'>99.9':percentage.toFixed(1);
-  const current=document.createElement('span');current.textContent=name+' '+shown+'% fit · stronger color = stronger lead';
+  const current=document.createElement('span');current.textContent=name+' '+shown+'% fit';
   caption.append(left,right,middle,current);
   slider.setAttribute('aria-valuetext',q.lithium+' milliangstroms; '+name+' '+shown+' percent relative fit');
  };
