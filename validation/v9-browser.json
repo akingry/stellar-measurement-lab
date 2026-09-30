@@ -1,0 +1,14 @@
+{
+  "passed": true,
+  "url": "http://127.0.0.1:8767/?v=9",
+  "checks": [
+    "Exactly three sliders; no typing",
+    "One stage output",
+    "Independent light controls; no forced model or stage",
+    "Touch capture and inset on all sliders",
+    "Tap increment",
+    "No overflow at 320, 390, 430 and 1440 pixels"
+  ],
+  "modelCount": 22269,
+  "limitation": "Chromium touch emulation; physical iPhone and Telegram webview unverified"
+}

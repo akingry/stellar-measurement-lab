@@ -1,0 +1,9 @@
+{
+  "passed": true,
+  "files": [
+    "index.html",
+    "app.js",
+    "details.html"
+  ],
+  "comparison": "UTF-8 content with newline normalization"
+}

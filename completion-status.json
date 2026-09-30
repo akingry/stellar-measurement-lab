@@ -15,13 +15,22 @@
     "limitation": "Physical iPhone and Telegram gestures unverified"
   },
   "publication": {
-    "status": "running"
+    "status": "passed",
+    "sourceCommit": "4bccd96",
+    "publicCommit": "a9b0629",
+    "url": "https://akingry.github.io/stellar-measurement-lab/?v=9"
   },
   "live": {
-    "status": "pending"
+    "status": "passed",
+    "evidence": [
+      "validation/v9-live.json",
+      "validation/v9-live-assets.json"
+    ],
+    "checks": "Independent inputs across touch drags and 15 range samples; unresolved stage throughout; radius law; no mass; no typing; no overflow."
   },
   "handoff": {
-    "status": "pending"
+    "status": "passed",
+    "limitations": "Stage classification unavailable; magnesium input not fitted. Arbitrary joint inputs are not certified physically realizable. Physical iPhone/Telegram unverified."
   },
   "stageClassifier": {
     "status": "blocked",

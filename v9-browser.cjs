@@ -10,6 +10,19 @@ assert.ok(Math.abs(await page.evaluate(()=>scrollY)-before.y)<2);assert.notEqual
 for(const other of ['T','logL','wing'].filter(k=>k!==id))assert.equal((await page.evaluate(()=>starLab.state))[other],before.state[other]);
 assert.equal(await page.locator('#verdict').innerText(),'Stage unresolved');assert.equal(await page.evaluate(()=>starLab.result),null);
 await page.evaluate(()=>{for(const id of ['T','logL','wing']){const actual=id==='T'?Math.log10(starLab.state.T):starLab.state[id];const slider=document.getElementById(id+'Slider');if(Math.abs(+slider.value-actual)>Number(slider.step)*1.01)throw Error('Control differs from requested light quantity')}});}
+await page.evaluate(()=>{
+ for(const id of ['T','logL','wing']){
+ const el=document.getElementById(id+'Slider');
+ for(const f of [0,.25,.5,.75,1]){
+ const before=starLab.state;el.value=+el.min+f*(el.max-el.min);el.dispatchEvent(new Event('input'));
+ const after=starLab.state;
+ for(const other of ['T','logL','wing'].filter(k=>k!==id))if(after[other]!==before[other])throw Error('Coupled inputs');
+ if(starLab.result!==null||document.getElementById('verdict').textContent!=='Stage unresolved')throw Error('Forced classification');
+ const expected=Math.sqrt(10**after.logL*3.828e26/(4*Math.PI*5.670374419e-8*after.T**4))/6.957e8;
+ if(Math.abs(starLab.physical.radius/expected-1)>1e-12)throw Error('Radius inconsistency');
+ }
+ }
+});
 await page.getByRole('button',{name:'Reset',exact:true}).tap();
 const before=await page.evaluate(()=>starLab.state.T);await page.getByRole('button',{name:'Increase Temperature',exact:true}).tap();assert.ok(await page.evaluate(()=>starLab.state.T)>before);
 for(const width of [320,390,430,1440]){await page.setViewportSize({width,height:width===1440?1000:844});assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));await page.screenshot({path:'validation/v9-'+(process.env.TEST_URL?'live-':'')+width+'.png',fullPage:true})}
