@@ -1,7 +1,7 @@
 """Reproducible, proportionate real-star sample; never synthesize missing data."""
 from pathlib import Path
 from concurrent.futures import ThreadPoolExecutor
-import gzip, hashlib, json, math, sqlite3
+import gzip, hashlib, json, math, sqlite3, sys
 import numpy as np
 import pandas as pd
 import requests
@@ -47,6 +47,9 @@ def main():
     for k in (allocation-sizes).sort_values(ascending=False).index[:15000-int(sizes.sum())]: sizes[k]+=1
     sample=pd.concat([base[base.Evol==k].sample(n=int(sizes[k]),random_state=20260930+int(k)) for k in sizes.index])
     sample=sample.sample(frac=1,random_state=20260930).reset_index(drop=True)
+    expanded = '--diagnostic-pool' in sys.argv
+    if expanded:
+        sample=base
     li=read('frasca2022','table4.dat'); sp=read('frasca2022','table2.dat')
     for t in [li,sp]:
         t['id']=pd.to_numeric(t.KIC.astype(str).str.extract(r'KIC(\d+)',expand=False),errors='coerce')
@@ -82,6 +85,17 @@ def main():
                 'catalogClass':labels[ev],'classCode':ev,'stageReference':ref,
                 'binaryFlag':int(r.Bin) if pd.notna(r.Bin) else None}
         records.append(record)
+    if expanded:
+        records=[r for r in records if (r['lithium'] is not None and not r['lithiumLimit']) or (all(r[k] is not None and r[k]>0 for k in ['Dnu','numax','DPi1']) and r['oscillationAlias']==0)]
+        assert not {r['id'] for r in records}&training_ids
+        folder=ROOT/'diagnostics/representative'
+        folder.mkdir(exist_ok=True)
+        manifest={'count':len(records),'population':'All diagnostic-bearing cross-matches in the source Kepler population; no parent-sample limit',
+                  'sources':provenance,'excludedTrainingStars':len(b)-len(base),
+                  'selection':'Observed usable lithium OR unaliased three-part oscillations, excluding seismic training IDs. No label-agreement filtering.',
+                  'categories':{label:sum(r['catalogClass']==label for r in records) for label in labels.values()}}
+        (folder/'expanded-pool.json').write_text(json.dumps({'manifest':manifest,'stars':records},separators=(',',':'),allow_nan=False),encoding='utf-8')
+        print(json.dumps(manifest,indent=2));return
     coverage={key:sum(r[key] is not None for r in records) for key in ['T','luminosity','lithium','wing','Dnu','numax','DPi1','spectralType','stageReference']}
     coverage['completeAllMeasurements']=sum(all(r[key] is not None for key in ['T','luminosity','lithium','wing','Dnu','numax','DPi1']) for r in records)
     coverage['usableLithium']=sum(r['lithium'] is not None and not r['lithiumLimit'] for r in records)
