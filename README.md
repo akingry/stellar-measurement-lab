@@ -1,14 +1,14 @@
 # Star Lab — measurements to meaning
 
-A mobile-first, measurement-driven stellar explorer. The interface exposes only effective temperature, bolometric luminosity, and their matching tolerances. Gravity and composition constraints are disabled in every preset. Evolutionary stages are outputs, never a required user choice.
+A mobile-first, measurement-driven stellar explorer. The interface exposes only effective temperature and bolometric luminosity. Gravity and composition constraints are disabled in every preset. Evolutionary stages are outputs, never a required user choice.
 
 ## Science
 
-- Radius from Stefan–Boltzmann. The displayed mass range spans compatible model points, not a direct mass measurement. No main-sequence mass shortcut. The inference engine retains gravity/composition support for scientific validation, but those constraints are not supplied in this two-control interface.
+- Radius from Stefan–Boltzmann. The displayed mass range spans interpolated model solutions at the selected point, not a direct mass measurement. No main-sequence mass shortcut. The inference engine retains gravity/composition support for scientific validation, but those constraints are not supplied in this two-control interface.
 - 1,071,066 MIST 1.2 nonrotating, solar-scaled model points across initial [Fe/H] −2 to +0.5 and log age 5.0–10.10.
-- All supplied measurement windows must match simultaneously. All compatible phase labels survive; no fabricated confidence percentages or probability weighting.
+- Point interpolation replaces tolerance-box matching. Same-phase triangles connect adjacent log-age/EEP nodes separately at each metallicity. Barycentric interpolation reproduces the chosen log temperature and log luminosity; no nearest-neighbor fallback is used. All overlapping phase solutions survive, with mass ranges separated by phase.
 - Source phase 6 remains **post-AGB / white-dwarf cooling**, not a falsely precise white-dwarf label. Phase 2 remains post-main-sequence / RGB.
-- Finite sampled-grid matching, not continuous stellar-parameter fitting. Missing matches do not prove impossibility. Binaries, rotation, abundance-pattern variations, and asteroseismology are not fitted.
+- Finite piecewise-linear model interpolation, not unique stellar-parameter inference. Triangles spanning more than 0.05 dex in log temperature or 0.25 dex in log luminosity are excluded, as are cells with missing nodes or mixed phases. Missing matches do not prove impossibility. Binaries, rotation, abundance-pattern variations, and asteroseismology are not fitted.
 - Composition is **surface bulk [M/H]**, not an unqualified replacement for observed iron [Fe/H]. Surface fractions and reference mixture are documented in-app and in the manifest.
 - Gravitational acceleration in the model cache is recomputed from published current mass and the app's Stefan–Boltzmann radius, enforcing GM/R². Validation found the separately tabulated/interpolated MIST log g can imply mass discrepancies up to 32.4% against other columns; it is not silently used as though consistent. The transformation and discrepancy are disclosed.
 - Real-time sphere animation is illustrative, not a fluid or time-evolution simulation. Color integrates Planck spectra against analytic CIE fits, mapped to sRGB; not an atmosphere calculation.
@@ -41,3 +41,7 @@ The browser downloads approximately 23.7 MB of compressed model data, checks fil
 ## Publication
 
 GitHub Pages serves only the `public/` subtree on the `gh-pages` branch. No raw archives, local files, credentials, or unrelated workspace contents are published.
+
+## Point-interpolation validation
+
+Run node validate-point.mjs. It checks published examples, 207 synthetic interior points with known barycentric masses, coordinate residuals below 1e-9 dex, and no-extrapolation behavior. The cache produces 1,864,862 local same-phase triangles. A test at 3,500 K and 100,000 solar luminosities gives an interpolated current mass of approximately 14.9 solar masses in the covered core-helium-burning surface. Interpolation accuracy and model coverage remain limited by the source grid; matching the coordinate precisely does not imply a precisely known physical mass.

@@ -9,3 +9,5 @@ html,body{overscroll-behavior-x:none}
 .slider-touch-row input[type=range]::-moz-range-track{height:6px;background:#34485e;border-radius:8px}
 .slider-touch-row input[type=range]::-moz-range-thumb{width:28px;height:28px;border-radius:50%;background:#a7e8eb;border:2px solid #d6ffff}
 @media(max-width:600px){.tolerance input{font-size:16px;min-height:32px}.slider-touch-row{gap:10px}}
+
+.stage-chip small{display:block;margin-top:4px;color:#b7c6d8;font-size:11px}
