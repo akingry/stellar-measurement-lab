@@ -5,7 +5,7 @@ import{rank}from './ranking.js?v=22';
 import{decorateOscillations}from './oscillation-scale.js?v=22';
 import{decorateLithium}from './lithium-scale.js?v=22';
 import{decorateMagnesium}from './magnesium-scale.js?v=22';
-import{observedMeasurements,randomIndex,compareReference,referenceIndicator}from './observed.js?v=23';
+import{observedMeasurements,randomIndex,compareReference,referenceIndicator}from './observed.js?v=24';
 const $=id=>document.getElementById(id);
 const initial={T:5772,logL:0,tolT:0,tolL:0,useSeismic:true,useTechnetium:true,Dnu:4.45,numax:46.5,DPi1:251.2,spacingError:3,tc4238:4238.15,tc4262:4262.28};
 initial.measurements=[];initial.diagnostic='none';initial.lithium=100;initial.wing=.15;
@@ -116,6 +116,7 @@ function loadObservedStar(star,asExample=false){
 function renderObserved(checking=false){
  $('observedPanel').hidden=!observedStar;if(!observedStar)return;
  const s=observedStar;$('observedName').textContent=(s.displayName||'Kepler Input Catalog '+s.id)+(exampleMode?' · Diagnostic example':'');
+ $('sampleAuditLink').hidden=!exampleMode;$('sampleAuditLink').href='audit.html#star-'+encodeURIComponent(s.id);
  $('observedReference').textContent='Catalog: '+s.catalogClass+(s.stageReference?' · '+s.stageReference.label:'')+(s.spectralType?' · '+s.spectralType:'');
  $('observedComparison').textContent=observedEdited?'Exploration: measurements changed; no longer the recorded-star test.':checking?'Checking recorded data…':compareReference(s,ranking);
  const shown=(x,unit)=>Number.isFinite(x)?fmt(x,6)+' '+unit:'not recorded';
