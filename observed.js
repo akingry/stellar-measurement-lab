@@ -1,8 +1,9 @@
 // Reference labels never enter the measurement state or the inference worker.
+import {observationErrors} from './observed-inference.js?v=25';
 export function observedMeasurements(star){
  const q={T:star.T,logL:Math.log10(star.luminosity),lithium:star.lithium,
   lithiumError:star.lithiumError,wing:star.wing,Dnu:star.Dnu,numax:star.numax,
-  DPi1:star.DPi1,spacingError:star.periodSpacingError,measurements:[]};
+  DPi1:star.DPi1,spacingError:star.periodSpacingError,observationErrors:observationErrors(star),observedMode:true,measurements:[]};
  if(Number.isFinite(star.lithium)&&!star.lithiumLimit)q.measurements.push('lithium');
  if(Number.isFinite(star.wing))q.measurements.push('spectrum');
  if([star.Dnu,star.numax,star.DPi1].every(x=>Number.isFinite(x)&&x>0)&&star.oscillationAlias===0)q.measurements.push('seismic');
