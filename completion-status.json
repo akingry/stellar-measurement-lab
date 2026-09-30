@@ -1,27 +1,21 @@
 {
-  "version": 18,
-  "overall": "passed",
+  "version": 19,
+  "overall": "local checks passed; publishing",
   "implementation": {
     "status": "passed",
-    "method": "same-solution product likelihood; conditional-independence approximation; not calibrated posterior"
+    "scope": "all-candidate selection and three oscillation class-fit guides"
   },
   "validation": {
     "status": "passed",
     "evidence": [
-      "validation/v18-browser.json",
-      "validation/v18-combined.png"
-    ],
-    "screenshotsInspected": true
+      "validation/v19-browser.json",
+      "validation/v19-oscillations.png"
+    ]
   },
   "publication": {
-    "status": "passed",
-    "commit": "22c7a00f641de8cd785b8f8513003cb5187c991a",
-    "url": "https://akingry.github.io/stellar-measurement-lab/?v=18"
+    "status": "running"
   },
   "live": {
-    "status": "passed",
-    "evidence": [
-      "validation/v18-live.json"
-    ]
+    "status": "pending"
   }
 }

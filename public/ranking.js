@@ -1,6 +1,7 @@
 import{spectralCalibration,spectralGravity}from './spectral.js';
 import{inside}from './evidence.js';
 function density(x,d){let sum=0;for(const p of d.x){const v=x.map((n,i)=>n-p[i]);let z=0;for(let i=0;i<3;i++)for(let j=0;j<3;j++)z+=v[i]*d.inverse[i][j]*v[j];sum+=Math.exp(-z/2)}return sum/d.x.length/d.normalizer}
+export function seismicShares(q,data){const x=[Math.log10(q.Dnu),Math.log10(q.numax),q.DPi1];if(!inside(x,data.evidence.seismic.envelope))return null;const a=density(x,data.seismic.groups['1']),b=density(x,data.seismic.groups['2']);return a+b>0?{shell:a/(a+b),helium:b/(a+b)}:null}
 // Normalized profile-likelihood FIT SHARES, not calibrated posterior probabilities.
 // Each stage contributes its best compatible solution, not its grid-point count.
 export function lithiumPrediction(d,T,age,z){
