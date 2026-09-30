@@ -30,3 +30,13 @@ export function compareReference(star,ranking){
  if(broad===null)return 'Not directly comparable: different catalog and model categories.';
  return qualify(broad===star.classCode?'Consistent at broad-class level; not an independent stage confirmation.':'Disagrees with the broad catalog classification.');
 }
+
+// Presentation only: reuse the reference comparison, never feed labels into ranking.
+export function referenceIndicator(star,ranking,edited=false){
+ if(!star)return null;
+ const detail=edited?'Exploration: measurements changed; no longer the recorded-star test.':compareReference(star,ranking);
+ const status=edited?'neutral':/disagree|conflict/i.test(detail)?'mismatch':/consistent/i.test(detail)?'match':'neutral';
+ const broad=/broad-class/i.test(detail),partial=/^Provisional/.test(detail);
+ return {status,symbol:status==='match'?'✓':status==='mismatch'?'✕':'—',
+  label:edited?'Measurements changed':status==='match'?(broad?'Broad class matches':partial?'Provisional stage match':'Stage group matches'):status==='mismatch'?'Catalog mismatch':/^Unresolved/.test(detail)?'Tied predictions':'Not comparable',detail};
+}
