@@ -2,19 +2,20 @@ import{derived,phases}from './engine.js?v=22';
 import{enhanceSliders}from './touch-sliders.js';
 import{evidence}from './evidence.js';
 import{rank}from './ranking.js?v=22';
+import{rankObserved}from './observed-ranking.js?v=25';
 import{decorateOscillations}from './oscillation-scale.js?v=22';
 import{decorateLithium}from './lithium-scale.js?v=22';
 import{decorateMagnesium}from './magnesium-scale.js?v=22';
-import{observedMeasurements,randomIndex,compareReference,referenceIndicator}from './observed.js?v=24';
+import{observedMeasurements,randomIndex,compareReference,referenceIndicator}from './observed.js?v=25';
 const $=id=>document.getElementById(id);
 const initial={T:5772,logL:0,tolT:0,tolL:0,useSeismic:true,useTechnetium:true,Dnu:4.45,numax:46.5,DPi1:251.2,spacingError:3,tc4238:4238.15,tc4262:4262.28};
 initial.measurements=[];initial.diagnostic='none';initial.lithium=100;initial.wing=.15;
-let selected=null,ranking=null,scoreData=null;
+let selected=null,ranking=null,scoreData=null,scaleCandidates=null,inferenceMode=null,uncertaintyFallback=false;
 let observedStar=null,observedEdited=false,observedCatalog=null;
 let exampleCatalog=null,exampleMode=false;
 let q={...initial},visual=derived(q),rgb=[255,245,225],plot=[],result=null,ready=false,calibration=null,phase=0,paused=matchMedia('(prefers-reduced-motion: reduce)').matches;
 let modelReady=false,candidates=null,queryId=0,lastPoint='',pending=false;
-const worker=new Worker('./candidate-worker.js?v=22',{type:'module'});
+const worker=new Worker('./candidate-worker.js?v=25',{type:'module'});
 const fmt=(n,d=5)=>n.toLocaleString('en-US',{maximumSignificantDigits:d});
 const fields=[
  ['T','Temperature','kelvin','controls',Math.log10(2500),Math.log10(50000),.0001],
@@ -31,7 +32,7 @@ const fields=[
 fields.forEach(([id,label,unit,group,min,max,step])=>{
  const box=document.createElement('div');box.className='control';
  box.innerHTML='<div class="control-head"><label for="'+id+'Slider">'+label+'</label><output id="'+id+'"></output></div><input type="range" id="'+id+'Slider" aria-label="'+label+' slider" min="'+min+'" max="'+max+'" step="'+step+'" disabled>';
- $(group).append(box);$(id+'Slider').oninput=e=>{if(observedStar)observedEdited=true;q[id]=id==='T'?10**Number(e.target.value):id==='wing'?updateMagnesiumScale.decode(Number(e.target.value)):Number(e.target.value);apply()};
+ $(group).append(box);$(id+'Slider').oninput=e=>{if(observedStar)observedEdited=true;if(id==='T'||id==='logL'){q.observationErrors=null;q.observedMode=false;}q[id]=id==='T'?10**Number(e.target.value):id==='wing'?updateMagnesiumScale.decode(Number(e.target.value)):Number(e.target.value);apply()};
 });
 enhanceSliders();
 const updateLithiumScale=decorateLithium($('lithiumSlider'));
@@ -39,13 +40,13 @@ const updateMagnesiumScale=decorateMagnesium($('wingSlider'));
 const updateOscillationScales=decorateOscillations();
 function requestCandidates(){
  if(!modelReady)return;
- const key=q.T+':'+q.logL;if(key===lastPoint)return;lastPoint=key;pending=true;candidates=null;
- worker.postMessage({type:'infer',id:++queryId,q:{T:q.T,logL:q.logL,allSolutions:true}});
+ const key=q.T+':'+q.logL+':'+JSON.stringify(q.observationErrors||null);if(key===lastPoint)return;lastPoint=key;pending=true;candidates=null;
+ worker.postMessage({type:'infer',id:++queryId,q:{T:q.T,logL:q.logL,allSolutions:true,observationErrors:q.observationErrors||null}});
 }
 worker.onmessage=({data:m})=>{
  if(m.type==='progress'){$('loading').textContent='Loading model candidates '+Math.round(m.done/m.total*100)+'%';}
  if(m.type==='ready'){modelReady=true;plot=m.plot;$('loading').hidden=true;requestCandidates();apply();}
- if(m.type==='result'&&m.id===queryId){candidates=m.result.groups;pending=false;renderEvidence();}
+ if(m.type==='result'&&m.id===queryId){candidates=m.result.groups;scaleCandidates=m.result.scaleGroups;inferenceMode=m.result.mode;uncertaintyFallback=m.result.uncertaintyFallback;pending=false;renderEvidence();}
  if(m.type==='error'){$('loading').hidden=false;$('loading').textContent=m.message;$('verdict').textContent='Model candidates unavailable';}
 };
 worker.onerror=()=>{$('loading').hidden=false;$('loading').textContent='Model candidates could not load. Reload to retry.'};
@@ -68,17 +69,18 @@ function renderEvidence(){
  $('diagnosticOptions').hidden=!ambiguous&&!enabled.size;
  $('noneChoice').setAttribute('aria-pressed',String(!enabled.size));
  if(candidates===null){$('verdict').textContent='Checking this point…';$('evidenceNote').textContent='';renderObserved(true);return}
- if(enabled.has('spectrum'))updateMagnesiumScale(candidates,q,scoreData.spectrum);
- ranking=rank(candidates,q,scoreData);
+ if(enabled.has('spectrum'))updateMagnesiumScale(scaleCandidates||candidates,q,scoreData.spectrum);
+ ranking=q.observedMode?rankObserved(candidates,{...q,fittingMode:inferenceMode},scoreData):rank(candidates,q,scoreData);
  if(enabled.has('seismic'))updateOscillationScales(q,scoreData);
  if(enabled.has('seismic')&&!$('oscillationExamples')){const box=document.createElement('div');box.id='oscillationExamples';box.className='diagnostic-switches';for(const e of calibration.seismic.examples){const b=document.createElement('button');b.textContent=e.label===1?'Explore shell-burning measurements':'Explore helium-burning measurements';b.title=e.Dnu+' microhertz; '+e.numax+' microhertz; '+e.DPi1+' seconds';b.onclick=()=>{if(observedStar)observedEdited=true;q.Dnu=e.Dnu;q.numax=e.numax;q.DPi1=e.DPi1;apply()};box.append(b)}$('seismicPanel').append(box)}
- if(enabled.has('lithium'))updateLithiumScale(candidates,q,scoreData.lithium);
+ if(enabled.has('lithium'))updateLithiumScale(scaleCandidates||candidates,q,scoreData.lithium);
  $('verdict').textContent=!candidates.length?'No model match':ranking.conflict?'Measurement conflicts with models':'Overall relative fit';
  const names={lithium:'Lithium',spectrum:'Magnesium',seismic:'Oscillations'};
  $('evidenceNote').textContent=!enabled.size?'Temperature + luminosity · Equal starting weights.':'Temperature + luminosity + '+q.measurements.map(x=>names[x]).join(' + ')+(enabled.size>1?' · Combined fit; assumes independent measurement errors.':' · Relative fit, not calibrated probability.')+(ranking.partial?' Untested solutions remain possible.':'');
+ if(q.observedMode)$('evidenceNote').textContent=(inferenceMode==='observed-uncertainty'?'Recorded-error fit · Age/mass-weighted models. ':'Exact-position fallback · Incomplete error or cooling-grid coverage. ')+(enabled.size?'Available diagnostics refine only calibrated candidates. ':'')+'Relative support, not calibrated probability.'+(ranking.diagnosticConflicts.length?' A recorded diagnostic conflicts with its calibrated solutions.':'');
  $('guidanceTitle').textContent='Measurements included in overall fit';
  $('guidanceText').textContent='Enable one or more. Tap again to exclude.';
- $('actionNote').textContent=enabled.size?'Slider colors show each measurement alone. Results below combine all enabled measurements.':'';
+ $('actionNote').textContent=enabled.size?'Slider colors show each measurement at the central position. Results below combine applicable evidence.':'';
  const top=ranking.rows[0]?.percent;
  for(const r of ranking.rows){
   const b=document.createElement('button');b.className='candidate result-card';
@@ -89,7 +91,7 @@ function renderEvidence(){
    const indicator=referenceIndicator(observedStar,ranking,observedEdited);
    if(indicator){const badge=document.createElement('small');badge.className='catalog-indicator '+indicator.status;badge.textContent=indicator.symbol+' '+indicator.label;badge.title=indicator.detail;badge.setAttribute('aria-label',indicator.detail);b.append(badge)}
   }
-  if(r.partial){const n=document.createElement('small');n.textContent='Some model solutions untested';b.append(n)}
+  if(r.partial){const n=document.createElement('small');n.textContent=q.observedMode?'Some diagnostics unavailable; positional support retained':'Some model solutions untested';b.append(n)}
   const example=r.chosen||r.solutions[0];b.disabled=!example;b.setAttribute('aria-pressed',String(selected===r.phase));
   b.setAttribute('aria-label',title.textContent+' '+pct+(r===ranking.rows[0]&&observedStar?' — '+referenceIndicator(observedStar,ranking,observedEdited).detail:'')+(b.disabled?'':' — inspect candidate'));
   b.onclick=()=>{selected=r.phase;for(const button of $('candidateList').children)button.setAttribute('aria-pressed',String(button===b));$('preview').hidden=false;$('readings').hidden=false;$('starStage').textContent=title.textContent;$('selectedMass').textContent=fmt(example.mass,3)+' solar masses ('+(r.chosen?'illustrative fit':'untested candidate example')+')';drawStar();$('preview').scrollIntoView({behavior:'smooth',block:'start'})};
@@ -110,7 +112,7 @@ function setControlBounds(){
 function loadObservedStar(star,asExample=false){
  exampleMode=asExample;
  observedStar=star;observedEdited=false;q={...initial,...observedMeasurements(star),useTechnetium:false};
- if(asExample){const recorded=q.measurements;q.measurements=star.exampleSetup.measurements.filter(n=>recorded.includes(n));q.diagnostic=q.measurements.at(-1)||'none'}
+ // Recorded examples use every available diagnostic; reference labels never select inputs.
  setControlBounds();apply();
 }
 function renderObserved(checking=false){
@@ -123,7 +125,8 @@ function renderObserved(checking=false){
  const lines=[['Temperature',shown(s.T,'kelvin')],['Luminosity',shown(s.luminosity,'solar luminosities')],['Magnesium',shown(s.wing,'flux index')],['Lithium',shown(s.lithium,'milliangstroms')+(s.lithiumLimit?' (limit; excluded)':'')],['Radial spacing',shown(s.Dnu,'microhertz')],['Peak frequency',shown(s.numax,'microhertz')],['Period spacing',shown(s.DPi1,'seconds')+(s.oscillationAlias?' (alias flag; excluded)':'')]];
  $('observedMeasurements').replaceChildren();for(const[name,value]of lines){const row=document.createElement('p');row.textContent=name+': '+value;$('observedMeasurements').append(row)}
  $('observedCaution').textContent='Reference labels never enter the fit. Missing data are excluded; partial oscillation sets cannot enter the three-measurement calibration.'+(s.binaryFlag?' Catalog binary flag: '+s.binaryFlag+'.':'');
- if(exampleMode){$('observedCaution').textContent+=' '+s.exampleSetup.basis+(s.exampleSetup.otherRecordedDiagnostics.length?' Other recorded diagnostic sets are retained but not enabled for this example: '+s.exampleSetup.otherRecordedDiagnostics.join(', ')+'.':'')+' '+(s.measurementNotes||[]).join(' ')}
+ if(exampleMode){$('observedCaution').textContent+=' All available diagnostic sets are enabled. Missing calibration does not exclude a positional candidate. '+(s.measurementNotes||[]).join(' ')}
+ $('observedCaution').textContent+=' Recorded-error fits assume independent temperature and radius (or luminosity) errors when covariance is unavailable; uniform linear age, Kroupa initial mass distribution, uniform tabulated metallicity. These assumptions affect the relative support.';
 }
 $('randomExample').onclick=async()=>{const b=$('randomExample');b.disabled=true;b.textContent='Loading examples…';try{
  if(!exampleCatalog){const r=await fetch('data/diagnostic-stars.json?v=22');if(!r.ok)throw Error('Example database could not load');exampleCatalog=await r.json()}
@@ -140,7 +143,7 @@ async function load(){try{
  const bounds=calibration.seismic.bounds;for(const id of ['Dnu','numax','DPi1']){$(id+'Slider').min=bounds[id][0];$(id+'Slider').max=bounds[id][1]}
  fields.forEach(([id])=>$(id+'Slider').disabled=false);$('reset').disabled=false;$('randomStar').disabled=false;$('randomExample').disabled=false;ready=true;apply();
  }catch(e){$('loading').hidden=false;$('loading').textContent=e.message;}}
-window.starLab={loadObservedStar,get observed(){return observedStar},get ready(){return ready},get modelReady(){return modelReady&&!pending&&candidates!==null},get state(){return {...q}},get result(){return result},get candidates(){return candidates},get ranking(){return ranking},get selected(){return selected},get physical(){return visual},get calibration(){return calibration}};
+window.starLab={loadObservedStar,get observed(){return observedStar},get ready(){return ready},get modelReady(){return modelReady&&!pending&&candidates!==null},get state(){return {...q}},get result(){return result},get candidates(){return candidates},get inferenceMode(){return inferenceMode},get ranking(){return ranking},get selected(){return selected},get physical(){return visual},get calibration(){return calibration}};
 function blackbody(T){let X=0,Y=0,Z=0;for(let nm=380;nm<=780;nm+=5){const gauss=(mu,a,b)=>Math.exp(-.5*((nm-mu)*(nm<mu?a:b))**2),x=.362*gauss(442,.0624,.0374)+1.056*gauss(599.8,.0264,.0323)-.065*gauss(501.1,.049,.0382),y=.821*gauss(568.8,.0213,.0247)+.286*gauss(530.9,.0613,.0322),z=1.217*gauss(437,.0845,.0278)+.681*gauss(459,.0385,.0725),p=1/(nm**5*Math.expm1(1.438776877e7/(nm*T)));X+=p*x;Y+=p*y;Z+=p*z}X/=Y;Z/=Y;Y=1;let c=[3.2406*X-1.5372*Y-.4986*Z,-.9689*X+1.8758*Y+.0415*Z,.0557*X-.204*Y+1.057*Z],max=Math.max(...c);return c.map(v=>{v=Math.max(0,v/max);return Math.round(255*(v<=.0031308?12.92*v:1.055*v**(1/2.4)-.055))})}
 function context(id){const c=$(id),w=c.clientWidth,h=c.clientHeight,d=Math.min(devicePixelRatio||1,2);if(c.width!==Math.round(w*d)||c.height!==Math.round(h*d)){c.width=Math.round(w*d);c.height=Math.round(h*d)}const g=c.getContext('2d');g.setTransform(d,0,0,d,0,0);g.clearRect(0,0,w,h);return{g,w,h}}
 function drawStar(){if($('preview').hidden)return;const{g,w,h}=context('star'),linear=$('sizeMode').value==='linear',ratio=linear?visual.radius:visual.radius**.18,max=Math.min(w*.2,h*.29),unit=max/Math.max(ratio,1),r=Math.max(.6,unit*ratio),sun=Math.max(.6,unit),x=w*.67,y=h*.49,sx=w*.26;for(let i=0;i<95;i++){g.fillStyle='rgba(190,214,247,'+(.08+(i%4)*.045)+')';g.fillRect((Math.sin(i*83.2)*.5+.5)*w,(Math.cos(i*54.3)*.5+.5)*h,1,1)}const halo=g.createRadialGradient(x,y,r*.75,x,y,r*2);halo.addColorStop(0,'rgba('+rgb+','+(.16+.5*(q.logL+5)/12)+')');halo.addColorStop(1,'rgba('+rgb+',0)');g.fillStyle=halo;g.beginPath();g.arc(x,y,r*2,0,Math.PI*2);g.fill();g.save();g.beginPath();g.arc(x,y,r,0,Math.PI*2);g.clip();const grad=g.createRadialGradient(x-r*.2,y-r*.25,0,x,y,r);grad.addColorStop(0,'rgb('+rgb+')');grad.addColorStop(.7,'rgb('+rgb.map(v=>Math.round(v*.84))+')');grad.addColorStop(1,'rgb('+rgb.map(v=>Math.round(v*.4))+')');g.fillStyle=grad;g.fillRect(x-r,y-r,2*r,2*r);for(let i=0;i<420;i++){const u=((i*.61803398875+phase*.004)%1)*2-1,v=Math.sin(i*17.7)*.97;if(u*u+v*v>.97)continue;g.fillStyle=i%3?'rgba(25,10,8,.07)':'rgba(255,255,240,.1)';g.beginPath();g.ellipse(x+u*r,y+v*r,Math.max(.3,r*.023*Math.sqrt(1-u*u)),Math.max(.3,r*.01),0,0,Math.PI*2);g.fill()}g.restore();g.strokeStyle='#a8b2bd';g.lineWidth=.8;g.setLineDash([2,3]);g.beginPath();g.arc(sx,y,sun,0,Math.PI*2);g.stroke();g.setLineDash([]);g.font='10px system-ui';g.textAlign='center';g.fillStyle='#96a7bc';g.fillText('Sun',sx,Math.min(h-62,y+sun+18));g.fillStyle='#d5e4f6';g.fillText('Illustrative star',x,Math.min(h-62,y+r+18));g.textAlign='left';}

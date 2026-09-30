@@ -1,0 +1,5523 @@
+{
+  "passed": true,
+  "version": 25,
+  "count": 133,
+  "counts": {
+    "match": 108,
+    "mismatch": 18,
+    "neutral": 7
+  },
+  "transitions": {
+    "match -> match": 101,
+    "mismatch -> match": 6,
+    "neutral -> match": 1,
+    "mismatch -> neutral": 7,
+    "mismatch -> mismatch": 18
+  },
+  "allSubgiantCandidatesScored": true,
+  "referenceLabelLeakage": false,
+  "originalDatabasesUnchanged": true,
+  "manualModeUnchanged": true,
+  "assumptions": [
+    "Independent recorded temperature/radius errors when covariance unavailable",
+    "Uniform linear formation age, Kroupa initial-mass density, uniform tabulated initial metallicity",
+    "Diagnostics refine support only within their calibrated domain; not a full generative posterior",
+    "Exact-position fallback for cooling models and records with incomplete uncertainties"
+  ],
+  "hashes": {
+    "public/data/diagnostic-stars.json": "8e33485c340e9f2eb0d38e85fbf41f76ea17b000a80799a6522ea4e01e53cdb5",
+    "public/data/observed-stars.json": "6303aeef763b9a7820bdbae220ea873efab5860660d9312f44d7d2be35323532",
+    "public/data/diagnostic-benchmark.sqlite": "75d332fb435c2d6912d58c7e19de3cb1606fa3e611b84712c21bfed311e7101e",
+    "public/data/observed-stars.sqlite": "068d7bb5f7dee9f460d6741e9889c23c3b22a6c475df828767cf5061505e8331"
+  },
+  "sensitivity": [
+    {
+      "correlation": -0.5,
+      "rows": [
+        {
+          "phase": 0,
+          "percent": 85.38679378651443
+        },
+        {
+          "phase": 2,
+          "percent": 14.430745554608283
+        },
+        {
+          "phase": -1,
+          "percent": 0.18246065887709678
+        }
+      ]
+    },
+    {
+      "correlation": 0,
+      "rows": [
+        {
+          "phase": 0,
+          "percent": 85.38035235161934
+        },
+        {
+          "phase": 2,
+          "percent": 14.43484962783477
+        },
+        {
+          "phase": -1,
+          "percent": 0.184798020546074
+        }
+      ]
+    },
+    {
+      "correlation": 0.5,
+      "rows": [
+        {
+          "phase": 0,
+          "percent": 85.30906189314541
+        },
+        {
+          "phase": 2,
+          "percent": 14.502043310450773
+        },
+        {
+          "phase": -1,
+          "percent": 0.18889479640422502
+        }
+      ]
+    }
+  ],
+  "records": [
+    {
+      "id": "LATE:R Sculptoris",
+      "reference": "Carbon-rich asymptotic giant branch",
+      "previousStatus": "match",
+      "status": "match",
+      "comparison": "Leading fit is consistent with the reference stage group; reference evidence may overlap.",
+      "mode": "point-interpolation",
+      "measurements": [],
+      "previousLeader": 5,
+      "rows": [
+        {
+          "phase": 5,
+          "percent": 100,
+          "partial": false
+        }
+      ],
+      "count": 22,
+      "coverage": []
+    },
+    {
+      "id": 11414438,
+      "reference": "Red giant (broad catalog class)",
+      "previousStatus": "match",
+      "status": "match",
+      "comparison": "Provisional: Leading fit is consistent with the reference stage group; reference evidence may overlap. Untested solutions remain.",
+      "mode": "observed-uncertainty",
+      "measurements": [
+        "seismic"
+      ],
+      "previousLeader": 3,
+      "rows": [
+        {
+          "phase": 3,
+          "percent": 99.99350946048826,
+          "partial": false
+        },
+        {
+          "phase": -1,
+          "percent": 0.006490539511693296,
+          "partial": true
+        },
+        {
+          "phase": 2,
+          "percent": 1.6645070548660744e-280,
+          "partial": false
+        },
+        {
+          "phase": 4,
+          "percent": 1.4404814994663031e-283,
+          "partial": false
+        }
+      ],
+      "count": 39394,
+      "coverage": [
+        {
+          "diagnostic": "seismic",
+          "tested": 37500,
+          "total": 39394,
+          "calibratedErrorFraction": 0.9999999999999999,
+          "conflict": false,
+          "unavailable": false
+        }
+      ]
+    },
+    {
+      "id": 10549650,
+      "reference": "Red giant (broad catalog class)",
+      "previousStatus": "match",
+      "status": "match",
+      "comparison": "Provisional: Leading fit is consistent with the reference stage group; reference evidence may overlap. Untested solutions remain.",
+      "mode": "observed-uncertainty",
+      "measurements": [
+        "seismic"
+      ],
+      "previousLeader": 3,
+      "rows": [
+        {
+          "phase": 3,
+          "percent": 99.99153740734033,
+          "partial": false
+        },
+        {
+          "phase": -1,
+          "percent": 0.008462592659550683,
+          "partial": true
+        },
+        {
+          "phase": 2,
+          "percent": 2.179072008578499e-162,
+          "partial": false
+        },
+        {
+          "phase": 4,
+          "percent": 1.4113068959341379e-173,
+          "partial": false
+        }
+      ],
+      "count": 15927,
+      "coverage": [
+        {
+          "diagnostic": "seismic",
+          "tested": 15211,
+          "total": 15927,
+          "calibratedErrorFraction": 0.9999999999999999,
+          "conflict": false,
+          "unavailable": false
+        }
+      ]
+    },
+    {
+      "id": 4570120,
+      "reference": "Red giant (broad catalog class)",
+      "previousStatus": "match",
+      "status": "match",
+      "comparison": "Provisional: Leading fit is consistent with the reference stage group; reference evidence may overlap. Untested solutions remain.",
+      "mode": "observed-uncertainty",
+      "measurements": [
+        "seismic"
+      ],
+      "previousLeader": 3,
+      "rows": [
+        {
+          "phase": 3,
+          "percent": 96.65482182171168,
+          "partial": true
+        },
+        {
+          "phase": 2,
+          "percent": 3.327538777175031,
+          "partial": true
+        },
+        {
+          "phase": -1,
+          "percent": 0.017582098233348054,
+          "partial": true
+        },
+        {
+          "phase": 4,
+          "percent": 0.00005730288024787975,
+          "partial": true
+        }
+      ],
+      "count": 30274,
+      "coverage": [
+        {
+          "diagnostic": "seismic",
+          "tested": 27607,
+          "total": 30274,
+          "calibratedErrorFraction": 0.8333333333333333,
+          "conflict": false,
+          "unavailable": false
+        }
+      ]
+    },
+    {
+      "id": 3647918,
+      "reference": "Red giant (broad catalog class)",
+      "previousStatus": "match",
+      "status": "match",
+      "comparison": "Provisional: Leading fit is consistent with the reference stage group; reference evidence may overlap. Untested solutions remain.",
+      "mode": "observed-uncertainty",
+      "measurements": [
+        "seismic"
+      ],
+      "previousLeader": 3,
+      "rows": [
+        {
+          "phase": 3,
+          "percent": 99.99245767412755,
+          "partial": false
+        },
+        {
+          "phase": -1,
+          "percent": 0.007542325872368164,
+          "partial": true
+        },
+        {
+          "phase": 2,
+          "percent": 6.525366251808494e-181,
+          "partial": false
+        },
+        {
+          "phase": 4,
+          "percent": 1.6961197068439687e-185,
+          "partial": false
+        }
+      ],
+      "count": 34431,
+      "coverage": [
+        {
+          "diagnostic": "seismic",
+          "tested": 32186,
+          "total": 34431,
+          "calibratedErrorFraction": 0.9999999999999999,
+          "conflict": false,
+          "unavailable": false
+        }
+      ]
+    },
+    {
+      "id": 2309469,
+      "reference": "Red giant (broad catalog class)",
+      "previousStatus": "match",
+      "status": "match",
+      "comparison": "Provisional: Leading fit is consistent with the reference stage group; reference evidence may overlap. Untested solutions remain.",
+      "mode": "observed-uncertainty",
+      "measurements": [
+        "seismic"
+      ],
+      "previousLeader": 3,
+      "rows": [
+        {
+          "phase": 3,
+          "percent": 99.99662707843129,
+          "partial": false
+        },
+        {
+          "phase": -1,
+          "percent": 0.00337292156882789,
+          "partial": true
+        },
+        {
+          "phase": 2,
+          "percent": 3.042873846826908e-259,
+          "partial": false
+        },
+        {
+          "phase": 4,
+          "percent": 2.30924460337835e-264,
+          "partial": false
+        }
+      ],
+      "count": 31194,
+      "coverage": [
+        {
+          "diagnostic": "seismic",
+          "tested": 29939,
+          "total": 31194,
+          "calibratedErrorFraction": 0.9999999999999999,
+          "conflict": false,
+          "unavailable": false
+        }
+      ]
+    },
+    {
+      "id": 4930269,
+      "reference": "Red giant (broad catalog class)",
+      "previousStatus": "match",
+      "status": "match",
+      "comparison": "Provisional: Leading fit is consistent with the reference stage group; reference evidence may overlap. Untested solutions remain.",
+      "mode": "observed-uncertainty",
+      "measurements": [
+        "seismic"
+      ],
+      "previousLeader": 3,
+      "rows": [
+        {
+          "phase": 3,
+          "percent": 99.96804715353122,
+          "partial": false
+        },
+        {
+          "phase": -1,
+          "percent": 0.0319528464688004,
+          "partial": true
+        },
+        {
+          "phase": 2,
+          "percent": 1.254050901978244e-41,
+          "partial": false
+        },
+        {
+          "phase": 4,
+          "percent": 2.534214063855968e-56,
+          "partial": false
+        }
+      ],
+      "count": 10212,
+      "coverage": [
+        {
+          "diagnostic": "seismic",
+          "tested": 9384,
+          "total": 10212,
+          "calibratedErrorFraction": 0.9999999999999999,
+          "conflict": false,
+          "unavailable": false
+        }
+      ]
+    },
+    {
+      "id": 6774769,
+      "reference": "Red giant (broad catalog class)",
+      "previousStatus": "match",
+      "status": "match",
+      "comparison": "Provisional: Leading fit is consistent with the reference stage group; reference evidence may overlap. Untested solutions remain.",
+      "mode": "observed-uncertainty",
+      "measurements": [
+        "seismic"
+      ],
+      "previousLeader": 3,
+      "rows": [
+        {
+          "phase": 3,
+          "percent": 99.99128194256627,
+          "partial": false
+        },
+        {
+          "phase": -1,
+          "percent": 0.008718057433751192,
+          "partial": true
+        },
+        {
+          "phase": 2,
+          "percent": 5.019063559087705e-271,
+          "partial": false
+        },
+        {
+          "phase": 4,
+          "percent": 1.6673338269591582e-275,
+          "partial": false
+        }
+      ],
+      "count": 32356,
+      "coverage": [
+        {
+          "diagnostic": "seismic",
+          "tested": 30173,
+          "total": 32356,
+          "calibratedErrorFraction": 0.9999999999999999,
+          "conflict": false,
+          "unavailable": false
+        }
+      ]
+    },
+    {
+      "id": 8957543,
+      "reference": "Red giant (broad catalog class)",
+      "previousStatus": "match",
+      "status": "match",
+      "comparison": "Provisional: Leading fit is consistent with the reference stage group; reference evidence may overlap. Untested solutions remain.",
+      "mode": "observed-uncertainty",
+      "measurements": [
+        "seismic"
+      ],
+      "previousLeader": 3,
+      "rows": [
+        {
+          "phase": 3,
+          "percent": 99.99671931464307,
+          "partial": false
+        },
+        {
+          "phase": -1,
+          "percent": 0.003280685357181995,
+          "partial": true
+        },
+        {
+          "phase": 2,
+          "percent": 3.074087462108188e-123,
+          "partial": false
+        },
+        {
+          "phase": 4,
+          "percent": 6.69591987242505e-128,
+          "partial": false
+        }
+      ],
+      "count": 32918,
+      "coverage": [
+        {
+          "diagnostic": "seismic",
+          "tested": 31672,
+          "total": 32918,
+          "calibratedErrorFraction": 0.9999999999999999,
+          "conflict": false,
+          "unavailable": false
+        }
+      ]
+    },
+    {
+      "id": 9094309,
+      "reference": "Red giant (broad catalog class)",
+      "previousStatus": "match",
+      "status": "match",
+      "comparison": "Provisional: Leading fit is consistent with the reference stage group; reference evidence may overlap. Untested solutions remain.",
+      "mode": "observed-uncertainty",
+      "measurements": [
+        "seismic"
+      ],
+      "previousLeader": 3,
+      "rows": [
+        {
+          "phase": 3,
+          "percent": 99.99183721404671,
+          "partial": false
+        },
+        {
+          "phase": -1,
+          "percent": 0.008162785953385774,
+          "partial": true
+        },
+        {
+          "phase": 2,
+          "percent": 6.522436405190643e-193,
+          "partial": false
+        },
+        {
+          "phase": 4,
+          "percent": 2.6595292635563086e-196,
+          "partial": false
+        }
+      ],
+      "count": 40693,
+      "coverage": [
+        {
+          "diagnostic": "seismic",
+          "tested": 37973,
+          "total": 40693,
+          "calibratedErrorFraction": 0.9999999999999999,
+          "conflict": false,
+          "unavailable": false
+        }
+      ]
+    },
+    {
+      "id": 10793277,
+      "reference": "Red giant (broad catalog class)",
+      "previousStatus": "match",
+      "status": "match",
+      "comparison": "Provisional: Leading fit is consistent with the reference stage group; reference evidence may overlap. Untested solutions remain.",
+      "mode": "observed-uncertainty",
+      "measurements": [
+        "seismic"
+      ],
+      "previousLeader": 3,
+      "rows": [
+        {
+          "phase": 3,
+          "percent": 99.99257465581015,
+          "partial": false
+        },
+        {
+          "phase": -1,
+          "percent": 0.007425344189695808,
+          "partial": true
+        },
+        {
+          "phase": 2,
+          "percent": 3.228216381639186e-128,
+          "partial": false
+        },
+        {
+          "phase": 4,
+          "percent": 1.2447640814245226e-131,
+          "partial": false
+        }
+      ],
+      "count": 38049,
+      "coverage": [
+        {
+          "diagnostic": "seismic",
+          "tested": 35785,
+          "total": 38049,
+          "calibratedErrorFraction": 0.9999999999999999,
+          "conflict": false,
+          "unavailable": false
+        }
+      ]
+    },
+    {
+      "id": 9270087,
+      "reference": "Red giant (broad catalog class)",
+      "previousStatus": "match",
+      "status": "match",
+      "comparison": "Provisional: Leading fit is consistent with the reference stage group; reference evidence may overlap. Untested solutions remain.",
+      "mode": "observed-uncertainty",
+      "measurements": [
+        "seismic"
+      ],
+      "previousLeader": 3,
+      "rows": [
+        {
+          "phase": 3,
+          "percent": 99.9923169184972,
+          "partial": false
+        },
+        {
+          "phase": -1,
+          "percent": 0.007683081502765556,
+          "partial": true
+        },
+        {
+          "phase": 2,
+          "percent": 2.8524510784914516e-213,
+          "partial": false
+        },
+        {
+          "phase": 4,
+          "percent": 3.63371940495194e-218,
+          "partial": false
+        }
+      ],
+      "count": 32484,
+      "coverage": [
+        {
+          "diagnostic": "seismic",
+          "tested": 30399,
+          "total": 32484,
+          "calibratedErrorFraction": 0.9999999999999999,
+          "conflict": false,
+          "unavailable": false
+        }
+      ]
+    },
+    {
+      "id": 6371141,
+      "reference": "Red giant (broad catalog class)",
+      "previousStatus": "match",
+      "status": "match",
+      "comparison": "Provisional: Leading fit is consistent with the reference stage group; reference evidence may overlap. Untested solutions remain.",
+      "mode": "observed-uncertainty",
+      "measurements": [
+        "seismic"
+      ],
+      "previousLeader": 3,
+      "rows": [
+        {
+          "phase": 3,
+          "percent": 99.99378115275292,
+          "partial": false
+        },
+        {
+          "phase": -1,
+          "percent": 0.006218847247207686,
+          "partial": true
+        },
+        {
+          "phase": 2,
+          "percent": 7.841780127296728e-158,
+          "partial": false
+        },
+        {
+          "phase": 4,
+          "percent": 7.188774261546114e-162,
+          "partial": false
+        }
+      ],
+      "count": 23675,
+      "coverage": [
+        {
+          "diagnostic": "seismic",
+          "tested": 22736,
+          "total": 23675,
+          "calibratedErrorFraction": 0.9999999999999999,
+          "conflict": false,
+          "unavailable": false
+        }
+      ]
+    },
+    {
+      "id": 6508544,
+      "reference": "Red giant (broad catalog class)",
+      "previousStatus": "match",
+      "status": "match",
+      "comparison": "Provisional: Leading fit is consistent with the reference stage group; reference evidence may overlap. Untested solutions remain.",
+      "mode": "observed-uncertainty",
+      "measurements": [
+        "seismic"
+      ],
+      "previousLeader": 3,
+      "rows": [
+        {
+          "phase": 3,
+          "percent": 99.99073808043488,
+          "partial": false
+        },
+        {
+          "phase": -1,
+          "percent": 0.009261919565139816,
+          "partial": true
+        },
+        {
+          "phase": 2,
+          "percent": 1.4937431422857143e-182,
+          "partial": false
+        },
+        {
+          "phase": 4,
+          "percent": 6.582735545242239e-187,
+          "partial": false
+        }
+      ],
+      "count": 35599,
+      "coverage": [
+        {
+          "diagnostic": "seismic",
+          "tested": 32995,
+          "total": 35599,
+          "calibratedErrorFraction": 0.9999999999999999,
+          "conflict": false,
+          "unavailable": false
+        }
+      ]
+    },
+    {
+      "id": 4862332,
+      "reference": "Red giant (broad catalog class)",
+      "previousStatus": "match",
+      "status": "match",
+      "comparison": "Provisional: Leading fit is consistent with the reference stage group; reference evidence may overlap. Untested solutions remain.",
+      "mode": "observed-uncertainty",
+      "measurements": [
+        "seismic"
+      ],
+      "previousLeader": 3,
+      "rows": [
+        {
+          "phase": 3,
+          "percent": 99.9912675503487,
+          "partial": false
+        },
+        {
+          "phase": -1,
+          "percent": 0.00873244965130784,
+          "partial": true
+        },
+        {
+          "phase": 2,
+          "percent": 5.741176255577043e-289,
+          "partial": false
+        },
+        {
+          "phase": 4,
+          "percent": 1.4604992112342782e-292,
+          "partial": false
+        }
+      ],
+      "count": 43189,
+      "coverage": [
+        {
+          "diagnostic": "seismic",
+          "tested": 39941,
+          "total": 43189,
+          "calibratedErrorFraction": 0.9999999999999999,
+          "conflict": false,
+          "unavailable": false
+        }
+      ]
+    },
+    {
+      "id": 6449576,
+      "reference": "Red giant (broad catalog class)",
+      "previousStatus": "match",
+      "status": "match",
+      "comparison": "Provisional: Leading fit is consistent with the reference stage group; reference evidence may overlap. Untested solutions remain.",
+      "mode": "observed-uncertainty",
+      "measurements": [
+        "seismic"
+      ],
+      "previousLeader": 3,
+      "rows": [
+        {
+          "phase": 3,
+          "percent": 99.99332168524992,
+          "partial": false
+        },
+        {
+          "phase": -1,
+          "percent": 0.006678314750170021,
+          "partial": true
+        },
+        {
+          "phase": 2,
+          "percent": 2.1549132082747453e-164,
+          "partial": false
+        },
+        {
+          "phase": 4,
+          "percent": 7.659998805550896e-168,
+          "partial": false
+        }
+      ],
+      "count": 38488,
+      "coverage": [
+        {
+          "diagnostic": "seismic",
+          "tested": 36339,
+          "total": 38488,
+          "calibratedErrorFraction": 0.9999999999999999,
+          "conflict": false,
+          "unavailable": false
+        }
+      ]
+    },
+    {
+      "id": 6956335,
+      "reference": "Red giant (broad catalog class)",
+      "previousStatus": "match",
+      "status": "match",
+      "comparison": "Provisional: Leading fit is consistent with the reference stage group; reference evidence may overlap. Untested solutions remain.",
+      "mode": "observed-uncertainty",
+      "measurements": [
+        "seismic"
+      ],
+      "previousLeader": 3,
+      "rows": [
+        {
+          "phase": 3,
+          "percent": 99.98762430616681,
+          "partial": false
+        },
+        {
+          "phase": -1,
+          "percent": 0.012375693833247586,
+          "partial": true
+        },
+        {
+          "phase": 2,
+          "percent": 7.636214579024324e-140,
+          "partial": false
+        },
+        {
+          "phase": 4,
+          "percent": 5.445823780063888e-143,
+          "partial": false
+        }
+      ],
+      "count": 41108,
+      "coverage": [
+        {
+          "diagnostic": "seismic",
+          "tested": 37855,
+          "total": 41108,
+          "calibratedErrorFraction": 0.9999999999999999,
+          "conflict": false,
+          "unavailable": false
+        }
+      ]
+    },
+    {
+      "id": 4545532,
+      "reference": "Red giant (broad catalog class)",
+      "previousStatus": "match",
+      "status": "match",
+      "comparison": "Provisional: Leading fit is consistent with the reference stage group; reference evidence may overlap. Untested solutions remain.",
+      "mode": "observed-uncertainty",
+      "measurements": [
+        "seismic"
+      ],
+      "previousLeader": 3,
+      "rows": [
+        {
+          "phase": 3,
+          "percent": 99.99329584240193,
+          "partial": false
+        },
+        {
+          "phase": -1,
+          "percent": 0.006704157598133849,
+          "partial": true
+        },
+        {
+          "phase": 2,
+          "percent": 6.817916414778993e-276,
+          "partial": false
+        },
+        {
+          "phase": 4,
+          "percent": 1.1749271753838263e-278,
+          "partial": false
+        }
+      ],
+      "count": 40165,
+      "coverage": [
+        {
+          "diagnostic": "seismic",
+          "tested": 38414,
+          "total": 40165,
+          "calibratedErrorFraction": 0.9999999999999999,
+          "conflict": false,
+          "unavailable": false
+        }
+      ]
+    },
+    {
+      "id": 3860550,
+      "reference": "Red giant (broad catalog class)",
+      "previousStatus": "match",
+      "status": "match",
+      "comparison": "Provisional: Leading fit is consistent with the reference stage group; reference evidence may overlap. Untested solutions remain.",
+      "mode": "observed-uncertainty",
+      "measurements": [
+        "seismic"
+      ],
+      "previousLeader": 3,
+      "rows": [
+        {
+          "phase": 3,
+          "percent": 99.99905470765056,
+          "partial": false
+        },
+        {
+          "phase": -1,
+          "percent": 0.0009452923496878951,
+          "partial": true
+        },
+        {
+          "phase": 2,
+          "percent": 4.0931526490928545e-29,
+          "partial": false
+        },
+        {
+          "phase": 4,
+          "percent": 7.794299883170337e-30,
+          "partial": false
+        }
+      ],
+      "count": 36084,
+      "coverage": [
+        {
+          "diagnostic": "seismic",
+          "tested": 35759,
+          "total": 36084,
+          "calibratedErrorFraction": 0.9999999999999999,
+          "conflict": false,
+          "unavailable": false
+        }
+      ]
+    },
+    {
+      "id": 2016676,
+      "reference": "Red giant (broad catalog class)",
+      "previousStatus": "match",
+      "status": "match",
+      "comparison": "Provisional: Leading fit is consistent with the reference stage group; reference evidence may overlap. Untested solutions remain.",
+      "mode": "observed-uncertainty",
+      "measurements": [
+        "seismic"
+      ],
+      "previousLeader": 3,
+      "rows": [
+        {
+          "phase": 3,
+          "percent": 99.98754052683188,
+          "partial": false
+        },
+        {
+          "phase": -1,
+          "percent": 0.012459473168089137,
+          "partial": true
+        },
+        {
+          "phase": 2,
+          "percent": 3.1229823175159082e-89,
+          "partial": false
+        },
+        {
+          "phase": 4,
+          "percent": 1.2027226000823869e-98,
+          "partial": false
+        }
+      ],
+      "count": 15651,
+      "coverage": [
+        {
+          "diagnostic": "seismic",
+          "tested": 14783,
+          "total": 15651,
+          "calibratedErrorFraction": 0.9999999999999999,
+          "conflict": false,
+          "unavailable": false
+        }
+      ]
+    },
+    {
+      "id": 7692850,
+      "reference": "Red giant (broad catalog class)",
+      "previousStatus": "match",
+      "status": "match",
+      "comparison": "Provisional: Leading fit is consistent with the reference stage group; reference evidence may overlap. Untested solutions remain.",
+      "mode": "observed-uncertainty",
+      "measurements": [
+        "seismic"
+      ],
+      "previousLeader": 3,
+      "rows": [
+        {
+          "phase": 3,
+          "percent": 99.99341902238629,
+          "partial": false
+        },
+        {
+          "phase": -1,
+          "percent": 0.006580977613933673,
+          "partial": true
+        },
+        {
+          "phase": 2,
+          "percent": 4.4722367864471725e-109,
+          "partial": false
+        },
+        {
+          "phase": 4,
+          "percent": 1.563367846405944e-114,
+          "partial": false
+        }
+      ],
+      "count": 28742,
+      "coverage": [
+        {
+          "diagnostic": "seismic",
+          "tested": 27123,
+          "total": 28742,
+          "calibratedErrorFraction": 0.9999999999999999,
+          "conflict": false,
+          "unavailable": false
+        }
+      ]
+    },
+    {
+      "id": 7739916,
+      "reference": "Red giant (broad catalog class)",
+      "previousStatus": "match",
+      "status": "match",
+      "comparison": "Provisional: Leading fit is consistent with the reference stage group; reference evidence may overlap. Untested solutions remain.",
+      "mode": "observed-uncertainty",
+      "measurements": [
+        "seismic"
+      ],
+      "previousLeader": 3,
+      "rows": [
+        {
+          "phase": 3,
+          "percent": 99.99476777808007,
+          "partial": false
+        },
+        {
+          "phase": -1,
+          "percent": 0.005232221919748646,
+          "partial": true
+        },
+        {
+          "phase": 2,
+          "percent": 1.040326321198939e-171,
+          "partial": false
+        },
+        {
+          "phase": 4,
+          "percent": 1.8530006160177285e-175,
+          "partial": false
+        }
+      ],
+      "count": 37945,
+      "coverage": [
+        {
+          "diagnostic": "seismic",
+          "tested": 36098,
+          "total": 37945,
+          "calibratedErrorFraction": 0.9999999999999999,
+          "conflict": false,
+          "unavailable": false
+        }
+      ]
+    },
+    {
+      "id": 7532093,
+      "reference": "Red giant (broad catalog class)",
+      "previousStatus": "match",
+      "status": "match",
+      "comparison": "Provisional: Leading fit is consistent with the reference stage group; reference evidence may overlap. Untested solutions remain.",
+      "mode": "observed-uncertainty",
+      "measurements": [
+        "seismic"
+      ],
+      "previousLeader": 3,
+      "rows": [
+        {
+          "phase": 3,
+          "percent": 99.99295130261065,
+          "partial": false
+        },
+        {
+          "phase": -1,
+          "percent": 0.00704869738933657,
+          "partial": true
+        },
+        {
+          "phase": 2,
+          "percent": 2.1571093671509285e-245,
+          "partial": false
+        },
+        {
+          "phase": 4,
+          "percent": 3.0519553393817986e-250,
+          "partial": false
+        }
+      ],
+      "count": 34614,
+      "coverage": [
+        {
+          "diagnostic": "seismic",
+          "tested": 32405,
+          "total": 34614,
+          "calibratedErrorFraction": 0.9999999999999999,
+          "conflict": false,
+          "unavailable": false
+        }
+      ]
+    },
+    {
+      "id": 7301518,
+      "reference": "Red giant (broad catalog class)",
+      "previousStatus": "match",
+      "status": "match",
+      "comparison": "Provisional: Leading fit is consistent with the reference stage group; reference evidence may overlap. Untested solutions remain.",
+      "mode": "observed-uncertainty",
+      "measurements": [
+        "seismic"
+      ],
+      "previousLeader": 3,
+      "rows": [
+        {
+          "phase": 3,
+          "percent": 99.9787359858596,
+          "partial": false
+        },
+        {
+          "phase": -1,
+          "percent": 0.021264014140186367,
+          "partial": true
+        },
+        {
+          "phase": 2,
+          "percent": 1.2552529122090562e-49,
+          "partial": false
+        },
+        {
+          "phase": 4,
+          "percent": 2.1736004926099004e-55,
+          "partial": false
+        }
+      ],
+      "count": 29893,
+      "coverage": [
+        {
+          "diagnostic": "seismic",
+          "tested": 27086,
+          "total": 29893,
+          "calibratedErrorFraction": 0.9999999999999999,
+          "conflict": false,
+          "unavailable": false
+        }
+      ]
+    },
+    {
+      "id": 11135286,
+      "reference": "Red giant (broad catalog class)",
+      "previousStatus": "match",
+      "status": "match",
+      "comparison": "Provisional: Leading fit is consistent with the reference stage group; reference evidence may overlap. Untested solutions remain.",
+      "mode": "observed-uncertainty",
+      "measurements": [
+        "seismic"
+      ],
+      "previousLeader": 3,
+      "rows": [
+        {
+          "phase": 3,
+          "percent": 99.99599539198809,
+          "partial": false
+        },
+        {
+          "phase": -1,
+          "percent": 0.004004608011721491,
+          "partial": true
+        },
+        {
+          "phase": 2,
+          "percent": 8.066361577730291e-255,
+          "partial": false
+        },
+        {
+          "phase": 4,
+          "percent": 1.2143173850773544e-259,
+          "partial": false
+        }
+      ],
+      "count": 30946,
+      "coverage": [
+        {
+          "diagnostic": "seismic",
+          "tested": 29650,
+          "total": 30946,
+          "calibratedErrorFraction": 0.9999999999999999,
+          "conflict": false,
+          "unavailable": false
+        }
+      ]
+    },
+    {
+      "id": 2996738,
+      "reference": "Red giant (broad catalog class)",
+      "previousStatus": "match",
+      "status": "match",
+      "comparison": "Provisional: Leading fit is consistent with the reference stage group; reference evidence may overlap. Untested solutions remain.",
+      "mode": "observed-uncertainty",
+      "measurements": [
+        "seismic"
+      ],
+      "previousLeader": 2,
+      "rows": [
+        {
+          "phase": 2,
+          "percent": 99.8419527366546,
+          "partial": false
+        },
+        {
+          "phase": 4,
+          "percent": 0.12914254655318805,
+          "partial": false
+        },
+        {
+          "phase": -1,
+          "percent": 0.02877959115368819,
+          "partial": true
+        },
+        {
+          "phase": 0,
+          "percent": 0.00012512563756829145,
+          "partial": true
+        },
+        {
+          "phase": 3,
+          "percent": 1.2512036439122172e-65,
+          "partial": false
+        }
+      ],
+      "count": 76640,
+      "coverage": [
+        {
+          "diagnostic": "seismic",
+          "tested": 60239,
+          "total": 76640,
+          "calibratedErrorFraction": 0.9999999999999999,
+          "conflict": false,
+          "unavailable": false
+        }
+      ]
+    },
+    {
+      "id": 3338252,
+      "reference": "Red giant (broad catalog class)",
+      "previousStatus": "match",
+      "status": "match",
+      "comparison": "Provisional: Leading fit is consistent with the reference stage group; reference evidence may overlap. Untested solutions remain.",
+      "mode": "observed-uncertainty",
+      "measurements": [
+        "seismic"
+      ],
+      "previousLeader": 2,
+      "rows": [
+        {
+          "phase": 2,
+          "percent": 93.11118608818983,
+          "partial": true
+        },
+        {
+          "phase": 3,
+          "percent": 6.85698949729617,
+          "partial": true
+        },
+        {
+          "phase": -1,
+          "percent": 0.03182441451476822,
+          "partial": true
+        }
+      ],
+      "count": 10294,
+      "coverage": [
+        {
+          "diagnostic": "seismic",
+          "tested": 9577,
+          "total": 10294,
+          "calibratedErrorFraction": 0.8333333333333333,
+          "conflict": false,
+          "unavailable": false
+        }
+      ]
+    },
+    {
+      "id": 11554718,
+      "reference": "Red giant (broad catalog class)",
+      "previousStatus": "match",
+      "status": "match",
+      "comparison": "Provisional: Leading fit is consistent with the reference stage group; reference evidence may overlap. Untested solutions remain.",
+      "mode": "observed-uncertainty",
+      "measurements": [
+        "seismic"
+      ],
+      "previousLeader": 2,
+      "rows": [
+        {
+          "phase": 2,
+          "percent": 99.9697648641279,
+          "partial": false
+        },
+        {
+          "phase": -1,
+          "percent": 0.030185846506311932,
+          "partial": true
+        },
+        {
+          "phase": 4,
+          "percent": 0.000049289365648055876,
+          "partial": false
+        },
+        {
+          "phase": 3,
+          "percent": 4.610471102570072e-34,
+          "partial": false
+        }
+      ],
+      "count": 29352,
+      "coverage": [
+        {
+          "diagnostic": "seismic",
+          "tested": 26251,
+          "total": 29352,
+          "calibratedErrorFraction": 0.9999999999999999,
+          "conflict": false,
+          "unavailable": false
+        }
+      ]
+    },
+    {
+      "id": 9286266,
+      "reference": "Red giant (broad catalog class)",
+      "previousStatus": "match",
+      "status": "match",
+      "comparison": "Provisional: Leading fit is consistent with the reference stage group; reference evidence may overlap. Untested solutions remain.",
+      "mode": "observed-uncertainty",
+      "measurements": [
+        "seismic"
+      ],
+      "previousLeader": 2,
+      "rows": [
+        {
+          "phase": 2,
+          "percent": 91.14291778591948,
+          "partial": true
+        },
+        {
+          "phase": 3,
+          "percent": 8.826740068669684,
+          "partial": true
+        },
+        {
+          "phase": -1,
+          "percent": 0.030336689597365456,
+          "partial": true
+        },
+        {
+          "phase": 4,
+          "percent": 0.00000545581289533971,
+          "partial": true
+        }
+      ],
+      "count": 26982,
+      "coverage": [
+        {
+          "diagnostic": "seismic",
+          "tested": 24229,
+          "total": 26982,
+          "calibratedErrorFraction": 0.8333333333333333,
+          "conflict": false,
+          "unavailable": false
+        }
+      ]
+    },
+    {
+      "id": 10722067,
+      "reference": "Red giant (broad catalog class)",
+      "previousStatus": "match",
+      "status": "match",
+      "comparison": "Provisional: Leading fit is consistent with the reference stage group; reference evidence may overlap. Untested solutions remain.",
+      "mode": "observed-uncertainty",
+      "measurements": [
+        "seismic"
+      ],
+      "previousLeader": 2,
+      "rows": [
+        {
+          "phase": 2,
+          "percent": 99.97107717650032,
+          "partial": false
+        },
+        {
+          "phase": -1,
+          "percent": 0.028922823499503675,
+          "partial": true
+        },
+        {
+          "phase": 3,
+          "percent": 9.189097517228009e-18,
+          "partial": false
+        }
+      ],
+      "count": 13394,
+      "coverage": [
+        {
+          "diagnostic": "seismic",
+          "tested": 12502,
+          "total": 13394,
+          "calibratedErrorFraction": 0.9999999999999999,
+          "conflict": false,
+          "unavailable": false
+        }
+      ]
+    },
+    {
+      "id": 5543573,
+      "reference": "Red giant (broad catalog class)",
+      "previousStatus": "match",
+      "status": "match",
+      "comparison": "Provisional: Leading fit is consistent with the reference stage group; reference evidence may overlap. Untested solutions remain.",
+      "mode": "observed-uncertainty",
+      "measurements": [
+        "seismic"
+      ],
+      "previousLeader": 2,
+      "rows": [
+        {
+          "phase": 2,
+          "percent": 99.9911221032548,
+          "partial": false
+        },
+        {
+          "phase": -1,
+          "percent": 0.00853857468074157,
+          "partial": true
+        },
+        {
+          "phase": 4,
+          "percent": 0.0003393220648757429,
+          "partial": false
+        },
+        {
+          "phase": 3,
+          "percent": 9.586345882146435e-41,
+          "partial": false
+        }
+      ],
+      "count": 33943,
+      "coverage": [
+        {
+          "diagnostic": "seismic",
+          "tested": 31570,
+          "total": 33943,
+          "calibratedErrorFraction": 0.9999999999999999,
+          "conflict": false,
+          "unavailable": false
+        }
+      ]
+    },
+    {
+      "id": 3937067,
+      "reference": "Red giant (broad catalog class)",
+      "previousStatus": "match",
+      "status": "match",
+      "comparison": "Provisional: Leading fit is consistent with the reference stage group; reference evidence may overlap. Untested solutions remain.",
+      "mode": "observed-uncertainty",
+      "measurements": [
+        "seismic"
+      ],
+      "previousLeader": 2,
+      "rows": [
+        {
+          "phase": 2,
+          "percent": 99.95899988764734,
+          "partial": false
+        },
+        {
+          "phase": -1,
+          "percent": 0.04099486280181967,
+          "partial": true
+        },
+        {
+          "phase": 4,
+          "percent": 0.000005249550820591163,
+          "partial": false
+        },
+        {
+          "phase": 3,
+          "percent": 1.5332063227315144e-30,
+          "partial": false
+        }
+      ],
+      "count": 27058,
+      "coverage": [
+        {
+          "diagnostic": "seismic",
+          "tested": 23921,
+          "total": 27058,
+          "calibratedErrorFraction": 0.9999999999999999,
+          "conflict": false,
+          "unavailable": false
+        }
+      ]
+    },
+    {
+      "id": 4840662,
+      "reference": "Red giant (broad catalog class)",
+      "previousStatus": "mismatch",
+      "status": "match",
+      "comparison": "Provisional: Leading fit is consistent with the reference stage group; reference evidence may overlap. Untested solutions remain.",
+      "mode": "observed-uncertainty",
+      "measurements": [
+        "seismic"
+      ],
+      "previousLeader": -1,
+      "rows": [
+        {
+          "phase": 2,
+          "percent": 99.17770149230385,
+          "partial": false
+        },
+        {
+          "phase": -1,
+          "percent": 0.8222985076959927,
+          "partial": true
+        }
+      ],
+      "count": 1708,
+      "coverage": [
+        {
+          "diagnostic": "seismic",
+          "tested": 972,
+          "total": 1708,
+          "calibratedErrorFraction": 0.9999999999999999,
+          "conflict": false,
+          "unavailable": false
+        }
+      ]
+    },
+    {
+      "id": 6590359,
+      "reference": "Red giant (broad catalog class)",
+      "previousStatus": "match",
+      "status": "match",
+      "comparison": "Provisional: Leading fit is consistent with the reference stage group; reference evidence may overlap. Untested solutions remain.",
+      "mode": "observed-uncertainty",
+      "measurements": [
+        "seismic"
+      ],
+      "previousLeader": 2,
+      "rows": [
+        {
+          "phase": 2,
+          "percent": 99.94805324014312,
+          "partial": false
+        },
+        {
+          "phase": -1,
+          "percent": 0.05194658522278178,
+          "partial": true
+        },
+        {
+          "phase": 4,
+          "percent": 1.7463427054393698e-7,
+          "partial": false
+        },
+        {
+          "phase": 3,
+          "percent": 9.42023302431347e-20,
+          "partial": false
+        }
+      ],
+      "count": 23713,
+      "coverage": [
+        {
+          "diagnostic": "seismic",
+          "tested": 20737,
+          "total": 23713,
+          "calibratedErrorFraction": 0.9999999999999999,
+          "conflict": false,
+          "unavailable": false
+        }
+      ]
+    },
+    {
+      "id": 9946213,
+      "reference": "Red giant (broad catalog class)",
+      "previousStatus": "neutral",
+      "status": "match",
+      "comparison": "Provisional: Leading fit is consistent with the reference stage group; reference evidence may overlap. Untested solutions remain.",
+      "mode": "observed-uncertainty",
+      "measurements": [
+        "seismic"
+      ],
+      "previousLeader": 2,
+      "rows": [
+        {
+          "phase": 2,
+          "percent": 89.65258356083768,
+          "partial": false
+        },
+        {
+          "phase": 4,
+          "percent": 10.337749063781022,
+          "partial": false
+        },
+        {
+          "phase": -1,
+          "percent": 0.009667375381752568,
+          "partial": true
+        },
+        {
+          "phase": 3,
+          "percent": 1.160333175065901e-44,
+          "partial": false
+        }
+      ],
+      "count": 56893,
+      "coverage": [
+        {
+          "diagnostic": "seismic",
+          "tested": 54705,
+          "total": 56893,
+          "calibratedErrorFraction": 0.9999999999999999,
+          "conflict": false,
+          "unavailable": false
+        }
+      ]
+    },
+    {
+      "id": 7622649,
+      "reference": "Red giant (broad catalog class)",
+      "previousStatus": "match",
+      "status": "match",
+      "comparison": "Provisional: Leading fit is consistent with the reference stage group; reference evidence may overlap. Untested solutions remain.",
+      "mode": "observed-uncertainty",
+      "measurements": [
+        "seismic"
+      ],
+      "previousLeader": 2,
+      "rows": [
+        {
+          "phase": 2,
+          "percent": 99.97670864763494,
+          "partial": false
+        },
+        {
+          "phase": -1,
+          "percent": 0.023291352293072647,
+          "partial": true
+        },
+        {
+          "phase": 4,
+          "percent": 6.695709429849435e-11,
+          "partial": false
+        },
+        {
+          "phase": 3,
+          "percent": 6.23376701754162e-12,
+          "partial": false
+        }
+      ],
+      "count": 15609,
+      "coverage": [
+        {
+          "diagnostic": "seismic",
+          "tested": 14597,
+          "total": 15609,
+          "calibratedErrorFraction": 0.9999999999999999,
+          "conflict": false,
+          "unavailable": false
+        }
+      ]
+    },
+    {
+      "id": 11805217,
+      "reference": "Red giant (broad catalog class)",
+      "previousStatus": "match",
+      "status": "match",
+      "comparison": "Provisional: Leading fit is consistent with the reference stage group; reference evidence may overlap. Untested solutions remain.",
+      "mode": "observed-uncertainty",
+      "measurements": [
+        "seismic"
+      ],
+      "previousLeader": 2,
+      "rows": [
+        {
+          "phase": 2,
+          "percent": 99.9797316698166,
+          "partial": false
+        },
+        {
+          "phase": -1,
+          "percent": 0.020257562964476648,
+          "partial": true
+        },
+        {
+          "phase": 4,
+          "percent": 0.000010766030675746148,
+          "partial": false
+        },
+        {
+          "phase": 3,
+          "percent": 1.1917442061387389e-9,
+          "partial": false
+        }
+      ],
+      "count": 28808,
+      "coverage": [
+        {
+          "diagnostic": "seismic",
+          "tested": 26275,
+          "total": 28808,
+          "calibratedErrorFraction": 0.9999999999999999,
+          "conflict": false,
+          "unavailable": false
+        }
+      ]
+    },
+    {
+      "id": 2831815,
+      "reference": "Red giant (broad catalog class)",
+      "previousStatus": "match",
+      "status": "match",
+      "comparison": "Provisional: Leading fit is consistent with the reference stage group; reference evidence may overlap. Untested solutions remain.",
+      "mode": "observed-uncertainty",
+      "measurements": [
+        "seismic"
+      ],
+      "previousLeader": 2,
+      "rows": [
+        {
+          "phase": 2,
+          "percent": 99.98205837374765,
+          "partial": false
+        },
+        {
+          "phase": -1,
+          "percent": 0.01794162625242609,
+          "partial": true
+        },
+        {
+          "phase": 3,
+          "percent": 1.3425717023487356e-20,
+          "partial": false
+        }
+      ],
+      "count": 10687,
+      "coverage": [
+        {
+          "diagnostic": "seismic",
+          "tested": 10082,
+          "total": 10687,
+          "calibratedErrorFraction": 0.9999999999999999,
+          "conflict": false,
+          "unavailable": false
+        }
+      ]
+    },
+    {
+      "id": 9075225,
+      "reference": "Red giant (broad catalog class)",
+      "previousStatus": "match",
+      "status": "match",
+      "comparison": "Provisional: Leading fit is consistent with the reference stage group; reference evidence may overlap. Untested solutions remain.",
+      "mode": "observed-uncertainty",
+      "measurements": [
+        "seismic"
+      ],
+      "previousLeader": 2,
+      "rows": [
+        {
+          "phase": 2,
+          "percent": 89.4796017127515,
+          "partial": true
+        },
+        {
+          "phase": 3,
+          "percent": 10.500432118624762,
+          "partial": true
+        },
+        {
+          "phase": -1,
+          "percent": 0.019956397020828357,
+          "partial": true
+        },
+        {
+          "phase": 4,
+          "percent": 0.000009771602456215,
+          "partial": true
+        }
+      ],
+      "count": 25735,
+      "coverage": [
+        {
+          "diagnostic": "seismic",
+          "tested": 23566,
+          "total": 25735,
+          "calibratedErrorFraction": 0.8333333333333333,
+          "conflict": false,
+          "unavailable": false
+        }
+      ]
+    },
+    {
+      "id": 12314595,
+      "reference": "Red giant (broad catalog class)",
+      "previousStatus": "match",
+      "status": "match",
+      "comparison": "Provisional: Leading fit is consistent with the reference stage group; reference evidence may overlap. Untested solutions remain.",
+      "mode": "observed-uncertainty",
+      "measurements": [
+        "seismic"
+      ],
+      "previousLeader": 2,
+      "rows": [
+        {
+          "phase": 2,
+          "percent": 99.95348913212435,
+          "partial": false
+        },
+        {
+          "phase": -1,
+          "percent": 0.046507277703743514,
+          "partial": true
+        },
+        {
+          "phase": 4,
+          "percent": 0.0000035901048849285604,
+          "partial": false
+        },
+        {
+          "phase": 3,
+          "percent": 7.160080203251564e-11,
+          "partial": false
+        }
+      ],
+      "count": 29702,
+      "coverage": [
+        {
+          "diagnostic": "seismic",
+          "tested": 25960,
+          "total": 29702,
+          "calibratedErrorFraction": 0.9999999999999999,
+          "conflict": false,
+          "unavailable": false
+        }
+      ]
+    },
+    {
+      "id": 7337694,
+      "reference": "Red giant (broad catalog class)",
+      "previousStatus": "match",
+      "status": "match",
+      "comparison": "Provisional: Leading fit is consistent with the reference stage group; reference evidence may overlap. Untested solutions remain.",
+      "mode": "observed-uncertainty",
+      "measurements": [
+        "seismic"
+      ],
+      "previousLeader": 2,
+      "rows": [
+        {
+          "phase": 2,
+          "percent": 99.95629878070122,
+          "partial": false
+        },
+        {
+          "phase": -1,
+          "percent": 0.043699857823619154,
+          "partial": true
+        },
+        {
+          "phase": 4,
+          "percent": 0.0000013614750894179948,
+          "partial": false
+        },
+        {
+          "phase": 3,
+          "percent": 9.777788591986313e-28,
+          "partial": false
+        }
+      ],
+      "count": 27070,
+      "coverage": [
+        {
+          "diagnostic": "seismic",
+          "tested": 23864,
+          "total": 27070,
+          "calibratedErrorFraction": 0.9999999999999999,
+          "conflict": false,
+          "unavailable": false
+        }
+      ]
+    },
+    {
+      "id": 2709230,
+      "reference": "Red giant (broad catalog class)",
+      "previousStatus": "match",
+      "status": "match",
+      "comparison": "Provisional: Leading fit is consistent with the reference stage group; reference evidence may overlap. Untested solutions remain.",
+      "mode": "observed-uncertainty",
+      "measurements": [
+        "seismic"
+      ],
+      "previousLeader": 2,
+      "rows": [
+        {
+          "phase": 2,
+          "percent": 91.09402427506679,
+          "partial": true
+        },
+        {
+          "phase": 3,
+          "percent": 8.87837610423715,
+          "partial": true
+        },
+        {
+          "phase": -1,
+          "percent": 0.02759749380246202,
+          "partial": true
+        },
+        {
+          "phase": 4,
+          "percent": 0.000002126893448535848,
+          "partial": true
+        }
+      ],
+      "count": 25808,
+      "coverage": [
+        {
+          "diagnostic": "seismic",
+          "tested": 23352,
+          "total": 25808,
+          "calibratedErrorFraction": 0.8333333333333333,
+          "conflict": false,
+          "unavailable": false
+        }
+      ]
+    },
+    {
+      "id": 8561202,
+      "reference": "Red giant (broad catalog class)",
+      "previousStatus": "match",
+      "status": "match",
+      "comparison": "Provisional: Leading fit is consistent with the reference stage group; reference evidence may overlap. Untested solutions remain.",
+      "mode": "observed-uncertainty",
+      "measurements": [
+        "seismic"
+      ],
+      "previousLeader": 2,
+      "rows": [
+        {
+          "phase": 2,
+          "percent": 99.98994684261805,
+          "partial": false
+        },
+        {
+          "phase": -1,
+          "percent": 0.009983705408676208,
+          "partial": true
+        },
+        {
+          "phase": 3,
+          "percent": 0.0000676364254623805,
+          "partial": false
+        },
+        {
+          "phase": 4,
+          "percent": 0.0000018155495596026073,
+          "partial": false
+        }
+      ],
+      "count": 20583,
+      "coverage": [
+        {
+          "diagnostic": "seismic",
+          "tested": 19482,
+          "total": 20583,
+          "calibratedErrorFraction": 0.9999999999999999,
+          "conflict": false,
+          "unavailable": false
+        }
+      ]
+    },
+    {
+      "id": 5380775,
+      "reference": "Red giant (broad catalog class)",
+      "previousStatus": "match",
+      "status": "match",
+      "comparison": "Provisional: Leading fit is consistent with the reference stage group; reference evidence may overlap. Untested solutions remain.",
+      "mode": "observed-uncertainty",
+      "measurements": [
+        "seismic"
+      ],
+      "previousLeader": 2,
+      "rows": [
+        {
+          "phase": 2,
+          "percent": 99.98413170486438,
+          "partial": false
+        },
+        {
+          "phase": -1,
+          "percent": 0.015105923291910435,
+          "partial": true
+        },
+        {
+          "phase": 3,
+          "percent": 0.000762371843428728,
+          "partial": false
+        }
+      ],
+      "count": 12928,
+      "coverage": [
+        {
+          "diagnostic": "seismic",
+          "tested": 12269,
+          "total": 12928,
+          "calibratedErrorFraction": 0.9999999999999999,
+          "conflict": false,
+          "unavailable": false
+        }
+      ]
+    },
+    {
+      "id": 9529734,
+      "reference": "Red giant (broad catalog class)",
+      "previousStatus": "match",
+      "status": "match",
+      "comparison": "Provisional: Leading fit is consistent with the reference stage group; reference evidence may overlap. Untested solutions remain.",
+      "mode": "observed-uncertainty",
+      "measurements": [
+        "seismic"
+      ],
+      "previousLeader": 2,
+      "rows": [
+        {
+          "phase": 2,
+          "percent": 99.96089888291525,
+          "partial": false
+        },
+        {
+          "phase": -1,
+          "percent": 0.038452374948109574,
+          "partial": true
+        },
+        {
+          "phase": 4,
+          "percent": 0.0006487421351589945,
+          "partial": false
+        },
+        {
+          "phase": 0,
+          "percent": 1.5352683539105875e-12,
+          "partial": true
+        },
+        {
+          "phase": 3,
+          "percent": 1.5448352869624752e-15,
+          "partial": false
+        }
+      ],
+      "count": 40815,
+      "coverage": [
+        {
+          "diagnostic": "seismic",
+          "tested": 35380,
+          "total": 40815,
+          "calibratedErrorFraction": 0.9999999999999999,
+          "conflict": false,
+          "unavailable": false
+        }
+      ]
+    },
+    {
+      "id": 6118479,
+      "reference": "Red giant (broad catalog class)",
+      "previousStatus": "match",
+      "status": "match",
+      "comparison": "Provisional: Leading fit is consistent with the reference stage group; reference evidence may overlap. Untested solutions remain.",
+      "mode": "observed-uncertainty",
+      "measurements": [
+        "seismic"
+      ],
+      "previousLeader": 2,
+      "rows": [
+        {
+          "phase": 2,
+          "percent": 99.96835324199377,
+          "partial": false
+        },
+        {
+          "phase": -1,
+          "percent": 0.031646464476133805,
+          "partial": true
+        },
+        {
+          "phase": 3,
+          "percent": 2.9353097850524373e-7,
+          "partial": false
+        }
+      ],
+      "count": 8491,
+      "coverage": [
+        {
+          "diagnostic": "seismic",
+          "tested": 7872,
+          "total": 8491,
+          "calibratedErrorFraction": 0.9999999999999999,
+          "conflict": false,
+          "unavailable": false
+        }
+      ]
+    },
+    {
+      "id": 8350645,
+      "reference": "Red giant (broad catalog class)",
+      "previousStatus": "match",
+      "status": "match",
+      "comparison": "Provisional: Leading fit is consistent with the reference stage group; reference evidence may overlap. Untested solutions remain.",
+      "mode": "observed-uncertainty",
+      "measurements": [
+        "seismic"
+      ],
+      "previousLeader": 2,
+      "rows": [
+        {
+          "phase": 2,
+          "percent": 87.28189210215056,
+          "partial": true
+        },
+        {
+          "phase": 3,
+          "percent": 12.710254839508842,
+          "partial": true
+        },
+        {
+          "phase": -1,
+          "percent": 0.007842330976773833,
+          "partial": true
+        },
+        {
+          "phase": 4,
+          "percent": 0.000010727363758031491,
+          "partial": true
+        }
+      ],
+      "count": 26328,
+      "coverage": [
+        {
+          "diagnostic": "seismic",
+          "tested": 24811,
+          "total": 26328,
+          "calibratedErrorFraction": 0.8333333333333333,
+          "conflict": false,
+          "unavailable": false
+        }
+      ]
+    },
+    {
+      "id": 3449907,
+      "reference": "Red giant (broad catalog class)",
+      "previousStatus": "match",
+      "status": "match",
+      "comparison": "Provisional: Leading fit is consistent with the reference stage group; reference evidence may overlap. Untested solutions remain.",
+      "mode": "observed-uncertainty",
+      "measurements": [
+        "seismic"
+      ],
+      "previousLeader": 2,
+      "rows": [
+        {
+          "phase": 2,
+          "percent": 92.4874560954924,
+          "partial": true
+        },
+        {
+          "phase": 3,
+          "percent": 7.490660169710433,
+          "partial": true
+        },
+        {
+          "phase": -1,
+          "percent": 0.02188373479742135,
+          "partial": true
+        }
+      ],
+      "count": 10748,
+      "coverage": [
+        {
+          "diagnostic": "seismic",
+          "tested": 10129,
+          "total": 10748,
+          "calibratedErrorFraction": 0.8333333333333333,
+          "conflict": false,
+          "unavailable": false
+        }
+      ]
+    },
+    {
+      "id": 4457331,
+      "reference": "Red giant (broad catalog class)",
+      "previousStatus": "match",
+      "status": "match",
+      "comparison": "Provisional: Leading fit is consistent with the reference stage group; reference evidence may overlap. Untested solutions remain.",
+      "mode": "observed-uncertainty",
+      "measurements": [
+        "seismic"
+      ],
+      "previousLeader": 2,
+      "rows": [
+        {
+          "phase": 2,
+          "percent": 99.98468039460023,
+          "partial": false
+        },
+        {
+          "phase": -1,
+          "percent": 0.015246918753577199,
+          "partial": true
+        },
+        {
+          "phase": 4,
+          "percent": 0.00007268664610496563,
+          "partial": false
+        },
+        {
+          "phase": 3,
+          "percent": 1.399812079486917e-28,
+          "partial": false
+        }
+      ],
+      "count": 28861,
+      "coverage": [
+        {
+          "diagnostic": "seismic",
+          "tested": 26538,
+          "total": 28861,
+          "calibratedErrorFraction": 0.9999999999999999,
+          "conflict": false,
+          "unavailable": false
+        }
+      ]
+    },
+    {
+      "id": 8019753,
+      "reference": "Main sequence",
+      "previousStatus": "match",
+      "status": "match",
+      "comparison": "Provisional: Consistent at broad-class level; not an independent stage confirmation. Untested solutions remain.",
+      "mode": "observed-uncertainty",
+      "measurements": [
+        "lithium"
+      ],
+      "previousLeader": 0,
+      "rows": [
+        {
+          "phase": 0,
+          "percent": 75.7509168813708,
+          "partial": true
+        },
+        {
+          "phase": 2,
+          "percent": 24.047358555120606,
+          "partial": true
+        },
+        {
+          "phase": -1,
+          "percent": 0.20172456350871235,
+          "partial": true
+        }
+      ],
+      "count": 16199,
+      "coverage": [
+        {
+          "diagnostic": "lithium",
+          "tested": 1457,
+          "total": 16199,
+          "calibratedErrorFraction": null,
+          "conflict": false,
+          "unavailable": false
+        }
+      ]
+    },
+    {
+      "id": 8683442,
+      "reference": "Main sequence",
+      "previousStatus": "match",
+      "status": "match",
+      "comparison": "Provisional: Consistent at broad-class level; not an independent stage confirmation. Untested solutions remain.",
+      "mode": "observed-uncertainty",
+      "measurements": [
+        "lithium"
+      ],
+      "previousLeader": 0,
+      "rows": [
+        {
+          "phase": 0,
+          "percent": 98.84338561775564,
+          "partial": true
+        },
+        {
+          "phase": 2,
+          "percent": 1.0014171571609296,
+          "partial": true
+        },
+        {
+          "phase": -1,
+          "percent": 0.1551972250831681,
+          "partial": true
+        }
+      ],
+      "count": 22003,
+      "coverage": [
+        {
+          "diagnostic": "lithium",
+          "tested": 2797,
+          "total": 22003,
+          "calibratedErrorFraction": null,
+          "conflict": false,
+          "unavailable": false
+        }
+      ]
+    },
+    {
+      "id": 5876824,
+      "reference": "Main sequence",
+      "previousStatus": "mismatch",
+      "status": "match",
+      "comparison": "Provisional: Consistent at broad-class level; not an independent stage confirmation. Untested solutions remain.",
+      "mode": "observed-uncertainty",
+      "measurements": [
+        "lithium"
+      ],
+      "previousLeader": -1,
+      "rows": [
+        {
+          "phase": 0,
+          "percent": 99.80960519299913,
+          "partial": true
+        },
+        {
+          "phase": -1,
+          "percent": 0.19039480700055766,
+          "partial": true
+        }
+      ],
+      "count": 9835,
+      "coverage": [
+        {
+          "diagnostic": "lithium",
+          "tested": 2401,
+          "total": 9835,
+          "calibratedErrorFraction": null,
+          "conflict": false,
+          "unavailable": false
+        }
+      ]
+    },
+    {
+      "id": 8552124,
+      "reference": "Main sequence",
+      "previousStatus": "match",
+      "status": "match",
+      "comparison": "Provisional: Consistent at broad-class level; not an independent stage confirmation. Untested solutions remain.",
+      "mode": "observed-uncertainty",
+      "measurements": [
+        "lithium"
+      ],
+      "previousLeader": 0,
+      "rows": [
+        {
+          "phase": 0,
+          "percent": 99.87566063276535,
+          "partial": true
+        },
+        {
+          "phase": -1,
+          "percent": 0.12433936723480168,
+          "partial": true
+        }
+      ],
+      "count": 26362,
+      "coverage": [
+        {
+          "diagnostic": "lithium",
+          "tested": 3650,
+          "total": 26362,
+          "calibratedErrorFraction": null,
+          "conflict": false,
+          "unavailable": false
+        }
+      ]
+    },
+    {
+      "id": 5171752,
+      "reference": "Main sequence",
+      "previousStatus": "match",
+      "status": "match",
+      "comparison": "Provisional: Consistent at broad-class level; not an independent stage confirmation. Untested solutions remain.",
+      "mode": "observed-uncertainty",
+      "measurements": [
+        "lithium"
+      ],
+      "previousLeader": 0,
+      "rows": [
+        {
+          "phase": 0,
+          "percent": 87.77086501950374,
+          "partial": true
+        },
+        {
+          "phase": 2,
+          "percent": 12.067129008856197,
+          "partial": true
+        },
+        {
+          "phase": -1,
+          "percent": 0.1620059716398866,
+          "partial": true
+        }
+      ],
+      "count": 19898,
+      "coverage": [
+        {
+          "diagnostic": "lithium",
+          "tested": 2005,
+          "total": 19898,
+          "calibratedErrorFraction": null,
+          "conflict": false,
+          "unavailable": false
+        }
+      ]
+    },
+    {
+      "id": 11098004,
+      "reference": "Main sequence",
+      "previousStatus": "match",
+      "status": "match",
+      "comparison": "Provisional: Consistent at broad-class level; not an independent stage confirmation. Untested solutions remain.",
+      "mode": "observed-uncertainty",
+      "measurements": [
+        "lithium"
+      ],
+      "previousLeader": 0,
+      "rows": [
+        {
+          "phase": 0,
+          "percent": 98.61082113936165,
+          "partial": true
+        },
+        {
+          "phase": 2,
+          "percent": 1.2330175264394472,
+          "partial": true
+        },
+        {
+          "phase": -1,
+          "percent": 0.15616133419830897,
+          "partial": true
+        }
+      ],
+      "count": 21904,
+      "coverage": [
+        {
+          "diagnostic": "lithium",
+          "tested": 2757,
+          "total": 21904,
+          "calibratedErrorFraction": null,
+          "conflict": false,
+          "unavailable": false
+        }
+      ]
+    },
+    {
+      "id": 4995418,
+      "reference": "Main sequence",
+      "previousStatus": "match",
+      "status": "match",
+      "comparison": "Provisional: Consistent at broad-class level; not an independent stage confirmation. Untested solutions remain.",
+      "mode": "observed-uncertainty",
+      "measurements": [
+        "lithium"
+      ],
+      "previousLeader": 0,
+      "rows": [
+        {
+          "phase": 0,
+          "percent": 99.84746725018684,
+          "partial": true
+        },
+        {
+          "phase": -1,
+          "percent": 0.15253274981327922,
+          "partial": true
+        }
+      ],
+      "count": 26396,
+      "coverage": [
+        {
+          "diagnostic": "lithium",
+          "tested": 3837,
+          "total": 26396,
+          "calibratedErrorFraction": null,
+          "conflict": false,
+          "unavailable": false
+        }
+      ]
+    },
+    {
+      "id": 5697225,
+      "reference": "Main sequence",
+      "previousStatus": "match",
+      "status": "match",
+      "comparison": "Provisional: Consistent at broad-class level; not an independent stage confirmation. Untested solutions remain.",
+      "mode": "observed-uncertainty",
+      "measurements": [
+        "lithium"
+      ],
+      "previousLeader": 0,
+      "rows": [
+        {
+          "phase": 0,
+          "percent": 99.88238132656127,
+          "partial": true
+        },
+        {
+          "phase": -1,
+          "percent": 0.11512942136147394,
+          "partial": true
+        },
+        {
+          "phase": 2,
+          "percent": 0.002489252077364807,
+          "partial": true
+        }
+      ],
+      "count": 25493,
+      "coverage": [
+        {
+          "diagnostic": "lithium",
+          "tested": 3298,
+          "total": 25493,
+          "calibratedErrorFraction": null,
+          "conflict": false,
+          "unavailable": false
+        }
+      ]
+    },
+    {
+      "id": 9943581,
+      "reference": "Main sequence",
+      "previousStatus": "match",
+      "status": "match",
+      "comparison": "Provisional: Consistent at broad-class level; not an independent stage confirmation. Untested solutions remain.",
+      "mode": "observed-uncertainty",
+      "measurements": [
+        "lithium"
+      ],
+      "previousLeader": 0,
+      "rows": [
+        {
+          "phase": 0,
+          "percent": 99.86495747614656,
+          "partial": true
+        },
+        {
+          "phase": -1,
+          "percent": 0.13274196370644656,
+          "partial": true
+        },
+        {
+          "phase": 2,
+          "percent": 0.0023005601471217645,
+          "partial": true
+        }
+      ],
+      "count": 25209,
+      "coverage": [
+        {
+          "diagnostic": "lithium",
+          "tested": 3400,
+          "total": 25209,
+          "calibratedErrorFraction": null,
+          "conflict": false,
+          "unavailable": false
+        }
+      ]
+    },
+    {
+      "id": 9533168,
+      "reference": "Main sequence",
+      "previousStatus": "match",
+      "status": "match",
+      "comparison": "Provisional: Consistent at broad-class level; not an independent stage confirmation. Untested solutions remain.",
+      "mode": "observed-uncertainty",
+      "measurements": [
+        "lithium"
+      ],
+      "previousLeader": 0,
+      "rows": [
+        {
+          "phase": 0,
+          "percent": 99.78289087411079,
+          "partial": true
+        },
+        {
+          "phase": -1,
+          "percent": 0.21670969508739688,
+          "partial": true
+        },
+        {
+          "phase": 2,
+          "percent": 0.00039943080201141663,
+          "partial": true
+        }
+      ],
+      "count": 25969,
+      "coverage": [
+        {
+          "diagnostic": "lithium",
+          "tested": 3611,
+          "total": 25969,
+          "calibratedErrorFraction": null,
+          "conflict": false,
+          "unavailable": false
+        }
+      ]
+    },
+    {
+      "id": 9654342,
+      "reference": "Main sequence",
+      "previousStatus": "match",
+      "status": "match",
+      "comparison": "Provisional: Consistent at broad-class level; not an independent stage confirmation. Untested solutions remain.",
+      "mode": "observed-uncertainty",
+      "measurements": [
+        "lithium"
+      ],
+      "previousLeader": 0,
+      "rows": [
+        {
+          "phase": 0,
+          "percent": 88.58778405564627,
+          "partial": true
+        },
+        {
+          "phase": 2,
+          "percent": 11.232176612876044,
+          "partial": true
+        },
+        {
+          "phase": -1,
+          "percent": 0.1800393314778318,
+          "partial": true
+        }
+      ],
+      "count": 18204,
+      "coverage": [
+        {
+          "diagnostic": "lithium",
+          "tested": 1989,
+          "total": 18204,
+          "calibratedErrorFraction": null,
+          "conflict": false,
+          "unavailable": false
+        }
+      ]
+    },
+    {
+      "id": 8487271,
+      "reference": "Main sequence",
+      "previousStatus": "match",
+      "status": "match",
+      "comparison": "Provisional: Consistent at broad-class level; not an independent stage confirmation. Untested solutions remain.",
+      "mode": "observed-uncertainty",
+      "measurements": [
+        "lithium"
+      ],
+      "previousLeader": 0,
+      "rows": [
+        {
+          "phase": 0,
+          "percent": 99.41916955188121,
+          "partial": true
+        },
+        {
+          "phase": 2,
+          "percent": 0.3945716633134146,
+          "partial": true
+        },
+        {
+          "phase": -1,
+          "percent": 0.1862587848052363,
+          "partial": true
+        }
+      ],
+      "count": 21583,
+      "coverage": [
+        {
+          "diagnostic": "lithium",
+          "tested": 3010,
+          "total": 21583,
+          "calibratedErrorFraction": null,
+          "conflict": false,
+          "unavailable": false
+        }
+      ]
+    },
+    {
+      "id": 5083272,
+      "reference": "Main sequence",
+      "previousStatus": "match",
+      "status": "match",
+      "comparison": "Provisional: Consistent at broad-class level; not an independent stage confirmation. Untested solutions remain.",
+      "mode": "observed-uncertainty",
+      "measurements": [
+        "lithium"
+      ],
+      "previousLeader": 0,
+      "rows": [
+        {
+          "phase": 0,
+          "percent": 99.34116291826949,
+          "partial": true
+        },
+        {
+          "phase": -1,
+          "percent": 0.6558835632181598,
+          "partial": true
+        },
+        {
+          "phase": 2,
+          "percent": 0.0029535185122440966,
+          "partial": true
+        }
+      ],
+      "count": 25439,
+      "coverage": [
+        {
+          "diagnostic": "lithium",
+          "tested": 3447,
+          "total": 25439,
+          "calibratedErrorFraction": null,
+          "conflict": false,
+          "unavailable": false
+        }
+      ]
+    },
+    {
+      "id": 7105818,
+      "reference": "Main sequence",
+      "previousStatus": "match",
+      "status": "match",
+      "comparison": "Provisional: Consistent at broad-class level; not an independent stage confirmation. Untested solutions remain.",
+      "mode": "observed-uncertainty",
+      "measurements": [
+        "lithium"
+      ],
+      "previousLeader": 0,
+      "rows": [
+        {
+          "phase": 0,
+          "percent": 62.07201491646699,
+          "partial": true
+        },
+        {
+          "phase": 2,
+          "percent": 37.68211700361353,
+          "partial": true
+        },
+        {
+          "phase": -1,
+          "percent": 0.24586807991947315,
+          "partial": true
+        }
+      ],
+      "count": 14971,
+      "coverage": [
+        {
+          "diagnostic": "lithium",
+          "tested": 1006,
+          "total": 14971,
+          "calibratedErrorFraction": null,
+          "conflict": false,
+          "unavailable": false
+        }
+      ]
+    },
+    {
+      "id": 8295509,
+      "reference": "Main sequence",
+      "previousStatus": "mismatch",
+      "status": "match",
+      "comparison": "Provisional: Consistent at broad-class level; not an independent stage confirmation. Untested solutions remain.",
+      "mode": "observed-uncertainty",
+      "measurements": [
+        "lithium"
+      ],
+      "previousLeader": -1,
+      "rows": [
+        {
+          "phase": 0,
+          "percent": 99.79394768417465,
+          "partial": true
+        },
+        {
+          "phase": -1,
+          "percent": 0.20605231582549702,
+          "partial": true
+        }
+      ],
+      "count": 9585,
+      "coverage": [
+        {
+          "diagnostic": "lithium",
+          "tested": 2585,
+          "total": 9585,
+          "calibratedErrorFraction": null,
+          "conflict": false,
+          "unavailable": false
+        }
+      ]
+    },
+    {
+      "id": 7732770,
+      "reference": "Main sequence",
+      "previousStatus": "mismatch",
+      "status": "match",
+      "comparison": "Provisional: Consistent at broad-class level; not an independent stage confirmation. Untested solutions remain.",
+      "mode": "observed-uncertainty",
+      "measurements": [
+        "lithium"
+      ],
+      "previousLeader": -1,
+      "rows": [
+        {
+          "phase": 0,
+          "percent": 99.44468898459439,
+          "partial": true
+        },
+        {
+          "phase": 2,
+          "percent": 0.37380113936804843,
+          "partial": true
+        },
+        {
+          "phase": -1,
+          "percent": 0.1815098760375687,
+          "partial": true
+        }
+      ],
+      "count": 23057,
+      "coverage": [
+        {
+          "diagnostic": "lithium",
+          "tested": 2953,
+          "total": 23057,
+          "calibratedErrorFraction": null,
+          "conflict": false,
+          "unavailable": false
+        }
+      ]
+    },
+    {
+      "id": 5861082,
+      "reference": "Main sequence",
+      "previousStatus": "match",
+      "status": "match",
+      "comparison": "Provisional: Consistent at broad-class level; not an independent stage confirmation. Untested solutions remain.",
+      "mode": "observed-uncertainty",
+      "measurements": [
+        "lithium"
+      ],
+      "previousLeader": 0,
+      "rows": [
+        {
+          "phase": 0,
+          "percent": 96.60017536550725,
+          "partial": true
+        },
+        {
+          "phase": 2,
+          "percent": 3.246886258292128,
+          "partial": true
+        },
+        {
+          "phase": -1,
+          "percent": 0.15293837620052064,
+          "partial": true
+        }
+      ],
+      "count": 20369,
+      "coverage": [
+        {
+          "diagnostic": "lithium",
+          "tested": 2447,
+          "total": 20369,
+          "calibratedErrorFraction": null,
+          "conflict": false,
+          "unavailable": false
+        }
+      ]
+    },
+    {
+      "id": 8350630,
+      "reference": "Main sequence",
+      "previousStatus": "mismatch",
+      "status": "match",
+      "comparison": "Provisional: Consistent at broad-class level; not an independent stage confirmation. Untested solutions remain.",
+      "mode": "observed-uncertainty",
+      "measurements": [
+        "lithium"
+      ],
+      "previousLeader": -1,
+      "rows": [
+        {
+          "phase": 0,
+          "percent": 99.83694890331019,
+          "partial": true
+        },
+        {
+          "phase": -1,
+          "percent": 0.1630508780011466,
+          "partial": true
+        },
+        {
+          "phase": 2,
+          "percent": 2.186887742182389e-7,
+          "partial": true
+        }
+      ],
+      "count": 26421,
+      "coverage": [
+        {
+          "diagnostic": "lithium",
+          "tested": 3635,
+          "total": 26421,
+          "calibratedErrorFraction": null,
+          "conflict": false,
+          "unavailable": false
+        }
+      ]
+    },
+    {
+      "id": 6272252,
+      "reference": "Main sequence",
+      "previousStatus": "match",
+      "status": "match",
+      "comparison": "Provisional: Consistent at broad-class level; not an independent stage confirmation. Untested solutions remain.",
+      "mode": "observed-uncertainty",
+      "measurements": [
+        "lithium"
+      ],
+      "previousLeader": 0,
+      "rows": [
+        {
+          "phase": 0,
+          "percent": 99.85467800010993,
+          "partial": true
+        },
+        {
+          "phase": -1,
+          "percent": 0.1453203289997267,
+          "partial": true
+        },
+        {
+          "phase": 2,
+          "percent": 0.0000016708901461703803,
+          "partial": true
+        }
+      ],
+      "count": 25914,
+      "coverage": [
+        {
+          "diagnostic": "lithium",
+          "tested": 3917,
+          "total": 25914,
+          "calibratedErrorFraction": null,
+          "conflict": false,
+          "unavailable": false
+        }
+      ]
+    },
+    {
+      "id": 6436856,
+      "reference": "Main sequence",
+      "previousStatus": "match",
+      "status": "match",
+      "comparison": "Provisional: Consistent at broad-class level; not an independent stage confirmation. Untested solutions remain.",
+      "mode": "observed-uncertainty",
+      "measurements": [
+        "lithium"
+      ],
+      "previousLeader": 0,
+      "rows": [
+        {
+          "phase": 0,
+          "percent": 99.85280638724325,
+          "partial": true
+        },
+        {
+          "phase": -1,
+          "percent": 0.1320645808797751,
+          "partial": true
+        },
+        {
+          "phase": 2,
+          "percent": 0.01512903187738992,
+          "partial": true
+        }
+      ],
+      "count": 25123,
+      "coverage": [
+        {
+          "diagnostic": "lithium",
+          "tested": 3274,
+          "total": 25123,
+          "calibratedErrorFraction": null,
+          "conflict": false,
+          "unavailable": false
+        }
+      ]
+    },
+    {
+      "id": 9761459,
+      "reference": "Main sequence",
+      "previousStatus": "match",
+      "status": "match",
+      "comparison": "Provisional: Consistent at broad-class level; not an independent stage confirmation. Untested solutions remain.",
+      "mode": "observed-uncertainty",
+      "measurements": [
+        "lithium"
+      ],
+      "previousLeader": 0,
+      "rows": [
+        {
+          "phase": 0,
+          "percent": 99.72607937489715,
+          "partial": true
+        },
+        {
+          "phase": -1,
+          "percent": 0.14147912731927526,
+          "partial": true
+        },
+        {
+          "phase": 2,
+          "percent": 0.13244149778404088,
+          "partial": true
+        }
+      ],
+      "count": 23658,
+      "coverage": [
+        {
+          "diagnostic": "lithium",
+          "tested": 3097,
+          "total": 23658,
+          "calibratedErrorFraction": null,
+          "conflict": false,
+          "unavailable": false
+        }
+      ]
+    },
+    {
+      "id": 4814262,
+      "reference": "Main sequence",
+      "previousStatus": "mismatch",
+      "status": "match",
+      "comparison": "Provisional: Consistent at broad-class level; not an independent stage confirmation. Untested solutions remain.",
+      "mode": "observed-uncertainty",
+      "measurements": [
+        "lithium"
+      ],
+      "previousLeader": -1,
+      "rows": [
+        {
+          "phase": 0,
+          "percent": 90.80690802180732,
+          "partial": true
+        },
+        {
+          "phase": 2,
+          "percent": 8.963177404447354,
+          "partial": true
+        },
+        {
+          "phase": -1,
+          "percent": 0.22991457374527238,
+          "partial": true
+        }
+      ],
+      "count": 20316,
+      "coverage": [
+        {
+          "diagnostic": "lithium",
+          "tested": 2441,
+          "total": 20316,
+          "calibratedErrorFraction": null,
+          "conflict": false,
+          "unavailable": false
+        }
+      ]
+    },
+    {
+      "id": 9887784,
+      "reference": "Main sequence",
+      "previousStatus": "match",
+      "status": "match",
+      "comparison": "Provisional: Consistent at broad-class level; not an independent stage confirmation. Untested solutions remain.",
+      "mode": "observed-uncertainty",
+      "measurements": [
+        "lithium"
+      ],
+      "previousLeader": 0,
+      "rows": [
+        {
+          "phase": 0,
+          "percent": 97.40685904639327,
+          "partial": true
+        },
+        {
+          "phase": 2,
+          "percent": 2.4580366590005376,
+          "partial": true
+        },
+        {
+          "phase": -1,
+          "percent": 0.13510429460612597,
+          "partial": true
+        }
+      ],
+      "count": 21312,
+      "coverage": [
+        {
+          "diagnostic": "lithium",
+          "tested": 2446,
+          "total": 21312,
+          "calibratedErrorFraction": null,
+          "conflict": false,
+          "unavailable": false
+        }
+      ]
+    },
+    {
+      "id": 7120961,
+      "reference": "Main sequence",
+      "previousStatus": "match",
+      "status": "match",
+      "comparison": "Provisional: Consistent at broad-class level; not an independent stage confirmation. Untested solutions remain.",
+      "mode": "observed-uncertainty",
+      "measurements": [
+        "lithium"
+      ],
+      "previousLeader": 0,
+      "rows": [
+        {
+          "phase": 0,
+          "percent": 99.86646550770338,
+          "partial": true
+        },
+        {
+          "phase": -1,
+          "percent": 0.12181153599558107,
+          "partial": true
+        },
+        {
+          "phase": 2,
+          "percent": 0.011722956301001227,
+          "partial": true
+        }
+      ],
+      "count": 25410,
+      "coverage": [
+        {
+          "diagnostic": "lithium",
+          "tested": 3332,
+          "total": 25410,
+          "calibratedErrorFraction": null,
+          "conflict": false,
+          "unavailable": false
+        }
+      ]
+    },
+    {
+      "id": "PENELLOPE:CVSO17",
+      "reference": "Pre-main sequence",
+      "previousStatus": "match",
+      "status": "match",
+      "comparison": "Provisional: Leading fit is consistent with the reference stage group; reference evidence may overlap. Untested solutions remain.",
+      "mode": "point-interpolation",
+      "measurements": [
+        "lithium"
+      ],
+      "previousLeader": -1,
+      "rows": [
+        {
+          "phase": -1,
+          "percent": 100,
+          "partial": true
+        }
+      ],
+      "count": 10,
+      "coverage": [
+        {
+          "diagnostic": "lithium",
+          "tested": 2,
+          "total": 10,
+          "calibratedErrorFraction": null,
+          "conflict": false,
+          "unavailable": false
+        }
+      ]
+    },
+    {
+      "id": "PENELLOPE:SO518",
+      "reference": "Pre-main sequence",
+      "previousStatus": "match",
+      "status": "match",
+      "comparison": "Provisional: Leading fit is consistent with the reference stage group; reference evidence may overlap. Untested solutions remain.",
+      "mode": "point-interpolation",
+      "measurements": [
+        "lithium"
+      ],
+      "previousLeader": -1,
+      "rows": [
+        {
+          "phase": -1,
+          "percent": 100,
+          "partial": true
+        }
+      ],
+      "count": 11,
+      "coverage": [
+        {
+          "diagnostic": "lithium",
+          "tested": 2,
+          "total": 11,
+          "calibratedErrorFraction": null,
+          "conflict": false,
+          "unavailable": false
+        }
+      ]
+    },
+    {
+      "id": "PENELLOPE:CVSO58",
+      "reference": "Pre-main sequence",
+      "previousStatus": "match",
+      "status": "match",
+      "comparison": "Provisional: Leading fit is consistent with the reference stage group; reference evidence may overlap. Untested solutions remain.",
+      "mode": "point-interpolation",
+      "measurements": [
+        "lithium"
+      ],
+      "previousLeader": -1,
+      "rows": [
+        {
+          "phase": -1,
+          "percent": 100,
+          "partial": true
+        }
+      ],
+      "count": 11,
+      "coverage": [
+        {
+          "diagnostic": "lithium",
+          "tested": 2,
+          "total": 11,
+          "calibratedErrorFraction": null,
+          "conflict": false,
+          "unavailable": false
+        }
+      ]
+    },
+    {
+      "id": "PENELLOPE:CVSO146",
+      "reference": "Pre-main sequence",
+      "previousStatus": "match",
+      "status": "match",
+      "comparison": "Provisional: Leading fit is consistent with the reference stage group; reference evidence may overlap. Untested solutions remain.",
+      "mode": "point-interpolation",
+      "measurements": [
+        "lithium"
+      ],
+      "previousLeader": -1,
+      "rows": [
+        {
+          "phase": -1,
+          "percent": 100,
+          "partial": true
+        }
+      ],
+      "count": 11,
+      "coverage": [
+        {
+          "diagnostic": "lithium",
+          "tested": 2,
+          "total": 11,
+          "calibratedErrorFraction": null,
+          "conflict": false,
+          "unavailable": false
+        }
+      ]
+    },
+    {
+      "id": "PENELLOPE:CVSO107",
+      "reference": "Pre-main sequence",
+      "previousStatus": "match",
+      "status": "match",
+      "comparison": "Provisional: Leading fit is consistent with the reference stage group; reference evidence may overlap. Untested solutions remain.",
+      "mode": "point-interpolation",
+      "measurements": [
+        "lithium"
+      ],
+      "previousLeader": -1,
+      "rows": [
+        {
+          "phase": -1,
+          "percent": 100,
+          "partial": true
+        }
+      ],
+      "count": 11,
+      "coverage": [
+        {
+          "diagnostic": "lithium",
+          "tested": 2,
+          "total": 11,
+          "calibratedErrorFraction": null,
+          "conflict": false,
+          "unavailable": false
+        }
+      ]
+    },
+    {
+      "id": "PENELLOPE:SO1153",
+      "reference": "Pre-main sequence",
+      "previousStatus": "match",
+      "status": "match",
+      "comparison": "Provisional: Leading fit is consistent with the reference stage group; reference evidence may overlap. Untested solutions remain.",
+      "mode": "point-interpolation",
+      "measurements": [
+        "lithium"
+      ],
+      "previousLeader": -1,
+      "rows": [
+        {
+          "phase": -1,
+          "percent": 100,
+          "partial": true
+        }
+      ],
+      "count": 11,
+      "coverage": [
+        {
+          "diagnostic": "lithium",
+          "tested": 2,
+          "total": 11,
+          "calibratedErrorFraction": null,
+          "conflict": false,
+          "unavailable": false
+        }
+      ]
+    },
+    {
+      "id": "PENELLOPE:CVSO176",
+      "reference": "Pre-main sequence",
+      "previousStatus": "match",
+      "status": "match",
+      "comparison": "Provisional: Leading fit is consistent with the reference stage group; reference evidence may overlap. Untested solutions remain.",
+      "mode": "point-interpolation",
+      "measurements": [
+        "lithium"
+      ],
+      "previousLeader": -1,
+      "rows": [
+        {
+          "phase": -1,
+          "percent": 100,
+          "partial": true
+        }
+      ],
+      "count": 6,
+      "coverage": [
+        {
+          "diagnostic": "lithium",
+          "tested": 0,
+          "total": 6,
+          "calibratedErrorFraction": null,
+          "conflict": false,
+          "unavailable": true
+        }
+      ]
+    },
+    {
+      "id": "PENELLOPE:CVSO36",
+      "reference": "Pre-main sequence",
+      "previousStatus": "match",
+      "status": "match",
+      "comparison": "Provisional: Leading fit is consistent with the reference stage group; reference evidence may overlap. Untested solutions remain.",
+      "mode": "point-interpolation",
+      "measurements": [
+        "lithium"
+      ],
+      "previousLeader": -1,
+      "rows": [
+        {
+          "phase": -1,
+          "percent": 100,
+          "partial": true
+        }
+      ],
+      "count": 10,
+      "coverage": [
+        {
+          "diagnostic": "lithium",
+          "tested": 2,
+          "total": 10,
+          "calibratedErrorFraction": null,
+          "conflict": false,
+          "unavailable": false
+        }
+      ]
+    },
+    {
+      "id": 5976238,
+      "reference": "Red giant (broad catalog class)",
+      "previousStatus": "match",
+      "status": "match",
+      "comparison": "Provisional: Consistent at broad-class level; not an independent stage confirmation. Untested solutions remain.",
+      "mode": "observed-uncertainty",
+      "measurements": [
+        "seismic"
+      ],
+      "previousLeader": 3,
+      "rows": [
+        {
+          "phase": 3,
+          "percent": 99.99592086960077,
+          "partial": false
+        },
+        {
+          "phase": -1,
+          "percent": 0.004079130399225614,
+          "partial": true
+        },
+        {
+          "phase": 2,
+          "percent": 3.928617528902217e-104,
+          "partial": false
+        },
+        {
+          "phase": 4,
+          "percent": 4.143057662225402e-112,
+          "partial": false
+        }
+      ],
+      "count": 17545,
+      "coverage": [
+        {
+          "diagnostic": "seismic",
+          "tested": 16957,
+          "total": 17545,
+          "calibratedErrorFraction": 0.9999999999999999,
+          "conflict": false,
+          "unavailable": false
+        }
+      ]
+    },
+    {
+      "id": 6263410,
+      "reference": "Red giant (broad catalog class)",
+      "previousStatus": "match",
+      "status": "match",
+      "comparison": "Provisional: Consistent at broad-class level; not an independent stage confirmation. Untested solutions remain.",
+      "mode": "observed-uncertainty",
+      "measurements": [
+        "seismic"
+      ],
+      "previousLeader": 3,
+      "rows": [
+        {
+          "phase": 3,
+          "percent": 99.92958000179392,
+          "partial": false
+        },
+        {
+          "phase": -1,
+          "percent": 0.07041999820609898,
+          "partial": true
+        },
+        {
+          "phase": 2,
+          "percent": 7.348917421622057e-27,
+          "partial": false
+        },
+        {
+          "phase": 4,
+          "percent": 2.4605405694901255e-37,
+          "partial": false
+        }
+      ],
+      "count": 19991,
+      "coverage": [
+        {
+          "diagnostic": "seismic",
+          "tested": 17065,
+          "total": 19991,
+          "calibratedErrorFraction": 0.9999999999999999,
+          "conflict": false,
+          "unavailable": false
+        }
+      ]
+    },
+    {
+      "id": 3963653,
+      "reference": "Red giant (broad catalog class)",
+      "previousStatus": "match",
+      "status": "match",
+      "comparison": "Provisional: Consistent at broad-class level; not an independent stage confirmation. Untested solutions remain.",
+      "mode": "observed-uncertainty",
+      "measurements": [
+        "seismic"
+      ],
+      "previousLeader": 3,
+      "rows": [
+        {
+          "phase": 3,
+          "percent": 99.9631376196313,
+          "partial": false
+        },
+        {
+          "phase": -1,
+          "percent": 0.036862380369190414,
+          "partial": true
+        },
+        {
+          "phase": 2,
+          "percent": 5.186245590101618e-84,
+          "partial": false
+        },
+        {
+          "phase": 4,
+          "percent": 4.948032361735309e-97,
+          "partial": false
+        }
+      ],
+      "count": 14414,
+      "coverage": [
+        {
+          "diagnostic": "seismic",
+          "tested": 13200,
+          "total": 14414,
+          "calibratedErrorFraction": 0.9999999999999999,
+          "conflict": false,
+          "unavailable": false
+        }
+      ]
+    },
+    {
+      "id": 6058403,
+      "reference": "Red giant (broad catalog class)",
+      "previousStatus": "match",
+      "status": "match",
+      "comparison": "Provisional: Consistent at broad-class level; not an independent stage confirmation. Untested solutions remain.",
+      "mode": "observed-uncertainty",
+      "measurements": [
+        "seismic"
+      ],
+      "previousLeader": 3,
+      "rows": [
+        {
+          "phase": 3,
+          "percent": 99.9957638875428,
+          "partial": false
+        },
+        {
+          "phase": -1,
+          "percent": 0.004236112457335729,
+          "partial": true
+        },
+        {
+          "phase": 2,
+          "percent": 8.633482981700399e-127,
+          "partial": false
+        },
+        {
+          "phase": 4,
+          "percent": 6.748500233704634e-131,
+          "partial": false
+        }
+      ],
+      "count": 36893,
+      "coverage": [
+        {
+          "diagnostic": "seismic",
+          "tested": 35239,
+          "total": 36893,
+          "calibratedErrorFraction": 0.9999999999999999,
+          "conflict": false,
+          "unavailable": false
+        }
+      ]
+    },
+    {
+      "id": 6276948,
+      "reference": "Red giant (broad catalog class)",
+      "previousStatus": "match",
+      "status": "match",
+      "comparison": "Provisional: Consistent at broad-class level; not an independent stage confirmation. Untested solutions remain.",
+      "mode": "observed-uncertainty",
+      "measurements": [
+        "seismic"
+      ],
+      "previousLeader": 3,
+      "rows": [
+        {
+          "phase": 3,
+          "percent": 99.9736116404502,
+          "partial": false
+        },
+        {
+          "phase": -1,
+          "percent": 0.026388359549609743,
+          "partial": true
+        },
+        {
+          "phase": 2,
+          "percent": 2.175685600684858e-85,
+          "partial": false
+        },
+        {
+          "phase": 4,
+          "percent": 1.0988038045998616e-97,
+          "partial": false
+        }
+      ],
+      "count": 12176,
+      "coverage": [
+        {
+          "diagnostic": "seismic",
+          "tested": 11294,
+          "total": 12176,
+          "calibratedErrorFraction": 0.9999999999999999,
+          "conflict": false,
+          "unavailable": false
+        }
+      ]
+    },
+    {
+      "id": 5184199,
+      "reference": "Red giant (broad catalog class)",
+      "previousStatus": "match",
+      "status": "match",
+      "comparison": "Provisional: Consistent at broad-class level; not an independent stage confirmation. Untested solutions remain.",
+      "mode": "observed-uncertainty",
+      "measurements": [
+        "seismic"
+      ],
+      "previousLeader": 3,
+      "rows": [
+        {
+          "phase": 3,
+          "percent": 99.96227790210523,
+          "partial": false
+        },
+        {
+          "phase": -1,
+          "percent": 0.037722097894653195,
+          "partial": true
+        },
+        {
+          "phase": 2,
+          "percent": 3.048561970503127e-51,
+          "partial": false
+        },
+        {
+          "phase": 4,
+          "percent": 2.1972931864960126e-66,
+          "partial": false
+        }
+      ],
+      "count": 9093,
+      "coverage": [
+        {
+          "diagnostic": "seismic",
+          "tested": 8219,
+          "total": 9093,
+          "calibratedErrorFraction": 0.9999999999999999,
+          "conflict": false,
+          "unavailable": false
+        }
+      ]
+    },
+    {
+      "id": 9471796,
+      "reference": "Red giant (broad catalog class)",
+      "previousStatus": "match",
+      "status": "match",
+      "comparison": "Provisional: Consistent at broad-class level; not an independent stage confirmation. Untested solutions remain.",
+      "mode": "observed-uncertainty",
+      "measurements": [
+        "seismic"
+      ],
+      "previousLeader": 3,
+      "rows": [
+        {
+          "phase": 3,
+          "percent": 99.96521546611721,
+          "partial": false
+        },
+        {
+          "phase": -1,
+          "percent": 0.034784533882890684,
+          "partial": true
+        },
+        {
+          "phase": 2,
+          "percent": 1.751282601459643e-90,
+          "partial": false
+        },
+        {
+          "phase": 4,
+          "percent": 3.4584643941312475e-102,
+          "partial": false
+        }
+      ],
+      "count": 14968,
+      "coverage": [
+        {
+          "diagnostic": "seismic",
+          "tested": 13700,
+          "total": 14968,
+          "calibratedErrorFraction": 0.9999999999999999,
+          "conflict": false,
+          "unavailable": false
+        }
+      ]
+    },
+    {
+      "id": 4902641,
+      "reference": "Red giant (broad catalog class)",
+      "previousStatus": "match",
+      "status": "match",
+      "comparison": "Provisional: Consistent at broad-class level; not an independent stage confirmation. Untested solutions remain.",
+      "mode": "observed-uncertainty",
+      "measurements": [
+        "seismic"
+      ],
+      "previousLeader": 3,
+      "rows": [
+        {
+          "phase": 3,
+          "percent": 99.95952006297215,
+          "partial": false
+        },
+        {
+          "phase": -1,
+          "percent": 0.040479937027667896,
+          "partial": true
+        },
+        {
+          "phase": 2,
+          "percent": 1.8065225573191087e-107,
+          "partial": false
+        },
+        {
+          "phase": 4,
+          "percent": 6.607319118167031e-116,
+          "partial": false
+        }
+      ],
+      "count": 23031,
+      "coverage": [
+        {
+          "diagnostic": "seismic",
+          "tested": 20489,
+          "total": 23031,
+          "calibratedErrorFraction": 0.9999999999999999,
+          "conflict": false,
+          "unavailable": false
+        }
+      ]
+    },
+    {
+      "id": 8022670,
+      "reference": "Red giant (broad catalog class)",
+      "previousStatus": "mismatch",
+      "status": "neutral",
+      "comparison": "Not directly comparable: the model combines subgiants and red-giant-branch stars.",
+      "mode": "observed-uncertainty",
+      "measurements": [
+        "lithium"
+      ],
+      "previousLeader": -1,
+      "rows": [
+        {
+          "phase": 2,
+          "percent": 96.29736591645697,
+          "partial": true
+        },
+        {
+          "phase": -1,
+          "percent": 3.702634083542935,
+          "partial": true
+        }
+      ],
+      "count": 2361,
+      "coverage": [
+        {
+          "diagnostic": "lithium",
+          "tested": 0,
+          "total": 2361,
+          "calibratedErrorFraction": null,
+          "conflict": false,
+          "unavailable": true
+        }
+      ]
+    },
+    {
+      "id": 2988988,
+      "reference": "Red giant (broad catalog class)",
+      "previousStatus": "match",
+      "status": "match",
+      "comparison": "Provisional: Consistent at broad-class level; not an independent stage confirmation. Untested solutions remain.",
+      "mode": "observed-uncertainty",
+      "measurements": [
+        "seismic"
+      ],
+      "previousLeader": 3,
+      "rows": [
+        {
+          "phase": 3,
+          "percent": 99.99359429102388,
+          "partial": false
+        },
+        {
+          "phase": -1,
+          "percent": 0.006405708976210642,
+          "partial": true
+        },
+        {
+          "phase": 2,
+          "percent": 3.2798396431596274e-108,
+          "partial": false
+        },
+        {
+          "phase": 4,
+          "percent": 9.627512275689393e-113,
+          "partial": false
+        }
+      ],
+      "count": 31885,
+      "coverage": [
+        {
+          "diagnostic": "seismic",
+          "tested": 30080,
+          "total": 31885,
+          "calibratedErrorFraction": 0.9999999999999999,
+          "conflict": false,
+          "unavailable": false
+        }
+      ]
+    },
+    {
+      "id": 2438368,
+      "reference": "Red giant (broad catalog class)",
+      "previousStatus": "match",
+      "status": "match",
+      "comparison": "Provisional: Consistent at broad-class level; not an independent stage confirmation. Untested solutions remain.",
+      "mode": "observed-uncertainty",
+      "measurements": [
+        "seismic"
+      ],
+      "previousLeader": 3,
+      "rows": [
+        {
+          "phase": 3,
+          "percent": 99.96455608123566,
+          "partial": false
+        },
+        {
+          "phase": -1,
+          "percent": 0.03544391876426362,
+          "partial": true
+        },
+        {
+          "phase": 2,
+          "percent": 8.890260982535575e-55,
+          "partial": false
+        },
+        {
+          "phase": 4,
+          "percent": 5.17072389379123e-63,
+          "partial": false
+        }
+      ],
+      "count": 23821,
+      "coverage": [
+        {
+          "diagnostic": "seismic",
+          "tested": 21357,
+          "total": 23821,
+          "calibratedErrorFraction": 0.9999999999999999,
+          "conflict": false,
+          "unavailable": false
+        }
+      ]
+    },
+    {
+      "id": 1575886,
+      "reference": "Red giant (broad catalog class)",
+      "previousStatus": "match",
+      "status": "match",
+      "comparison": "Provisional: Consistent at broad-class level; not an independent stage confirmation. Untested solutions remain.",
+      "mode": "observed-uncertainty",
+      "measurements": [
+        "seismic"
+      ],
+      "previousLeader": 3,
+      "rows": [
+        {
+          "phase": 3,
+          "percent": 99.95611111567547,
+          "partial": false
+        },
+        {
+          "phase": -1,
+          "percent": 0.043888884324470544,
+          "partial": true
+        },
+        {
+          "phase": 2,
+          "percent": 3.020749394865932e-34,
+          "partial": false
+        },
+        {
+          "phase": 4,
+          "percent": 2.7129035023724676e-46,
+          "partial": false
+        }
+      ],
+      "count": 15541,
+      "coverage": [
+        {
+          "diagnostic": "seismic",
+          "tested": 14051,
+          "total": 15541,
+          "calibratedErrorFraction": 0.9999999999999999,
+          "conflict": false,
+          "unavailable": false
+        }
+      ]
+    },
+    {
+      "id": 6304081,
+      "reference": "Red giant (broad catalog class)",
+      "previousStatus": "match",
+      "status": "match",
+      "comparison": "Provisional: Consistent at broad-class level; not an independent stage confirmation. Untested solutions remain.",
+      "mode": "observed-uncertainty",
+      "measurements": [
+        "seismic"
+      ],
+      "previousLeader": 3,
+      "rows": [
+        {
+          "phase": 3,
+          "percent": 99.98828739740014,
+          "partial": false
+        },
+        {
+          "phase": -1,
+          "percent": 0.011712602599920982,
+          "partial": true
+        },
+        {
+          "phase": 2,
+          "percent": 5.266401310175121e-46,
+          "partial": false
+        },
+        {
+          "phase": 4,
+          "percent": 5.350494021012295e-51,
+          "partial": false
+        }
+      ],
+      "count": 28861,
+      "coverage": [
+        {
+          "diagnostic": "seismic",
+          "tested": 26753,
+          "total": 28861,
+          "calibratedErrorFraction": 0.9999999999999999,
+          "conflict": false,
+          "unavailable": false
+        }
+      ]
+    },
+    {
+      "id": 6851401,
+      "reference": "Red giant (broad catalog class)",
+      "previousStatus": "match",
+      "status": "match",
+      "comparison": "Provisional: Consistent at broad-class level; not an independent stage confirmation. Untested solutions remain.",
+      "mode": "observed-uncertainty",
+      "measurements": [
+        "seismic"
+      ],
+      "previousLeader": 3,
+      "rows": [
+        {
+          "phase": 3,
+          "percent": 99.99159123641542,
+          "partial": false
+        },
+        {
+          "phase": -1,
+          "percent": 0.008408761145284023,
+          "partial": true
+        },
+        {
+          "phase": 2,
+          "percent": 2.436512512909302e-9,
+          "partial": false
+        },
+        {
+          "phase": 4,
+          "percent": 3.288944702442093e-12,
+          "partial": false
+        }
+      ],
+      "count": 35783,
+      "coverage": [
+        {
+          "diagnostic": "seismic",
+          "tested": 34020,
+          "total": 35783,
+          "calibratedErrorFraction": 0.9999999999999999,
+          "conflict": false,
+          "unavailable": false
+        }
+      ]
+    },
+    {
+      "id": 6620367,
+      "reference": "Red giant (broad catalog class)",
+      "previousStatus": "match",
+      "status": "match",
+      "comparison": "Provisional: Consistent at broad-class level; not an independent stage confirmation. Untested solutions remain.",
+      "mode": "observed-uncertainty",
+      "measurements": [
+        "seismic"
+      ],
+      "previousLeader": 3,
+      "rows": [
+        {
+          "phase": 3,
+          "percent": 99.98379007587417,
+          "partial": false
+        },
+        {
+          "phase": -1,
+          "percent": 0.01620992412577661,
+          "partial": true
+        },
+        {
+          "phase": 2,
+          "percent": 1.3531371612131447e-18,
+          "partial": false
+        },
+        {
+          "phase": 4,
+          "percent": 5.779428395230173e-24,
+          "partial": false
+        }
+      ],
+      "count": 29302,
+      "coverage": [
+        {
+          "diagnostic": "seismic",
+          "tested": 26832,
+          "total": 29302,
+          "calibratedErrorFraction": 0.9999999999999999,
+          "conflict": false,
+          "unavailable": false
+        }
+      ]
+    },
+    {
+      "id": 2975717,
+      "reference": "Red giant (broad catalog class)",
+      "previousStatus": "match",
+      "status": "match",
+      "comparison": "Provisional: Consistent at broad-class level; not an independent stage confirmation. Untested solutions remain.",
+      "mode": "observed-uncertainty",
+      "measurements": [
+        "seismic"
+      ],
+      "previousLeader": 3,
+      "rows": [
+        {
+          "phase": 3,
+          "percent": 99.9990234019179,
+          "partial": false
+        },
+        {
+          "phase": -1,
+          "percent": 0.000976598081942494,
+          "partial": true
+        },
+        {
+          "phase": 2,
+          "percent": 1.217509617150704e-136,
+          "partial": false
+        },
+        {
+          "phase": 4,
+          "percent": 5.575359831368109e-143,
+          "partial": false
+        }
+      ],
+      "count": 25723,
+      "coverage": [
+        {
+          "diagnostic": "seismic",
+          "tested": 24997,
+          "total": 25723,
+          "calibratedErrorFraction": 0.9999999999999999,
+          "conflict": false,
+          "unavailable": false
+        }
+      ]
+    },
+    {
+      "id": 6778122,
+      "reference": "Red giant (broad catalog class)",
+      "previousStatus": "match",
+      "status": "match",
+      "comparison": "Provisional: Consistent at broad-class level; not an independent stage confirmation. Untested solutions remain.",
+      "mode": "observed-uncertainty",
+      "measurements": [
+        "seismic"
+      ],
+      "previousLeader": 3,
+      "rows": [
+        {
+          "phase": 3,
+          "percent": 99.99303519437049,
+          "partial": false
+        },
+        {
+          "phase": -1,
+          "percent": 0.006964805629227258,
+          "partial": true
+        },
+        {
+          "phase": 2,
+          "percent": 1.5780497730290214e-143,
+          "partial": false
+        },
+        {
+          "phase": 4,
+          "percent": 1.9391264417307554e-148,
+          "partial": false
+        }
+      ],
+      "count": 31741,
+      "coverage": [
+        {
+          "diagnostic": "seismic",
+          "tested": 29818,
+          "total": 31741,
+          "calibratedErrorFraction": 0.9999999999999999,
+          "conflict": false,
+          "unavailable": false
+        }
+      ]
+    },
+    {
+      "id": 11072334,
+      "reference": "Red giant (broad catalog class)",
+      "previousStatus": "match",
+      "status": "match",
+      "comparison": "Provisional: Consistent at broad-class level; not an independent stage confirmation. Untested solutions remain.",
+      "mode": "observed-uncertainty",
+      "measurements": [
+        "seismic"
+      ],
+      "previousLeader": 3,
+      "rows": [
+        {
+          "phase": 3,
+          "percent": 99.96912642172553,
+          "partial": false
+        },
+        {
+          "phase": -1,
+          "percent": 0.030873578274353858,
+          "partial": true
+        },
+        {
+          "phase": 2,
+          "percent": 1.1993141208408295e-31,
+          "partial": false
+        },
+        {
+          "phase": 4,
+          "percent": 2.1773135123382682e-39,
+          "partial": false
+        }
+      ],
+      "count": 23824,
+      "coverage": [
+        {
+          "diagnostic": "seismic",
+          "tested": 21483,
+          "total": 23824,
+          "calibratedErrorFraction": 0.9999999999999999,
+          "conflict": false,
+          "unavailable": false
+        }
+      ]
+    },
+    {
+      "id": 1725190,
+      "reference": "Red giant (broad catalog class)",
+      "previousStatus": "match",
+      "status": "match",
+      "comparison": "Provisional: Consistent at broad-class level; not an independent stage confirmation. Untested solutions remain.",
+      "mode": "observed-uncertainty",
+      "measurements": [
+        "seismic"
+      ],
+      "previousLeader": 3,
+      "rows": [
+        {
+          "phase": 3,
+          "percent": 99.9629591998933,
+          "partial": false
+        },
+        {
+          "phase": -1,
+          "percent": 0.037040800106777044,
+          "partial": true
+        },
+        {
+          "phase": 2,
+          "percent": 1.2009266678696879e-25,
+          "partial": false
+        },
+        {
+          "phase": 4,
+          "percent": 6.619325919619441e-40,
+          "partial": false
+        }
+      ],
+      "count": 9274,
+      "coverage": [
+        {
+          "diagnostic": "seismic",
+          "tested": 8365,
+          "total": 9274,
+          "calibratedErrorFraction": 0.9999999999999999,
+          "conflict": false,
+          "unavailable": false
+        }
+      ]
+    },
+    {
+      "id": 5300269,
+      "reference": "Red giant (broad catalog class)",
+      "previousStatus": "match",
+      "status": "match",
+      "comparison": "Provisional: Consistent at broad-class level; not an independent stage confirmation. Untested solutions remain.",
+      "mode": "observed-uncertainty",
+      "measurements": [
+        "seismic"
+      ],
+      "previousLeader": 3,
+      "rows": [
+        {
+          "phase": 3,
+          "percent": 99.99246328817402,
+          "partial": false
+        },
+        {
+          "phase": -1,
+          "percent": 0.007536711826124207,
+          "partial": true
+        },
+        {
+          "phase": 2,
+          "percent": 3.4103445135102514e-24,
+          "partial": false
+        },
+        {
+          "phase": 4,
+          "percent": 2.114077343734036e-27,
+          "partial": false
+        }
+      ],
+      "count": 24981,
+      "coverage": [
+        {
+          "diagnostic": "seismic",
+          "tested": 24117,
+          "total": 24981,
+          "calibratedErrorFraction": 0.9999999999999999,
+          "conflict": false,
+          "unavailable": false
+        }
+      ]
+    },
+    {
+      "id": 10029821,
+      "reference": "Red giant (broad catalog class)",
+      "previousStatus": "match",
+      "status": "match",
+      "comparison": "Provisional: Consistent at broad-class level; not an independent stage confirmation. Untested solutions remain.",
+      "mode": "observed-uncertainty",
+      "measurements": [
+        "seismic"
+      ],
+      "previousLeader": 3,
+      "rows": [
+        {
+          "phase": 3,
+          "percent": 99.98459820680752,
+          "partial": false
+        },
+        {
+          "phase": -1,
+          "percent": 0.015401793192026773,
+          "partial": true
+        },
+        {
+          "phase": 2,
+          "percent": 1.241986218008598e-138,
+          "partial": false
+        },
+        {
+          "phase": 4,
+          "percent": 7.075831740825615e-147,
+          "partial": false
+        }
+      ],
+      "count": 20564,
+      "coverage": [
+        {
+          "diagnostic": "seismic",
+          "tested": 19272,
+          "total": 20564,
+          "calibratedErrorFraction": 0.9999999999999999,
+          "conflict": false,
+          "unavailable": false
+        }
+      ]
+    },
+    {
+      "id": 3222680,
+      "reference": "Red giant (broad catalog class)",
+      "previousStatus": "match",
+      "status": "match",
+      "comparison": "Provisional: Consistent at broad-class level; not an independent stage confirmation. Untested solutions remain.",
+      "mode": "observed-uncertainty",
+      "measurements": [
+        "seismic"
+      ],
+      "previousLeader": 3,
+      "rows": [
+        {
+          "phase": 3,
+          "percent": 99.99341051314653,
+          "partial": false
+        },
+        {
+          "phase": -1,
+          "percent": 0.006589486853552411,
+          "partial": true
+        },
+        {
+          "phase": 2,
+          "percent": 3.459829867437276e-158,
+          "partial": false
+        },
+        {
+          "phase": 4,
+          "percent": 2.2065603563186202e-160,
+          "partial": false
+        }
+      ],
+      "count": 41256,
+      "coverage": [
+        {
+          "diagnostic": "seismic",
+          "tested": 39910,
+          "total": 41256,
+          "calibratedErrorFraction": 0.9999999999999999,
+          "conflict": false,
+          "unavailable": false
+        }
+      ]
+    },
+    {
+      "id": 11302988,
+      "reference": "Red giant (broad catalog class)",
+      "previousStatus": "match",
+      "status": "match",
+      "comparison": "Provisional: Consistent at broad-class level; not an independent stage confirmation. Untested solutions remain.",
+      "mode": "observed-uncertainty",
+      "measurements": [
+        "seismic"
+      ],
+      "previousLeader": 3,
+      "rows": [
+        {
+          "phase": 3,
+          "percent": 99.99411776981783,
+          "partial": false
+        },
+        {
+          "phase": -1,
+          "percent": 0.005882230182327037,
+          "partial": true
+        },
+        {
+          "phase": 2,
+          "percent": 2.462073651012299e-210,
+          "partial": false
+        },
+        {
+          "phase": 4,
+          "percent": 9.156495840229495e-215,
+          "partial": false
+        }
+      ],
+      "count": 32768,
+      "coverage": [
+        {
+          "diagnostic": "seismic",
+          "tested": 30996,
+          "total": 32768,
+          "calibratedErrorFraction": 0.9999999999999999,
+          "conflict": false,
+          "unavailable": false
+        }
+      ]
+    },
+    {
+      "id": 8247851,
+      "reference": "Red giant (broad catalog class)",
+      "previousStatus": "match",
+      "status": "match",
+      "comparison": "Provisional: Consistent at broad-class level; not an independent stage confirmation. Untested solutions remain.",
+      "mode": "observed-uncertainty",
+      "measurements": [
+        "seismic"
+      ],
+      "previousLeader": 3,
+      "rows": [
+        {
+          "phase": 3,
+          "percent": 99.99376622492073,
+          "partial": false
+        },
+        {
+          "phase": -1,
+          "percent": 0.006233775079468241,
+          "partial": true
+        },
+        {
+          "phase": 2,
+          "percent": 1.0272342297965858e-105,
+          "partial": false
+        },
+        {
+          "phase": 4,
+          "percent": 9.236002866356463e-110,
+          "partial": false
+        }
+      ],
+      "count": 24945,
+      "coverage": [
+        {
+          "diagnostic": "seismic",
+          "tested": 24125,
+          "total": 24945,
+          "calibratedErrorFraction": 0.9999999999999999,
+          "conflict": false,
+          "unavailable": false
+        }
+      ]
+    },
+    {
+      "id": 7022298,
+      "reference": "Subgiant",
+      "previousStatus": "mismatch",
+      "status": "mismatch",
+      "comparison": "Provisional: Disagrees with the broad catalog classification. Untested solutions remain.",
+      "mode": "observed-uncertainty",
+      "measurements": [
+        "lithium"
+      ],
+      "previousLeader": 0,
+      "rows": [
+        {
+          "phase": 0,
+          "percent": 85.38035235161934,
+          "partial": true
+        },
+        {
+          "phase": 2,
+          "percent": 14.43484962783477,
+          "partial": true
+        },
+        {
+          "phase": -1,
+          "percent": 0.184798020546074,
+          "partial": true
+        }
+      ],
+      "count": 17661,
+      "coverage": [
+        {
+          "diagnostic": "lithium",
+          "tested": 1926,
+          "total": 17661,
+          "calibratedErrorFraction": null,
+          "conflict": false,
+          "unavailable": false
+        }
+      ]
+    },
+    {
+      "id": 7188873,
+      "reference": "Subgiant",
+      "previousStatus": "mismatch",
+      "status": "mismatch",
+      "comparison": "Provisional: Disagrees with the broad catalog classification. Untested solutions remain.",
+      "mode": "observed-uncertainty",
+      "measurements": [
+        "lithium"
+      ],
+      "previousLeader": 0,
+      "rows": [
+        {
+          "phase": 0,
+          "percent": 79.401094011575,
+          "partial": true
+        },
+        {
+          "phase": 2,
+          "percent": 20.3937557863243,
+          "partial": true
+        },
+        {
+          "phase": -1,
+          "percent": 0.20515020210097032,
+          "partial": true
+        }
+      ],
+      "count": 16371,
+      "coverage": [
+        {
+          "diagnostic": "lithium",
+          "tested": 1679,
+          "total": 16371,
+          "calibratedErrorFraction": null,
+          "conflict": false,
+          "unavailable": false
+        }
+      ]
+    },
+    {
+      "id": 6605691,
+      "reference": "Subgiant",
+      "previousStatus": "mismatch",
+      "status": "mismatch",
+      "comparison": "Provisional: Disagrees with the broad catalog classification. Untested solutions remain.",
+      "mode": "observed-uncertainty",
+      "measurements": [
+        "lithium"
+      ],
+      "previousLeader": 0,
+      "rows": [
+        {
+          "phase": 0,
+          "percent": 74.54828194631082,
+          "partial": true
+        },
+        {
+          "phase": 2,
+          "percent": 25.2211549297184,
+          "partial": true
+        },
+        {
+          "phase": -1,
+          "percent": 0.23056312397081186,
+          "partial": true
+        }
+      ],
+      "count": 16677,
+      "coverage": [
+        {
+          "diagnostic": "lithium",
+          "tested": 1651,
+          "total": 16677,
+          "calibratedErrorFraction": null,
+          "conflict": false,
+          "unavailable": false
+        }
+      ]
+    },
+    {
+      "id": 5878001,
+      "reference": "Subgiant",
+      "previousStatus": "mismatch",
+      "status": "mismatch",
+      "comparison": "Provisional: Disagrees with the broad catalog classification. Untested solutions remain.",
+      "mode": "observed-uncertainty",
+      "measurements": [
+        "lithium"
+      ],
+      "previousLeader": -1,
+      "rows": [
+        {
+          "phase": 0,
+          "percent": 58.364289402402406,
+          "partial": true
+        },
+        {
+          "phase": 2,
+          "percent": 41.30644038600872,
+          "partial": true
+        },
+        {
+          "phase": -1,
+          "percent": 0.32927021158887304,
+          "partial": true
+        }
+      ],
+      "count": 5140,
+      "coverage": [
+        {
+          "diagnostic": "lithium",
+          "tested": 693,
+          "total": 5140,
+          "calibratedErrorFraction": null,
+          "conflict": false,
+          "unavailable": false
+        }
+      ]
+    },
+    {
+      "id": 8096156,
+      "reference": "Subgiant",
+      "previousStatus": "mismatch",
+      "status": "mismatch",
+      "comparison": "Provisional: Disagrees with the broad catalog classification. Untested solutions remain.",
+      "mode": "observed-uncertainty",
+      "measurements": [
+        "lithium"
+      ],
+      "previousLeader": 0,
+      "rows": [
+        {
+          "phase": 0,
+          "percent": 78.85464648591233,
+          "partial": true
+        },
+        {
+          "phase": 2,
+          "percent": 20.9413812883235,
+          "partial": true
+        },
+        {
+          "phase": -1,
+          "percent": 0.20397222576432308,
+          "partial": true
+        }
+      ],
+      "count": 16210,
+      "coverage": [
+        {
+          "diagnostic": "lithium",
+          "tested": 1653,
+          "total": 16210,
+          "calibratedErrorFraction": null,
+          "conflict": false,
+          "unavailable": false
+        }
+      ]
+    },
+    {
+      "id": 8367302,
+      "reference": "Subgiant",
+      "previousStatus": "mismatch",
+      "status": "mismatch",
+      "comparison": "Provisional: Disagrees with the broad catalog classification. Untested solutions remain.",
+      "mode": "observed-uncertainty",
+      "measurements": [
+        "lithium"
+      ],
+      "previousLeader": 0,
+      "rows": [
+        {
+          "phase": 0,
+          "percent": 78.78587907978431,
+          "partial": true
+        },
+        {
+          "phase": 2,
+          "percent": 20.97584046236567,
+          "partial": true
+        },
+        {
+          "phase": -1,
+          "percent": 0.2382804578497686,
+          "partial": true
+        }
+      ],
+      "count": 16635,
+      "coverage": [
+        {
+          "diagnostic": "lithium",
+          "tested": 1757,
+          "total": 16635,
+          "calibratedErrorFraction": null,
+          "conflict": false,
+          "unavailable": false
+        }
+      ]
+    },
+    {
+      "id": 4543734,
+      "reference": "Subgiant",
+      "previousStatus": "mismatch",
+      "status": "neutral",
+      "comparison": "Not directly comparable: the model combines subgiants and red-giant-branch stars.",
+      "mode": "observed-uncertainty",
+      "measurements": [
+        "lithium"
+      ],
+      "previousLeader": 0,
+      "rows": [
+        {
+          "phase": 2,
+          "percent": 56.81263432409976,
+          "partial": true
+        },
+        {
+          "phase": 0,
+          "percent": 42.86373138917065,
+          "partial": true
+        },
+        {
+          "phase": -1,
+          "percent": 0.3236342867296005,
+          "partial": true
+        }
+      ],
+      "count": 12598,
+      "coverage": [
+        {
+          "diagnostic": "lithium",
+          "tested": 886,
+          "total": 12598,
+          "calibratedErrorFraction": null,
+          "conflict": false,
+          "unavailable": false
+        }
+      ]
+    },
+    {
+      "id": 5430849,
+      "reference": "Subgiant",
+      "previousStatus": "mismatch",
+      "status": "neutral",
+      "comparison": "Not directly comparable: the model combines subgiants and red-giant-branch stars.",
+      "mode": "observed-uncertainty",
+      "measurements": [
+        "lithium"
+      ],
+      "previousLeader": 0,
+      "rows": [
+        {
+          "phase": 2,
+          "percent": 54.315660302929395,
+          "partial": true
+        },
+        {
+          "phase": 0,
+          "percent": 45.37439348535865,
+          "partial": true
+        },
+        {
+          "phase": -1,
+          "percent": 0.3099462117116402,
+          "partial": true
+        }
+      ],
+      "count": 13734,
+      "coverage": [
+        {
+          "diagnostic": "lithium",
+          "tested": 951,
+          "total": 13734,
+          "calibratedErrorFraction": null,
+          "conflict": false,
+          "unavailable": false
+        }
+      ]
+    },
+    {
+      "id": 6605673,
+      "reference": "Subgiant",
+      "previousStatus": "mismatch",
+      "status": "mismatch",
+      "comparison": "Provisional: Disagrees with the broad catalog classification. Untested solutions remain.",
+      "mode": "observed-uncertainty",
+      "measurements": [
+        "lithium"
+      ],
+      "previousLeader": 0,
+      "rows": [
+        {
+          "phase": 0,
+          "percent": 66.36146150162243,
+          "partial": true
+        },
+        {
+          "phase": 2,
+          "percent": 33.347063626331,
+          "partial": true
+        },
+        {
+          "phase": -1,
+          "percent": 0.2914748720469716,
+          "partial": true
+        }
+      ],
+      "count": 4769,
+      "coverage": [
+        {
+          "diagnostic": "lithium",
+          "tested": 635,
+          "total": 4769,
+          "calibratedErrorFraction": null,
+          "conflict": false,
+          "unavailable": false
+        }
+      ]
+    },
+    {
+      "id": 5953275,
+      "reference": "Subgiant",
+      "previousStatus": "mismatch",
+      "status": "mismatch",
+      "comparison": "Provisional: Disagrees with the broad catalog classification. Untested solutions remain.",
+      "mode": "observed-uncertainty",
+      "measurements": [
+        "lithium"
+      ],
+      "previousLeader": 0,
+      "rows": [
+        {
+          "phase": 0,
+          "percent": 56.91284129795516,
+          "partial": true
+        },
+        {
+          "phase": 2,
+          "percent": 42.828088531636446,
+          "partial": true
+        },
+        {
+          "phase": -1,
+          "percent": 0.2590701704087493,
+          "partial": true
+        }
+      ],
+      "count": 14453,
+      "coverage": [
+        {
+          "diagnostic": "lithium",
+          "tested": 1036,
+          "total": 14453,
+          "calibratedErrorFraction": null,
+          "conflict": false,
+          "unavailable": false
+        }
+      ]
+    },
+    {
+      "id": 7445809,
+      "reference": "Subgiant",
+      "previousStatus": "mismatch",
+      "status": "mismatch",
+      "comparison": "Provisional: Disagrees with the broad catalog classification. Untested solutions remain.",
+      "mode": "observed-uncertainty",
+      "measurements": [
+        "lithium"
+      ],
+      "previousLeader": -1,
+      "rows": [
+        {
+          "phase": 0,
+          "percent": 74.09346973717295,
+          "partial": true
+        },
+        {
+          "phase": 2,
+          "percent": 25.57197726908298,
+          "partial": true
+        },
+        {
+          "phase": -1,
+          "percent": 0.3345529937439258,
+          "partial": true
+        }
+      ],
+      "count": 16144,
+      "coverage": [
+        {
+          "diagnostic": "lithium",
+          "tested": 1690,
+          "total": 16144,
+          "calibratedErrorFraction": null,
+          "conflict": false,
+          "unavailable": false
+        }
+      ]
+    },
+    {
+      "id": 8695721,
+      "reference": "Subgiant",
+      "previousStatus": "mismatch",
+      "status": "neutral",
+      "comparison": "Not directly comparable: the model combines subgiants and red-giant-branch stars.",
+      "mode": "observed-uncertainty",
+      "measurements": [
+        "lithium"
+      ],
+      "previousLeader": 0,
+      "rows": [
+        {
+          "phase": 2,
+          "percent": 52.6279643723769,
+          "partial": true
+        },
+        {
+          "phase": 0,
+          "percent": 47.04201498993991,
+          "partial": true
+        },
+        {
+          "phase": -1,
+          "percent": 0.33002063768326945,
+          "partial": true
+        }
+      ],
+      "count": 12705,
+      "coverage": [
+        {
+          "diagnostic": "lithium",
+          "tested": 823,
+          "total": 12705,
+          "calibratedErrorFraction": null,
+          "conflict": false,
+          "unavailable": false
+        }
+      ]
+    },
+    {
+      "id": 8540530,
+      "reference": "Subgiant",
+      "previousStatus": "mismatch",
+      "status": "mismatch",
+      "comparison": "Provisional: Disagrees with the broad catalog classification. Untested solutions remain.",
+      "mode": "observed-uncertainty",
+      "measurements": [
+        "lithium"
+      ],
+      "previousLeader": 0,
+      "rows": [
+        {
+          "phase": 0,
+          "percent": 62.07246358058064,
+          "partial": true
+        },
+        {
+          "phase": 2,
+          "percent": 37.6821832109629,
+          "partial": true
+        },
+        {
+          "phase": -1,
+          "percent": 0.2453532084565258,
+          "partial": true
+        }
+      ],
+      "count": 14687,
+      "coverage": [
+        {
+          "diagnostic": "lithium",
+          "tested": 1163,
+          "total": 14687,
+          "calibratedErrorFraction": null,
+          "conflict": false,
+          "unavailable": false
+        }
+      ]
+    },
+    {
+      "id": 6035466,
+      "reference": "Subgiant",
+      "previousStatus": "mismatch",
+      "status": "mismatch",
+      "comparison": "Provisional: Disagrees with the broad catalog classification. Untested solutions remain.",
+      "mode": "observed-uncertainty",
+      "measurements": [
+        "lithium"
+      ],
+      "previousLeader": 0,
+      "rows": [
+        {
+          "phase": 0,
+          "percent": 54.953756824397146,
+          "partial": true
+        },
+        {
+          "phase": 2,
+          "percent": 44.77883239824988,
+          "partial": true
+        },
+        {
+          "phase": -1,
+          "percent": 0.2674107773533149,
+          "partial": true
+        }
+      ],
+      "count": 5225,
+      "coverage": [
+        {
+          "diagnostic": "lithium",
+          "tested": 664,
+          "total": 5225,
+          "calibratedErrorFraction": null,
+          "conflict": false,
+          "unavailable": false
+        }
+      ]
+    },
+    {
+      "id": 6521917,
+      "reference": "Subgiant",
+      "previousStatus": "mismatch",
+      "status": "mismatch",
+      "comparison": "Provisional: Disagrees with the broad catalog classification. Untested solutions remain.",
+      "mode": "observed-uncertainty",
+      "measurements": [
+        "lithium"
+      ],
+      "previousLeader": -1,
+      "rows": [
+        {
+          "phase": 0,
+          "percent": 56.43622465550844,
+          "partial": true
+        },
+        {
+          "phase": 2,
+          "percent": 41.21830847949492,
+          "partial": true
+        },
+        {
+          "phase": -1,
+          "percent": 2.3454668649966495,
+          "partial": true
+        }
+      ],
+      "count": 14205,
+      "coverage": [
+        {
+          "diagnostic": "lithium",
+          "tested": 1070,
+          "total": 14205,
+          "calibratedErrorFraction": null,
+          "conflict": false,
+          "unavailable": false
+        }
+      ]
+    },
+    {
+      "id": 10024897,
+      "reference": "Subgiant",
+      "previousStatus": "mismatch",
+      "status": "mismatch",
+      "comparison": "Provisional: Disagrees with the broad catalog classification. Untested solutions remain.",
+      "mode": "observed-uncertainty",
+      "measurements": [
+        "lithium"
+      ],
+      "previousLeader": 0,
+      "rows": [
+        {
+          "phase": 0,
+          "percent": 72.27167447338739,
+          "partial": true
+        },
+        {
+          "phase": 2,
+          "percent": 27.479220008534316,
+          "partial": true
+        },
+        {
+          "phase": -1,
+          "percent": 0.24910551807864004,
+          "partial": true
+        }
+      ],
+      "count": 15516,
+      "coverage": [
+        {
+          "diagnostic": "lithium",
+          "tested": 1585,
+          "total": 15516,
+          "calibratedErrorFraction": null,
+          "conflict": false,
+          "unavailable": false
+        }
+      ]
+    },
+    {
+      "id": 7202882,
+      "reference": "Subgiant",
+      "previousStatus": "mismatch",
+      "status": "neutral",
+      "comparison": "Not directly comparable: the model combines subgiants and red-giant-branch stars.",
+      "mode": "observed-uncertainty",
+      "measurements": [
+        "lithium"
+      ],
+      "previousLeader": 0,
+      "rows": [
+        {
+          "phase": 2,
+          "percent": 51.41152608569983,
+          "partial": true
+        },
+        {
+          "phase": 0,
+          "percent": 48.28799883604659,
+          "partial": true
+        },
+        {
+          "phase": -1,
+          "percent": 0.30047507825358344,
+          "partial": true
+        }
+      ],
+      "count": 12763,
+      "coverage": [
+        {
+          "diagnostic": "lithium",
+          "tested": 845,
+          "total": 12763,
+          "calibratedErrorFraction": null,
+          "conflict": false,
+          "unavailable": false
+        }
+      ]
+    },
+    {
+      "id": 9351601,
+      "reference": "Subgiant",
+      "previousStatus": "mismatch",
+      "status": "mismatch",
+      "comparison": "Provisional: Disagrees with the broad catalog classification. Untested solutions remain.",
+      "mode": "observed-uncertainty",
+      "measurements": [
+        "lithium"
+      ],
+      "previousLeader": 0,
+      "rows": [
+        {
+          "phase": 0,
+          "percent": 63.26176294867065,
+          "partial": true
+        },
+        {
+          "phase": 2,
+          "percent": 36.50569467597512,
+          "partial": true
+        },
+        {
+          "phase": -1,
+          "percent": 0.23254237535397748,
+          "partial": true
+        }
+      ],
+      "count": 15555,
+      "coverage": [
+        {
+          "diagnostic": "lithium",
+          "tested": 1185,
+          "total": 15555,
+          "calibratedErrorFraction": null,
+          "conflict": false,
+          "unavailable": false
+        }
+      ]
+    },
+    {
+      "id": 11253558,
+      "reference": "Subgiant",
+      "previousStatus": "mismatch",
+      "status": "mismatch",
+      "comparison": "Provisional: Disagrees with the broad catalog classification. Untested solutions remain.",
+      "mode": "observed-uncertainty",
+      "measurements": [
+        "lithium"
+      ],
+      "previousLeader": 0,
+      "rows": [
+        {
+          "phase": 0,
+          "percent": 61.05400020129461,
+          "partial": true
+        },
+        {
+          "phase": 2,
+          "percent": 38.66868639348108,
+          "partial": true
+        },
+        {
+          "phase": -1,
+          "percent": 0.27731340522435255,
+          "partial": true
+        }
+      ],
+      "count": 14884,
+      "coverage": [
+        {
+          "diagnostic": "lithium",
+          "tested": 1274,
+          "total": 14884,
+          "calibratedErrorFraction": null,
+          "conflict": false,
+          "unavailable": false
+        }
+      ]
+    },
+    {
+      "id": 8687088,
+      "reference": "Subgiant",
+      "previousStatus": "mismatch",
+      "status": "neutral",
+      "comparison": "Not directly comparable: the model combines subgiants and red-giant-branch stars.",
+      "mode": "observed-uncertainty",
+      "measurements": [
+        "lithium"
+      ],
+      "previousLeader": 0,
+      "rows": [
+        {
+          "phase": 2,
+          "percent": 55.404306724068164,
+          "partial": true
+        },
+        {
+          "phase": 0,
+          "percent": 44.24479429160609,
+          "partial": true
+        },
+        {
+          "phase": -1,
+          "percent": 0.3508989843259446,
+          "partial": true
+        }
+      ],
+      "count": 4327,
+      "coverage": [
+        {
+          "diagnostic": "lithium",
+          "tested": 397,
+          "total": 4327,
+          "calibratedErrorFraction": null,
+          "conflict": false,
+          "unavailable": false
+        }
+      ]
+    },
+    {
+      "id": 6934818,
+      "reference": "Subgiant",
+      "previousStatus": "mismatch",
+      "status": "mismatch",
+      "comparison": "Provisional: Disagrees with the broad catalog classification. Untested solutions remain.",
+      "mode": "observed-uncertainty",
+      "measurements": [
+        "lithium"
+      ],
+      "previousLeader": 0,
+      "rows": [
+        {
+          "phase": 0,
+          "percent": 77.82789185712203,
+          "partial": true
+        },
+        {
+          "phase": 2,
+          "percent": 21.96205269790883,
+          "partial": true
+        },
+        {
+          "phase": -1,
+          "percent": 0.21005544496941553,
+          "partial": true
+        }
+      ],
+      "count": 17310,
+      "coverage": [
+        {
+          "diagnostic": "lithium",
+          "tested": 1645,
+          "total": 17310,
+          "calibratedErrorFraction": null,
+          "conflict": false,
+          "unavailable": false
+        }
+      ]
+    },
+    {
+      "id": 11414369,
+      "reference": "Subgiant",
+      "previousStatus": "mismatch",
+      "status": "mismatch",
+      "comparison": "Provisional: Disagrees with the broad catalog classification. Untested solutions remain.",
+      "mode": "observed-uncertainty",
+      "measurements": [
+        "lithium"
+      ],
+      "previousLeader": 0,
+      "rows": [
+        {
+          "phase": 0,
+          "percent": 50.36252524020277,
+          "partial": true
+        },
+        {
+          "phase": 2,
+          "percent": 49.322386735247846,
+          "partial": true
+        },
+        {
+          "phase": -1,
+          "percent": 0.31508802454967744,
+          "partial": true
+        }
+      ],
+      "count": 4688,
+      "coverage": [
+        {
+          "diagnostic": "lithium",
+          "tested": 507,
+          "total": 4688,
+          "calibratedErrorFraction": null,
+          "conflict": false,
+          "unavailable": false
+        }
+      ]
+    },
+    {
+      "id": 6268867,
+      "reference": "Subgiant",
+      "previousStatus": "mismatch",
+      "status": "mismatch",
+      "comparison": "Provisional: Disagrees with the broad catalog classification. Untested solutions remain.",
+      "mode": "observed-uncertainty",
+      "measurements": [
+        "lithium"
+      ],
+      "previousLeader": 0,
+      "rows": [
+        {
+          "phase": 0,
+          "percent": 76.37074758497067,
+          "partial": true
+        },
+        {
+          "phase": 2,
+          "percent": 23.39842511974717,
+          "partial": true
+        },
+        {
+          "phase": -1,
+          "percent": 0.2308272952817032,
+          "partial": true
+        }
+      ],
+      "count": 16098,
+      "coverage": [
+        {
+          "diagnostic": "lithium",
+          "tested": 1675,
+          "total": 16098,
+          "calibratedErrorFraction": null,
+          "conflict": false,
+          "unavailable": false
+        }
+      ]
+    },
+    {
+      "id": 6105540,
+      "reference": "Subgiant",
+      "previousStatus": "mismatch",
+      "status": "neutral",
+      "comparison": "Not directly comparable: the model combines subgiants and red-giant-branch stars.",
+      "mode": "observed-uncertainty",
+      "measurements": [
+        "lithium"
+      ],
+      "previousLeader": 0,
+      "rows": [
+        {
+          "phase": 2,
+          "percent": 55.73425269412202,
+          "partial": true
+        },
+        {
+          "phase": 0,
+          "percent": 43.92580475619779,
+          "partial": true
+        },
+        {
+          "phase": -1,
+          "percent": 0.3399425496804485,
+          "partial": true
+        }
+      ],
+      "count": 13043,
+      "coverage": [
+        {
+          "diagnostic": "lithium",
+          "tested": 922,
+          "total": 13043,
+          "calibratedErrorFraction": null,
+          "conflict": false,
+          "unavailable": false
+        }
+      ]
+    },
+    {
+      "id": "WD:40 Eridani B",
+      "reference": "White dwarf",
+      "previousStatus": "match",
+      "status": "match",
+      "comparison": "Leading fit is consistent with the reference stage group; reference evidence may overlap.",
+      "mode": "point-interpolation",
+      "measurements": [],
+      "previousLeader": 10,
+      "rows": [
+        {
+          "phase": 10,
+          "percent": 100,
+          "partial": false
+        }
+      ],
+      "count": 0,
+      "coverage": []
+    },
+    {
+      "id": "WD:Stein 2051 B",
+      "reference": "White dwarf",
+      "previousStatus": "match",
+      "status": "match",
+      "comparison": "Leading fit is consistent with the reference stage group; reference evidence may overlap.",
+      "mode": "point-interpolation",
+      "measurements": [],
+      "previousLeader": 10,
+      "rows": [
+        {
+          "phase": 10,
+          "percent": 100,
+          "partial": false
+        }
+      ],
+      "count": 0,
+      "coverage": []
+    },
+    {
+      "id": "WD:Sirius B",
+      "reference": "White dwarf",
+      "previousStatus": "match",
+      "status": "match",
+      "comparison": "Leading fit is consistent with the reference stage group; reference evidence may overlap.",
+      "mode": "point-interpolation",
+      "measurements": [],
+      "previousLeader": 10,
+      "rows": [
+        {
+          "phase": 10,
+          "percent": 100,
+          "partial": false
+        }
+      ],
+      "count": 0,
+      "coverage": []
+    },
+    {
+      "id": "WD:Procyon B",
+      "reference": "White dwarf",
+      "previousStatus": "match",
+      "status": "match",
+      "comparison": "Leading fit is consistent with the reference stage group; reference evidence may overlap.",
+      "mode": "point-interpolation",
+      "measurements": [],
+      "previousLeader": 10,
+      "rows": [
+        {
+          "phase": 10,
+          "percent": 100,
+          "partial": false
+        }
+      ],
+      "count": 0,
+      "coverage": []
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+    "task":  "Working observed-star inference corrections",
+    "stages":  {
+                   "uncertaintyInference":  "passed",
+                   "gridCellWeighting":  "passed",
+                   "conditionalDiagnosticCoverage":  "passed",
+                   "allRecordedDiagnosticRouting":  "passed",
+                   "all133Regression":  "passed",
+                   "phoneTests":  "passed",
+                   "publication":  "running",
+                   "liveVerification":  "pending"
+               },
+    "counts":  {
+                   "match":  108,
+                   "neutral":  7,
+                   "mismatch":  18
+               },
+    "previouslyConsistentRegressions":  0,
+    "remainingLimitations":  [
+                                 "18 leading fits still differ from catalog references",
+                                 "Seven comparisons remain category-limited",
+                                 "Conditional diagnostic weighting is not a full generative posterior",
+                                 "Zero covariance and population prior assumptions are explicit",
+                                 "Cooling and incomplete-error records use exact-position fallback"
+                             ],
+    "evidence":  [
+                     "public/data/v25-validation.json",
+                     "validation/v25-science.json",
+                     "validation/v25-browser.json"
+                 ]
+}
