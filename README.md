@@ -1,8 +1,8 @@
-# Star Lab version eight
+# Star Lab version nine
 
-Current interface: three touch sliders, no editable numbers, one best-fitting model estimate, and live star illustration. Controls snap together to one of 22,269 spectrally calibrated, initially solar-composition model rows. No physical uniqueness is claimed. Full selection rule, calibration, coverage and assumptions: public/details.html.
+Scientific-accuracy correction: independent light-only sliders, no typing or snapping, no forced stage or mass. One illustration and `Stage unresolved`. Magnesium absorption is not currently fitted. Radius follows temperature and bolometric luminosity under the fixed assumptions in public/details.html. See SCIENCE-REVIEW.md for diagnostic limitations and primary-source investigation.
 
-Run node validate-selection.mjs and node v8-browser.cjs (local server port 8767). TEST_URL selects the live browser target. Prior-version tests below are historical and do not describe the current interface.
+Run node v9-browser.cjs against a public-folder server on port 8767; TEST_URL selects the live target. Previous validation scripts are historical, not evidence of stage-inference accuracy.
 
 ## Historical implementation notes
 

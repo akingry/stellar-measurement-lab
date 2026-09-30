@@ -1,0 +1,7 @@
+# Scientific accuracy correction
+
+Version nine removes nearest-row selection from the runtime, all input snapping, the model-mass output and forced stage labels. Three independent light quantities remain. Every result is conservatively `Stage unresolved`; this means inference is unavailable, not that every star is inherently unclassifiable. Radius and blackbody illustration depend only on temperature and bolometric luminosity. Arbitrary combinations are not certified realizable. Magnesium absorption currently does not constrain a fit.
+
+Reviewed primary source: https://arxiv.org/abs/1103.5805 (fetched successfully September 30, 2026). Bedding et al., Nature 471, 608–611, DOI 10.1038/nature09935. Long-duration Kepler photometry and dipole gravity-mode period spacings distinguish hydrogen-shell and core-helium burning in applicable red giants. This does not justify a universal threshold or classify all phases. Observed mixed-mode spacings must not be silently equated with an asymptotic spacing or single pulsation period.
+
+Current evolutionary rows and 585-spectrum absorption calibration lack mode frequencies, seismic predictions, observational uncertainties and a validated stage classifier. No additional diagnostic has been implemented without those prerequisites. The old selection module remains for historical validation only, not imported as an inference routine by the interface.

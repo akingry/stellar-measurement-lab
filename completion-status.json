@@ -1,64 +1,30 @@
 {
-  "version": 8,
+  "version": 9,
   "implementation": {
     "status": "passed",
-    "evidence": "public/selection.js",
-    "sourceCommit": "95cdd5f"
+    "evidence": "public/app.js"
   },
-  "science": {
+  "scienceReview": {
     "status": "passed",
-    "evidence": "validation/selection-science.json",
-    "candidates": 22269,
-    "spectra": 585,
-    "sliderChecks": 303
+    "evidence": "SCIENCE-REVIEW.md",
+    "finding": "No claimed stage inference; no forced matching. No validated seismic calibration available."
   },
   "mobile": {
     "status": "passed",
-    "evidence": [
-      "validation/v8-browser.json",
-      "validation/v8-320.png",
-      "validation/v8-390.png"
-    ],
-    "limitation": "Chromium emulation; physical iPhone and Telegram webview unverified"
+    "evidence": "validation/v9-browser.json",
+    "limitation": "Physical iPhone and Telegram gestures unverified"
   },
   "publication": {
-    "status": "passed",
-    "branch": "gh-pages",
-    "commit": "a8bcccae352f9303f189eb15840d494d4296274f",
-    "url": "https://akingry.github.io/stellar-measurement-lab/?v=8"
+    "status": "running"
   },
   "live": {
-    "status": "passed",
-    "evidence": [
-      "validation/v8-live.json",
-      "validation/v8-live-assets.json",
-      "validation/v8-live-390.png"
-    ],
-    "assetComparison": "All five changed runtime and page assets match after Git newline normalization"
+    "status": "pending"
   },
   "handoff": {
-    "status": "passed",
-    "openingPath": "https://akingry.github.io/stellar-measurement-lab/?v=8",
-    "limitations": "One conditional model estimate, not unique physical inference. Fixed initially solar composition, nonrotating single-star grid, only four calibrated phase flags and complete atmosphere cells. Controls snap together; selected values are model predictions. Physical iPhone not tested."
+    "status": "pending"
   },
-  "latestRequirementReview": {
+  "stageClassifier": {
     "status": "blocked",
-    "requirement": "Light-derived diagnostics distinguish evolutionary stage, including oscillation period spacing",
-    "evidence": [
-      "public/selection.js",
-      "public/spectral.js",
-      "README.md"
-    ],
-    "finding": "Version eight selects one nearest model and breaks ties by source order. This is not evidence of unique stage classification. No oscillation calibration is implemented.",
-    "blocker": "Validated oscillation-to-stage calibration and applicable coverage are absent from the current app dataset."
-  },
-  "lightOnly": {
-    "status": "passed",
-    "evidence": [
-      "public/selection.js",
-      "public/app.js",
-      "public/details.html"
-    ],
-    "assumptions": "Synthetic model explorer: fixed fiducial distance ten parsecs, zero extinction, bolometric flux, isotropic isolated single star. No mass, age, gravity or stage inputs."
+    "reason": "Validated uncertainty-aware diagnostic classifier and seismic predictions absent; UI explicitly shows Stage unresolved."
   }
 }

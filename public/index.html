@@ -1,9 +1,9 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>Star Lab</title><link rel="icon" href="icon.svg"><link rel="stylesheet" href="style.css?v=8"></head><body><main>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>Star Lab</title><link rel="icon" href="icon.svg"><link rel="stylesheet" href="style.css?v=9"></head><body><main>
 <header><a href="./" class="brand">Star Lab</a><button id="reset" disabled>Reset</button></header>
-<section class="diagram"><h1>Hertzsprung–Russell diagram</h1><canvas id="hr" aria-label="Luminosity versus temperature; selected model"></canvas></section>
-<section class="measurements" aria-label="Model measurements"><div class="caption">Calibrated models · controls snap together</div><div id="controls"></div></section>
-<section class="estimate"><h2>Best-fitting model estimate</h2><div id="loading" role="status">Loading calibrated models…</div><h3 id="verdict" aria-live="polite">—</h3><div class="coverage">Limited coverage · solar composition</div></section>
+<section class="diagram"><h1>Hertzsprung–Russell diagram</h1><canvas id="hr" aria-label="Luminosity versus temperature; input light quantities"></canvas></section>
+<section class="measurements" aria-label="Light quantities"><div class="caption">Light inputs · no forced match</div><div id="controls"></div></section>
+<section class="estimate"><h2>Evolutionary stage</h2><div id="loading" role="status">Loading calibrated models…</div><h3 id="verdict" aria-live="polite">—</h3><div class="coverage">Stage inference unavailable</div></section>
 <section class="scene"><canvas id="star" aria-label="Animated star illustration compared with the Sun"></canvas><div class="scene-top" id="tempBadge"></div><div class="scene-bottom"><select id="sizeMode" aria-label="Radius scale"><option value="compressed">Compressed radii</option><option value="linear">True radius ratio</option></select><button id="pause" aria-pressed="false">Pause</button></div></section>
-<div class="readings"><div><span>Model radius</span><strong id="radius">—</strong></div><div><span>Model mass</span><strong id="mass">—</strong></div></div>
+<div class="readings"><div><span>Inferred radius</span><strong id="radius">—</strong></div></div>
 <footer><a href="details.html">Assumptions and sources</a><span>Illustrative animation</span></footer>
-</main><script type="module" src="app.js?v=8"></script></body></html>
+</main><script type="module" src="app.js?v=9"></script></body></html>
