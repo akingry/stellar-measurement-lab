@@ -1,4 +1,5 @@
 import{derived,phases}from './engine.js';
+import{enhanceSliders}from './touch-sliders.js';
 const $=id=>document.getElementById(id),defaults={T:5772,logL:0,g:4.438,z:0,useG:true,useZ:false,tolT:3,tolL:.12,tolG:.15,tolZ:.2};let q={...defaults},ready=false,manifest=null,plot=[],result=null,requestId=0,timer,visual=derived(q),rgb=[255,245,225],paused=matchMedia('(prefers-reduced-motion: reduce)').matches,phase=0;
 const fmt=(n,d=3)=>!Number.isFinite(n)?'—':(Math.abs(n)>=1e5||(Math.abs(n)<.001&&n!==0)?n.toExponential(2):n.toLocaleString('en-US',{maximumSignificantDigits:d}));
 const age=a=>a<6?fmt(10**a/1e3)+' kyr':a<9?fmt(10**a/1e6)+' Myr':fmt(10**a/1e9)+' Gyr';
@@ -7,6 +8,7 @@ for(const f of fields){const box=document.createElement('div');box.className='co
 $(f.key).oninput=()=>{const v=Number($(f.key).value);if($(f.key).value===''||!Number.isFinite(v)||v<f.min||v>f.max){$(f.key).setAttribute('aria-invalid','true');return}$(f.key).removeAttribute('aria-invalid');q[f.key]=f.key==='logL'?Math.log10(v):v;setSlider(f);changed()};
 $(f.key+'Slider').oninput=e=>{q[f.key]=f.key==='logL'?+e.target.value:f.log?10**(+e.target.value):+e.target.value;$(f.key).value=Number((f.key==='logL'?10**q.logL:q[f.key]).toPrecision(6));$(f.key).removeAttribute('aria-invalid');changed()};
 $(f.tol).oninput=()=>{const v=Number($(f.tol).value);if($(f.tol).value===''||!Number.isFinite(v)||v<f.tolMin||v>f.tolMax){$(f.tol).setAttribute('aria-invalid','true');return}$(f.tol).removeAttribute('aria-invalid');q[f.tol]=v;changed()};if(f.toggle)$(f.toggle).onchange=()=>{q[f.toggle]=$(f.toggle).checked;syncFields();changed()}}
+enhanceSliders();
 function setSlider(f){$(f.key+'Slider').value=f.key==='logL'?q.logL:f.log?Math.log10(q[f.key]):q[f.key]}
 function syncFields(){for(const f of fields){$(f.key).value=Number((f.key==='logL'?10**q.logL:q[f.key]).toPrecision(6));setSlider(f);$(f.tol).value=q[f.tol];$(f.key).removeAttribute('aria-invalid');$(f.tol).removeAttribute('aria-invalid');if(f.toggle){$(f.toggle).checked=q[f.toggle];$('box-'+f.key).classList.toggle('off',!q[f.toggle]);for(const id of [f.key,f.key+'Slider',f.tol])$(id).disabled=!q[f.toggle]}}}
 function changed(mode='YOUR MEASUREMENTS'){$('inputMode').textContent=mode;updateVisual();schedule()}
