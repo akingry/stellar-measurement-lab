@@ -1,34 +1,21 @@
 {
-  "version": 13,
-  "overall": "passed",
+  "version": 14,
+  "overall": "local checks passed; publication pending",
   "implementation": {
-    "status": "passed",
-    "features": [
-      "computed lithium equal-fit markers",
-      "gradient saturation tracks lead",
-      "two named color labels",
-      "crossover recomputed for current candidates"
-    ]
+    "status": "passed"
   },
   "validation": {
     "status": "passed",
     "evidence": [
-      "validation/v13-browser.json",
-      "validation/v13-lithium.png"
+      "validation/v14-browser.json",
+      "validation/v14-magnesium.png"
     ],
-    "crossoverMilliangstroms": 75.5,
-    "screenshotsInspected": true
+    "checks": "701 sampled shares identical to ranking; markers verified; mobile touch and overflow passed"
   },
   "publication": {
-    "status": "passed",
-    "commit": "5e599d13770ac0e649a946b5cc1d553a2b9ca387",
-    "url": "https://akingry.github.io/stellar-measurement-lab/?v=13"
+    "status": "running"
   },
   "live": {
-    "status": "passed",
-    "evidence": [
-      "validation/v13-live.json",
-      "validation/v13-live-lithium.png"
-    ]
+    "status": "pending"
   }
 }
