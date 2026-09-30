@@ -1,6 +1,6 @@
 {
   "version": 18,
-  "overall": "local checks passed; publishing",
+  "overall": "passed",
   "implementation": {
     "status": "passed",
     "method": "same-solution product likelihood; conditional-independence approximation; not calibrated posterior"
@@ -14,9 +14,14 @@
     "screenshotsInspected": true
   },
   "publication": {
-    "status": "running"
+    "status": "passed",
+    "commit": "22c7a00f641de8cd785b8f8513003cb5187c991a",
+    "url": "https://akingry.github.io/stellar-measurement-lab/?v=18"
   },
   "live": {
-    "status": "pending"
+    "status": "passed",
+    "evidence": [
+      "validation/v18-live.json"
+    ]
   }
 }
