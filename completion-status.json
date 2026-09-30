@@ -1,6 +1,6 @@
 {
   "version": 21,
-  "overall": "running",
+  "overall": "blocked",
   "dataset": {
     "status": "passed",
     "scope": "15000 real Kepler targets, proportionate broad classes",
@@ -23,6 +23,16 @@
     "screenshotInspected": true
   },
   "publication": {
-    "status": "running"
+    "status": "passed",
+    "commit": "bdad438849ffbdb28a66d35448281e8076a2c4ae",
+    "url": "https://akingry.github.io/stellar-measurement-lab/?v=21"
+  },
+  "scopeNote": "Random database feature published and verified; original complete-measurement request remains incomplete due to observed-data coverage.",
+  "live": {
+    "status": "passed",
+    "evidence": [
+      "validation/v21-live.json"
+    ],
+    "sqliteDownloadSha256": "068d7bb5f7dee9f460d6741e9889c23c3b22a6c475df828767cf5061505e8331"
   }
 }
