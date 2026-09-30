@@ -1,6 +1,6 @@
 {
   "version": 10,
-  "overall": "running",
+  "overall": "passed for evidence-diagnostic update",
   "implementation": {
     "status": "passed",
     "evidence": [
@@ -24,12 +24,24 @@
     "screenshotInspected": true
   },
   "publication": {
-    "status": "running"
+    "status": "passed",
+    "publicCommit": "aa1a5530cc65bdb47f3d3355ae2c7fee3382802e",
+    "url": "https://akingry.github.io/stellar-measurement-lab/?v=10"
   },
   "live": {
-    "status": "pending"
+    "status": "passed",
+    "evidence": [
+      "validation/v10-live.json",
+      "validation/v10-live-assets.json"
+    ],
+    "hashConvention": "Text assets normalized from CRLF to LF"
   },
   "handoff": {
-    "status": "pending"
+    "status": "passed",
+    "limitations": "Empirical diagnostic estimates, not a joint all-stage classifier. Physical iPhone gestures unverified."
+  },
+  "universalClassifier": {
+    "status": "blocked",
+    "reason": "No scientifically validated joint classifier for all requested types and stages has been established; this update does not claim one."
   }
 }
