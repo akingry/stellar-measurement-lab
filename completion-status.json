@@ -17,10 +17,10 @@
                           "status":  "passed"
                       },
     "publication":  {
-                        "evidence":  "https://github.com/akingry/stellar-measurement-lab/actions/runs/36713786841",
+                        "evidence":  "https://github.com/akingry/stellar-measurement-lab/actions/runs/36715899005",
                         "status":  "passed",
                         "url":  "https://akingry.github.io/stellar-measurement-lab/",
-                        "commit":  "2a2ab680d7cb62a114d97b36715d8bbea93e0c34"
+                        "commit":  "38dfc59c10ead7e52e8f0809635090fcba43481d"
                     },
     "live_validation":  {
                             "status":  "passed",
@@ -51,5 +51,14 @@
                          "evidence":  "validation/live-browser.json",
                          "constraints":  "Temperature and luminosity only; no gravity/composition filtering",
                          "commit":  "2a2ab680d7cb62a114d97b36715d8bbea93e0c34"
-                     }
+                     },
+    "point_interpolation":  {
+                                "triangles":  1864862,
+                                "local_browser_validation":  "passed",
+                                "scientific_validation":  "validation/point-science.json",
+                                "synthetic_checks":  207,
+                                "publication_commit":  "38dfc59c10ead7e52e8f0809635090fcba43481d",
+                                "status":  "passed",
+                                "live_validation":  "validation/live-browser.json"
+                            }
 }
