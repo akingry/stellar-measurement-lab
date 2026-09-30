@@ -17,10 +17,10 @@
                           "status":  "passed"
                       },
     "publication":  {
-                        "evidence":  "https://github.com/akingry/stellar-measurement-lab/actions/runs/36715899005",
+                        "evidence":  "https://github.com/akingry/stellar-measurement-lab/actions/runs/36723366263",
                         "status":  "passed",
                         "url":  "https://akingry.github.io/stellar-measurement-lab/",
-                        "commit":  "38dfc59c10ead7e52e8f0809635090fcba43481d"
+                        "commit":  "faf6b0717701897a93074b749a961886b01a98d5"
                     },
     "live_validation":  {
                             "status":  "passed",
@@ -60,5 +60,10 @@
                                 "publication_commit":  "38dfc59c10ead7e52e8f0809635090fcba43481d",
                                 "status":  "passed",
                                 "live_validation":  "validation/live-browser.json"
-                            }
+                            },
+    "expanded_labels":  {
+                            "status":  "passed",
+                            "evidence":  "validation/live-browser.json",
+                            "publication_commit":  "faf6b0717701897a93074b749a961886b01a98d5"
+                        }
 }
