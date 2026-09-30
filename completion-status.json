@@ -1,29 +1,22 @@
 {
-  "version": 15,
-  "overall": "passed",
+  "version": 17,
+  "overall": "local checks passed; publishing",
   "implementation": {
     "status": "passed",
-    "defaultLinearRange": [
-      0,
-      0.12
-    ]
+    "scale": "nonlinear display only, unchanged physical likelihoods"
   },
   "validation": {
     "status": "passed",
     "evidence": [
-      "validation/v15-browser.json",
-      "validation/v15-magnesium.png"
-    ]
+      "validation/v17-browser.json",
+      "validation/v17-magnesium.png"
+    ],
+    "screenshotsInspected": true
   },
   "publication": {
-    "status": "passed",
-    "commit": "55f0f7a5996489d626a350950a81ce442210ac34",
-    "url": "https://akingry.github.io/stellar-measurement-lab/?v=15"
+    "status": "running"
   },
   "live": {
-    "status": "passed",
-    "evidence": [
-      "validation/v15-live.json"
-    ]
+    "status": "pending"
   }
 }
