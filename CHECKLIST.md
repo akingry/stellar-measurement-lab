@@ -11,3 +11,5 @@
 Opening path: https://akingry.github.io/stellar-measurement-lab/?v=8
 
 Evidence: validation/selection-science.json, validation/v8-browser.json, validation/v8-live.json, validation/v8-live-assets.json, validation/v8-live-390.png. All 22,269 candidates checked; 303 slider requests; 585 calibration nodes; no overflow at 320, 390, 430 and 1,440 pixels. Screenshots inspected locally and live. Actual iPhone and Telegram webview gestures remain unverified. Scope and fixed selection assumptions: public/details.html.
+
+- [x] Light-only steering: verified observable coordinates only; documented fixed ten-parsec, zero-extinction luminosity interpretation and distinction from apparent flux.

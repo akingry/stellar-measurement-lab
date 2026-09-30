@@ -40,5 +40,25 @@
     "status": "passed",
     "openingPath": "https://akingry.github.io/stellar-measurement-lab/?v=8",
     "limitations": "One conditional model estimate, not unique physical inference. Fixed initially solar composition, nonrotating single-star grid, only four calibrated phase flags and complete atmosphere cells. Controls snap together; selected values are model predictions. Physical iPhone not tested."
+  },
+  "latestRequirementReview": {
+    "status": "blocked",
+    "requirement": "Light-derived diagnostics distinguish evolutionary stage, including oscillation period spacing",
+    "evidence": [
+      "public/selection.js",
+      "public/spectral.js",
+      "README.md"
+    ],
+    "finding": "Version eight selects one nearest model and breaks ties by source order. This is not evidence of unique stage classification. No oscillation calibration is implemented.",
+    "blocker": "Validated oscillation-to-stage calibration and applicable coverage are absent from the current app dataset."
+  },
+  "lightOnly": {
+    "status": "passed",
+    "evidence": [
+      "public/selection.js",
+      "public/app.js",
+      "public/details.html"
+    ],
+    "assumptions": "Synthetic model explorer: fixed fiducial distance ten parsecs, zero extinction, bolometric flux, isotropic isolated single star. No mass, age, gravity or stage inputs."
   }
 }
