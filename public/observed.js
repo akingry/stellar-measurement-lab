@@ -26,6 +26,7 @@ export function compareReference(star,ranking){
  const phase=leaders[0].phase;
  if(star.stageReference)return qualify(star.stageReference.phases.includes(phase)?'Leading fit is consistent with the reference stage group; reference evidence may overlap.':'Leading fit disagrees with the reference stage group.');
  if(phase===2)return 'Not directly comparable: the model combines subgiants and red-giant-branch stars.';
+ if(phase===-1&&[0,1,2].includes(star.classCode))return qualify('Leading pre-main-sequence fit disagrees with the broad catalog classification.');
  const broad=phase===0?0:[3,4,5].includes(phase)?2:null;
  if(broad===null)return 'Not directly comparable: different catalog and model categories.';
  return qualify(broad===star.classCode?'Consistent at broad-class level; not an independent stage confirmation.':'Disagrees with the broad catalog classification.');

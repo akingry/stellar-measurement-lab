@@ -1,0 +1,19 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Sample audit · Star Lab</title><link rel="stylesheet" href="style.css?v=23"><style>
+main{max-width:850px}h1{font-size:24px}.audit-card{background:#101d30;padding:14px;margin:12px 0;border-radius:12px}.audit-card summary{cursor:pointer;line-height:1.6;overflow-wrap:anywhere}.audit-card p{line-height:1.5}.match{color:#7eebb1}.mismatch{color:#ff9393}.neutral{color:#d0d6e2}.audit-card dl{display:grid;grid-template-columns:1fr 1fr;gap:8px;font-size:13px}.audit-card dd{margin:0;overflow-wrap:anywhere}button[aria-pressed=true]{outline:2px solid #85d8ff}.audit-card h3{font-size:15px}.audit-card ul{padding-left:20px}.audit-card pre{white-space:pre-wrap;overflow-wrap:anywhere}#summary{font-size:19px}
+</style></head><body><main><header><a href="./?v=24">Back to Star Lab</a></header>
+<h1>Diagnostic-example audit</h1><p id="summary">Loading results…</p>
+<p>Every one of the 133 diagnostic examples. “Match” means consistency at the available catalog level, not confirmation of an exact stage. The separate 15,000-star sample is unchanged.</p>
+<h2>What caused the disagreements?</h2>
+<p>Twenty-four subgiants have a compatible model that lithium cannot score. Five main-sequence references receive a modest young-star lead from overlapping lithium fits. Two giants are excluded by the exact-position model search; compatible evolved models appear within their recorded-error sensitivity scans.</p>
+<p>The audit also corrected nine disagreements previously shown as “not comparable.” The numerical predictions are unchanged.</p>
+<details><summary>Tested improvements and limits</summary>
+<p>A fixed uncertainty scan with available recorded diagnostics makes three disagreements provisionally consistent, including one giant. The other giant lacks a complete oscillation set. This needs covariance and model-error validation before replacing production fitting.</p>
+<p>Published spectrum-derived gravity does not fix the subgiant disagreements. It helps three other disagreements, but creates disagreements in 12 previously consistent examples. This simple replacement was therefore not deployed.</p>
+<p>The priorities are a validated subgiant-compatible spectral likelihood and uncertainty-aware fitting of recorded stars. No observations, reference labels, membership, or production fit percentages were changed to get a match.</p>
+<p>116 comparisons contain untested model solutions. No measured magnesium indices occur in this sample. These coverage-selected examples do not provide an unbiased accuracy estimate. The experiments below are sensitivity tests, not calibrated probabilities.</p>
+<p>Sources: <a href="https://arxiv.org/abs/2304.12197">Lithium calibration</a>, <a href="https://cdsarc.cds.unistra.fr/ftp/J/A+A/664/A78/ReadMe">spectroscopic measurements</a>, <a href="https://cdsarc.cds.unistra.fr/ftp/J/ApJ/866/99/ReadMe">Kepler reference catalog</a>, <a href="https://arxiv.org/abs/2411.03101">giant-stage evidence</a>.</p>
+</details>
+<div class="diagnostic-switches" id="filters"><button data-status="all">All 133</button><button data-status="mismatch">Disagreements</button><button data-status="match">Consistent</button><button data-status="neutral">Unresolved</button></div>
+<p id="shown" role="status"></p><div id="records"></div>
+<p>Download: <a href="data/sample-audit-report.md" download>Report</a> · <a href="data/sample-audit.csv" download>Spreadsheet</a> · <a href="data/sample-audit.sqlite" download>Audit database</a> · <a href="data/sample-audit.json" download>Full experiments</a></p>
+</main><script type="module" src="audit.js?v=24"></script></body></html>

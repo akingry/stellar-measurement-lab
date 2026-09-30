@@ -1,0 +1,32 @@
+{
+    "task":  "Audit all diagnostic examples and test mismatch improvements",
+    "stages":  {
+                   "all133Predictions":  "passed",
+                   "sourceVerification":  "passed",
+                   "perStarCauses":  "passed",
+                   "diagnosticAndUncertaintyExperiments":  "passed",
+                   "spectroscopicGravityExperiment":  "passed",
+                   "referenceComparisonFix":  "passed",
+                   "phoneChecks":  "passed",
+                   "publication":  "running",
+                   "liveVerification":  "pending"
+               },
+    "counts":  {
+                   "tied":  1,
+                   "disagreeing":  31,
+                   "consistent":  101
+               },
+    "predictionChanges":  0,
+    "measurementChanges":  0,
+    "productionChanges":  [
+                              "Correct nine falsely non-comparable reference comparisons",
+                              "Add per-example audit link and browsable report"
+                          ],
+    "experimentsNotDeployed":  "Missing subgiant likelihood and covariance-aware inference require further validation; audit experiments are not forced matches.",
+    "evidence":  [
+                     "public/data/sample-audit.json",
+                     "public/data/sample-audit.sqlite",
+                     "validation/v24-audit.json",
+                     "validation/v24-browser.json"
+                 ]
+}

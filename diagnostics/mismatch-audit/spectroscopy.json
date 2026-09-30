@@ -1,0 +1,622 @@
+{
+  "10793277": {
+    "temperature": 4991.0,
+    "temperatureError": 124.0,
+    "logGravity": 2.86,
+    "logGravityError": 0.23,
+    "ironAbundance": -0.04,
+    "ironAbundanceError": 0.16,
+    "source": "https://cdsarc.cds.unistra.fr/ftp/J/A+A/664/A78/table2.dat",
+    "note": "Atmosphere-model inference from spectra, not raw line measurements. For audit-only tests; not silently inserted into app sliders."
+  },
+  "6508544": {
+    "temperature": 5074.0,
+    "temperatureError": 95.0,
+    "logGravity": 3.18,
+    "logGravityError": 0.33,
+    "ironAbundance": -0.06,
+    "ironAbundanceError": 0.21,
+    "source": "https://cdsarc.cds.unistra.fr/ftp/J/A+A/664/A78/table2.dat",
+    "note": "Atmosphere-model inference from spectra, not raw line measurements. For audit-only tests; not silently inserted into app sliders."
+  },
+  "7692850": {
+    "temperature": 4672.0,
+    "temperatureError": 95.0,
+    "logGravity": 2.61,
+    "logGravityError": 0.19,
+    "ironAbundance": 0.08,
+    "ironAbundanceError": 0.12,
+    "source": "https://cdsarc.cds.unistra.fr/ftp/J/A+A/664/A78/table2.dat",
+    "note": "Atmosphere-model inference from spectra, not raw line measurements. For audit-only tests; not silently inserted into app sliders."
+  },
+  "9286266": {
+    "temperature": 4973.0,
+    "temperatureError": 127.0,
+    "logGravity": 3.07,
+    "logGravityError": 0.23,
+    "ironAbundance": -0.04,
+    "ironAbundanceError": 0.13,
+    "source": "https://cdsarc.cds.unistra.fr/ftp/J/A+A/664/A78/table2.dat",
+    "note": "Atmosphere-model inference from spectra, not raw line measurements. For audit-only tests; not silently inserted into app sliders."
+  },
+  "9946213": {
+    "temperature": 5024.0,
+    "temperatureError": 101.0,
+    "logGravity": 3.21,
+    "logGravityError": 0.33,
+    "ironAbundance": -0.01,
+    "ironAbundanceError": 0.14,
+    "source": "https://cdsarc.cds.unistra.fr/ftp/J/A+A/664/A78/table2.dat",
+    "note": "Atmosphere-model inference from spectra, not raw line measurements. For audit-only tests; not silently inserted into app sliders."
+  },
+  "8561202": {
+    "temperature": 5164.0,
+    "temperatureError": 135.0,
+    "logGravity": 3.27,
+    "logGravityError": 0.24,
+    "ironAbundance": -0.02,
+    "ironAbundanceError": 0.16,
+    "source": "https://cdsarc.cds.unistra.fr/ftp/J/A+A/664/A78/table2.dat",
+    "note": "Atmosphere-model inference from spectra, not raw line measurements. For audit-only tests; not silently inserted into app sliders."
+  },
+  "6118479": {
+    "temperature": 4826.0,
+    "temperatureError": 155.0,
+    "logGravity": 2.77,
+    "logGravityError": 0.26,
+    "ironAbundance": -0.02,
+    "ironAbundanceError": 0.14,
+    "source": "https://cdsarc.cds.unistra.fr/ftp/J/A+A/664/A78/table2.dat",
+    "note": "Atmosphere-model inference from spectra, not raw line measurements. For audit-only tests; not silently inserted into app sliders."
+  },
+  "8019753": {
+    "temperature": 5857.0,
+    "temperatureError": 128.0,
+    "logGravity": 4.16,
+    "logGravityError": 0.18,
+    "ironAbundance": 0.11,
+    "ironAbundanceError": 0.11,
+    "source": "https://cdsarc.cds.unistra.fr/ftp/J/A+A/664/A78/table2.dat",
+    "note": "Atmosphere-model inference from spectra, not raw line measurements. For audit-only tests; not silently inserted into app sliders."
+  },
+  "8683442": {
+    "temperature": 5992.0,
+    "temperatureError": 143.0,
+    "logGravity": 4.09,
+    "logGravityError": 0.17,
+    "ironAbundance": -0.52,
+    "ironAbundanceError": 0.2,
+    "source": "https://cdsarc.cds.unistra.fr/ftp/J/A+A/664/A78/table2.dat",
+    "note": "Atmosphere-model inference from spectra, not raw line measurements. For audit-only tests; not silently inserted into app sliders."
+  },
+  "5876824": {
+    "temperature": 5845.0,
+    "temperatureError": 113.0,
+    "logGravity": 4.33,
+    "logGravityError": 0.15,
+    "ironAbundance": -0.11,
+    "ironAbundanceError": 0.15,
+    "source": "https://cdsarc.cds.unistra.fr/ftp/J/A+A/664/A78/table2.dat",
+    "note": "Atmosphere-model inference from spectra, not raw line measurements. For audit-only tests; not silently inserted into app sliders."
+  },
+  "8552124": {
+    "temperature": 5806.0,
+    "temperatureError": 92.0,
+    "logGravity": 4.32,
+    "logGravityError": 0.15,
+    "ironAbundance": -0.09,
+    "ironAbundanceError": 0.14,
+    "source": "https://cdsarc.cds.unistra.fr/ftp/J/A+A/664/A78/table2.dat",
+    "note": "Atmosphere-model inference from spectra, not raw line measurements. For audit-only tests; not silently inserted into app sliders."
+  },
+  "5171752": {
+    "temperature": 6330.0,
+    "temperatureError": 180.0,
+    "logGravity": 4.07,
+    "logGravityError": 0.15,
+    "ironAbundance": -0.22,
+    "ironAbundanceError": 0.17,
+    "source": "https://cdsarc.cds.unistra.fr/ftp/J/A+A/664/A78/table2.dat",
+    "note": "Atmosphere-model inference from spectra, not raw line measurements. For audit-only tests; not silently inserted into app sliders."
+  },
+  "11098004": {
+    "temperature": 5944.0,
+    "temperatureError": 117.0,
+    "logGravity": 4.2,
+    "logGravityError": 0.17,
+    "ironAbundance": 0.11,
+    "ironAbundanceError": 0.14,
+    "source": "https://cdsarc.cds.unistra.fr/ftp/J/A+A/664/A78/table2.dat",
+    "note": "Atmosphere-model inference from spectra, not raw line measurements. For audit-only tests; not silently inserted into app sliders."
+  },
+  "4995418": {
+    "temperature": 5878.0,
+    "temperatureError": 117.0,
+    "logGravity": 4.34,
+    "logGravityError": 0.14,
+    "ironAbundance": 0.01,
+    "ironAbundanceError": 0.16,
+    "source": "https://cdsarc.cds.unistra.fr/ftp/J/A+A/664/A78/table2.dat",
+    "note": "Atmosphere-model inference from spectra, not raw line measurements. For audit-only tests; not silently inserted into app sliders."
+  },
+  "5697225": {
+    "temperature": 6263.0,
+    "temperatureError": 134.0,
+    "logGravity": 4.02,
+    "logGravityError": 0.14,
+    "ironAbundance": -0.14,
+    "ironAbundanceError": 0.14,
+    "source": "https://cdsarc.cds.unistra.fr/ftp/J/A+A/664/A78/table2.dat",
+    "note": "Atmosphere-model inference from spectra, not raw line measurements. For audit-only tests; not silently inserted into app sliders."
+  },
+  "9943581": {
+    "temperature": 6102.0,
+    "temperatureError": 134.0,
+    "logGravity": 4.03,
+    "logGravityError": 0.15,
+    "ironAbundance": -0.05,
+    "ironAbundanceError": 0.14,
+    "source": "https://cdsarc.cds.unistra.fr/ftp/J/A+A/664/A78/table2.dat",
+    "note": "Atmosphere-model inference from spectra, not raw line measurements. For audit-only tests; not silently inserted into app sliders."
+  },
+  "9533168": {
+    "temperature": 5880.0,
+    "temperatureError": 147.0,
+    "logGravity": 4.1,
+    "logGravityError": 0.16,
+    "ironAbundance": -0.25,
+    "ironAbundanceError": 0.15,
+    "source": "https://cdsarc.cds.unistra.fr/ftp/J/A+A/664/A78/table2.dat",
+    "note": "Atmosphere-model inference from spectra, not raw line measurements. For audit-only tests; not silently inserted into app sliders."
+  },
+  "9654342": {
+    "temperature": 6159.0,
+    "temperatureError": 155.0,
+    "logGravity": 4.03,
+    "logGravityError": 0.15,
+    "ironAbundance": -0.21,
+    "ironAbundanceError": 0.15,
+    "source": "https://cdsarc.cds.unistra.fr/ftp/J/A+A/664/A78/table2.dat",
+    "note": "Atmosphere-model inference from spectra, not raw line measurements. For audit-only tests; not silently inserted into app sliders."
+  },
+  "8487271": {
+    "temperature": 5776.0,
+    "temperatureError": 79.0,
+    "logGravity": 4.31,
+    "logGravityError": 0.16,
+    "ironAbundance": 0.13,
+    "ironAbundanceError": 0.11,
+    "source": "https://cdsarc.cds.unistra.fr/ftp/J/A+A/664/A78/table2.dat",
+    "note": "Atmosphere-model inference from spectra, not raw line measurements. For audit-only tests; not silently inserted into app sliders."
+  },
+  "5083272": {
+    "temperature": 6313.0,
+    "temperatureError": 161.0,
+    "logGravity": 4.03,
+    "logGravityError": 0.14,
+    "ironAbundance": -0.13,
+    "ironAbundanceError": 0.14,
+    "source": "https://cdsarc.cds.unistra.fr/ftp/J/A+A/664/A78/table2.dat",
+    "note": "Atmosphere-model inference from spectra, not raw line measurements. For audit-only tests; not silently inserted into app sliders."
+  },
+  "7105818": {
+    "temperature": 6186.0,
+    "temperatureError": 153.0,
+    "logGravity": 4.03,
+    "logGravityError": 0.16,
+    "ironAbundance": -0.06,
+    "ironAbundanceError": 0.13,
+    "source": "https://cdsarc.cds.unistra.fr/ftp/J/A+A/664/A78/table2.dat",
+    "note": "Atmosphere-model inference from spectra, not raw line measurements. For audit-only tests; not silently inserted into app sliders."
+  },
+  "8295509": {
+    "temperature": 5842.0,
+    "temperatureError": 115.0,
+    "logGravity": 4.35,
+    "logGravityError": 0.15,
+    "ironAbundance": -0.02,
+    "ironAbundanceError": 0.14,
+    "source": "https://cdsarc.cds.unistra.fr/ftp/J/A+A/664/A78/table2.dat",
+    "note": "Atmosphere-model inference from spectra, not raw line measurements. For audit-only tests; not silently inserted into app sliders."
+  },
+  "7732770": {
+    "temperature": 5808.0,
+    "temperatureError": 155.0,
+    "logGravity": 4.14,
+    "logGravityError": 0.25,
+    "ironAbundance": -0.36,
+    "ironAbundanceError": 0.18,
+    "source": "https://cdsarc.cds.unistra.fr/ftp/J/A+A/664/A78/table2.dat",
+    "note": "Atmosphere-model inference from spectra, not raw line measurements. For audit-only tests; not silently inserted into app sliders."
+  },
+  "5861082": {
+    "temperature": 6056.0,
+    "temperatureError": 154.0,
+    "logGravity": 4.03,
+    "logGravityError": 0.14,
+    "ironAbundance": -0.25,
+    "ironAbundanceError": 0.15,
+    "source": "https://cdsarc.cds.unistra.fr/ftp/J/A+A/664/A78/table2.dat",
+    "note": "Atmosphere-model inference from spectra, not raw line measurements. For audit-only tests; not silently inserted into app sliders."
+  },
+  "8350630": {
+    "temperature": 6072.0,
+    "temperatureError": 119.0,
+    "logGravity": 4.12,
+    "logGravityError": 0.17,
+    "ironAbundance": -0.01,
+    "ironAbundanceError": 0.14,
+    "source": "https://cdsarc.cds.unistra.fr/ftp/J/A+A/664/A78/table2.dat",
+    "note": "Atmosphere-model inference from spectra, not raw line measurements. For audit-only tests; not silently inserted into app sliders."
+  },
+  "6272252": {
+    "temperature": 5813.0,
+    "temperatureError": 73.0,
+    "logGravity": 4.32,
+    "logGravityError": 0.14,
+    "ironAbundance": 0.07,
+    "ironAbundanceError": 0.12,
+    "source": "https://cdsarc.cds.unistra.fr/ftp/J/A+A/664/A78/table2.dat",
+    "note": "Atmosphere-model inference from spectra, not raw line measurements. For audit-only tests; not silently inserted into app sliders."
+  },
+  "6436856": {
+    "temperature": 6033.0,
+    "temperatureError": 145.0,
+    "logGravity": 4.07,
+    "logGravityError": 0.17,
+    "ironAbundance": -0.08,
+    "ironAbundanceError": 0.15,
+    "source": "https://cdsarc.cds.unistra.fr/ftp/J/A+A/664/A78/table2.dat",
+    "note": "Atmosphere-model inference from spectra, not raw line measurements. For audit-only tests; not silently inserted into app sliders."
+  },
+  "9761459": {
+    "temperature": 5903.0,
+    "temperatureError": 82.0,
+    "logGravity": 4.18,
+    "logGravityError": 0.21,
+    "ironAbundance": 0.02,
+    "ironAbundanceError": 0.14,
+    "source": "https://cdsarc.cds.unistra.fr/ftp/J/A+A/664/A78/table2.dat",
+    "note": "Atmosphere-model inference from spectra, not raw line measurements. For audit-only tests; not silently inserted into app sliders."
+  },
+  "4814262": {
+    "temperature": 6076.0,
+    "temperatureError": 117.0,
+    "logGravity": 4.04,
+    "logGravityError": 0.17,
+    "ironAbundance": 0.06,
+    "ironAbundanceError": 0.12,
+    "source": "https://cdsarc.cds.unistra.fr/ftp/J/A+A/664/A78/table2.dat",
+    "note": "Atmosphere-model inference from spectra, not raw line measurements. For audit-only tests; not silently inserted into app sliders."
+  },
+  "9887784": {
+    "temperature": 6160.0,
+    "temperatureError": 141.0,
+    "logGravity": 4.04,
+    "logGravityError": 0.14,
+    "ironAbundance": -0.18,
+    "ironAbundanceError": 0.16,
+    "source": "https://cdsarc.cds.unistra.fr/ftp/J/A+A/664/A78/table2.dat",
+    "note": "Atmosphere-model inference from spectra, not raw line measurements. For audit-only tests; not silently inserted into app sliders."
+  },
+  "7120961": {
+    "temperature": 5970.0,
+    "temperatureError": 157.0,
+    "logGravity": 3.99,
+    "logGravityError": 0.16,
+    "ironAbundance": -0.15,
+    "ironAbundanceError": 0.14,
+    "source": "https://cdsarc.cds.unistra.fr/ftp/J/A+A/664/A78/table2.dat",
+    "note": "Atmosphere-model inference from spectra, not raw line measurements. For audit-only tests; not silently inserted into app sliders."
+  },
+  "6276948": {
+    "temperature": 4906.0,
+    "temperatureError": 92.0,
+    "logGravity": 2.89,
+    "logGravityError": 0.21,
+    "ironAbundance": 0.06,
+    "ironAbundanceError": 0.11,
+    "source": "https://cdsarc.cds.unistra.fr/ftp/J/A+A/664/A78/table2.dat",
+    "note": "Atmosphere-model inference from spectra, not raw line measurements. For audit-only tests; not silently inserted into app sliders."
+  },
+  "5184199": {
+    "temperature": 5113.0,
+    "temperatureError": 99.0,
+    "logGravity": 3.23,
+    "logGravityError": 0.28,
+    "ironAbundance": 0.05,
+    "ironAbundanceError": 0.12,
+    "source": "https://cdsarc.cds.unistra.fr/ftp/J/A+A/664/A78/table2.dat",
+    "note": "Atmosphere-model inference from spectra, not raw line measurements. For audit-only tests; not silently inserted into app sliders."
+  },
+  "9471796": {
+    "temperature": 5078.0,
+    "temperatureError": 88.0,
+    "logGravity": 3.11,
+    "logGravityError": 0.26,
+    "ironAbundance": 0.02,
+    "ironAbundanceError": 0.12,
+    "source": "https://cdsarc.cds.unistra.fr/ftp/J/A+A/664/A78/table2.dat",
+    "note": "Atmosphere-model inference from spectra, not raw line measurements. For audit-only tests; not silently inserted into app sliders."
+  },
+  "4902641": {
+    "temperature": 5035.0,
+    "temperatureError": 99.0,
+    "logGravity": 2.95,
+    "logGravityError": 0.24,
+    "ironAbundance": 0.05,
+    "ironAbundanceError": 0.11,
+    "source": "https://cdsarc.cds.unistra.fr/ftp/J/A+A/664/A78/table2.dat",
+    "note": "Atmosphere-model inference from spectra, not raw line measurements. For audit-only tests; not silently inserted into app sliders."
+  },
+  "8022670": {
+    "temperature": 4985.0,
+    "temperatureError": 110.0,
+    "logGravity": 2.64,
+    "logGravityError": 0.41,
+    "ironAbundance": -0.06,
+    "ironAbundanceError": 0.15,
+    "source": "https://cdsarc.cds.unistra.fr/ftp/J/A+A/664/A78/table2.dat",
+    "note": "Atmosphere-model inference from spectra, not raw line measurements. For audit-only tests; not silently inserted into app sliders."
+  },
+  "6851401": {
+    "temperature": 5141.0,
+    "temperatureError": 68.0,
+    "logGravity": 3.31,
+    "logGravityError": 0.26,
+    "ironAbundance": 0.04,
+    "ironAbundanceError": 0.13,
+    "source": "https://cdsarc.cds.unistra.fr/ftp/J/A+A/664/A78/table2.dat",
+    "note": "Atmosphere-model inference from spectra, not raw line measurements. For audit-only tests; not silently inserted into app sliders."
+  },
+  "6778122": {
+    "temperature": 4652.0,
+    "temperatureError": 85.0,
+    "logGravity": 2.61,
+    "logGravityError": 0.22,
+    "ironAbundance": 0.11,
+    "ironAbundanceError": 0.14,
+    "source": "https://cdsarc.cds.unistra.fr/ftp/J/A+A/664/A78/table2.dat",
+    "note": "Atmosphere-model inference from spectra, not raw line measurements. For audit-only tests; not silently inserted into app sliders."
+  },
+  "10029821": {
+    "temperature": 5038.0,
+    "temperatureError": 92.0,
+    "logGravity": 3.07,
+    "logGravityError": 0.28,
+    "ironAbundance": 0.02,
+    "ironAbundanceError": 0.11,
+    "source": "https://cdsarc.cds.unistra.fr/ftp/J/A+A/664/A78/table2.dat",
+    "note": "Atmosphere-model inference from spectra, not raw line measurements. For audit-only tests; not silently inserted into app sliders."
+  },
+  "7022298": {
+    "temperature": 5826.0,
+    "temperatureError": 81.0,
+    "logGravity": 4.27,
+    "logGravityError": 0.18,
+    "ironAbundance": 0.14,
+    "ironAbundanceError": 0.11,
+    "source": "https://cdsarc.cds.unistra.fr/ftp/J/A+A/664/A78/table2.dat",
+    "note": "Atmosphere-model inference from spectra, not raw line measurements. For audit-only tests; not silently inserted into app sliders."
+  },
+  "7188873": {
+    "temperature": 5766.0,
+    "temperatureError": 93.0,
+    "logGravity": 4.2,
+    "logGravityError": 0.2,
+    "ironAbundance": 0.09,
+    "ironAbundanceError": 0.12,
+    "source": "https://cdsarc.cds.unistra.fr/ftp/J/A+A/664/A78/table2.dat",
+    "note": "Atmosphere-model inference from spectra, not raw line measurements. For audit-only tests; not silently inserted into app sliders."
+  },
+  "6605691": {
+    "temperature": 6363.0,
+    "temperatureError": 111.0,
+    "logGravity": 4.18,
+    "logGravityError": 0.15,
+    "ironAbundance": 0.04,
+    "ironAbundanceError": 0.14,
+    "source": "https://cdsarc.cds.unistra.fr/ftp/J/A+A/664/A78/table2.dat",
+    "note": "Atmosphere-model inference from spectra, not raw line measurements. For audit-only tests; not silently inserted into app sliders."
+  },
+  "5878001": {
+    "temperature": 5897.0,
+    "temperatureError": 137.0,
+    "logGravity": 4.11,
+    "logGravityError": 0.17,
+    "ironAbundance": -0.24,
+    "ironAbundanceError": 0.16,
+    "source": "https://cdsarc.cds.unistra.fr/ftp/J/A+A/664/A78/table2.dat",
+    "note": "Atmosphere-model inference from spectra, not raw line measurements. For audit-only tests; not silently inserted into app sliders."
+  },
+  "8096156": {
+    "temperature": 5842.0,
+    "temperatureError": 107.0,
+    "logGravity": 4.17,
+    "logGravityError": 0.21,
+    "ironAbundance": 0.1,
+    "ironAbundanceError": 0.11,
+    "source": "https://cdsarc.cds.unistra.fr/ftp/J/A+A/664/A78/table2.dat",
+    "note": "Atmosphere-model inference from spectra, not raw line measurements. For audit-only tests; not silently inserted into app sliders."
+  },
+  "8367302": {
+    "temperature": 5763.0,
+    "temperatureError": 93.0,
+    "logGravity": 4.17,
+    "logGravityError": 0.24,
+    "ironAbundance": 0.1,
+    "ironAbundanceError": 0.11,
+    "source": "https://cdsarc.cds.unistra.fr/ftp/J/A+A/664/A78/table2.dat",
+    "note": "Atmosphere-model inference from spectra, not raw line measurements. For audit-only tests; not silently inserted into app sliders."
+  },
+  "4543734": {
+    "temperature": 5986.0,
+    "temperatureError": 150.0,
+    "logGravity": 4.07,
+    "logGravityError": 0.18,
+    "ironAbundance": -0.05,
+    "ironAbundanceError": 0.14,
+    "source": "https://cdsarc.cds.unistra.fr/ftp/J/A+A/664/A78/table2.dat",
+    "note": "Atmosphere-model inference from spectra, not raw line measurements. For audit-only tests; not silently inserted into app sliders."
+  },
+  "5430849": {
+    "temperature": 5944.0,
+    "temperatureError": 120.0,
+    "logGravity": 4.25,
+    "logGravityError": 0.14,
+    "ironAbundance": 0.16,
+    "ironAbundanceError": 0.11,
+    "source": "https://cdsarc.cds.unistra.fr/ftp/J/A+A/664/A78/table2.dat",
+    "note": "Atmosphere-model inference from spectra, not raw line measurements. For audit-only tests; not silently inserted into app sliders."
+  },
+  "6605673": {
+    "temperature": 5980.0,
+    "temperatureError": 137.0,
+    "logGravity": 3.99,
+    "logGravityError": 0.16,
+    "ironAbundance": -0.31,
+    "ironAbundanceError": 0.13,
+    "source": "https://cdsarc.cds.unistra.fr/ftp/J/A+A/664/A78/table2.dat",
+    "note": "Atmosphere-model inference from spectra, not raw line measurements. For audit-only tests; not silently inserted into app sliders."
+  },
+  "5953275": {
+    "temperature": 6147.0,
+    "temperatureError": 130.0,
+    "logGravity": 3.99,
+    "logGravityError": 0.13,
+    "ironAbundance": -0.21,
+    "ironAbundanceError": 0.15,
+    "source": "https://cdsarc.cds.unistra.fr/ftp/J/A+A/664/A78/table2.dat",
+    "note": "Atmosphere-model inference from spectra, not raw line measurements. For audit-only tests; not silently inserted into app sliders."
+  },
+  "7445809": {
+    "temperature": 5904.0,
+    "temperatureError": 143.0,
+    "logGravity": 4.24,
+    "logGravityError": 0.16,
+    "ironAbundance": 0.01,
+    "ironAbundanceError": 0.13,
+    "source": "https://cdsarc.cds.unistra.fr/ftp/J/A+A/664/A78/table2.dat",
+    "note": "Atmosphere-model inference from spectra, not raw line measurements. For audit-only tests; not silently inserted into app sliders."
+  },
+  "8695721": {
+    "temperature": 6226.0,
+    "temperatureError": 132.0,
+    "logGravity": 3.94,
+    "logGravityError": 0.12,
+    "ironAbundance": -0.02,
+    "ironAbundanceError": 0.11,
+    "source": "https://cdsarc.cds.unistra.fr/ftp/J/A+A/664/A78/table2.dat",
+    "note": "Atmosphere-model inference from spectra, not raw line measurements. For audit-only tests; not silently inserted into app sliders."
+  },
+  "8540530": {
+    "temperature": 5967.0,
+    "temperatureError": 105.0,
+    "logGravity": 4.16,
+    "logGravityError": 0.2,
+    "ironAbundance": 0.04,
+    "ironAbundanceError": 0.14,
+    "source": "https://cdsarc.cds.unistra.fr/ftp/J/A+A/664/A78/table2.dat",
+    "note": "Atmosphere-model inference from spectra, not raw line measurements. For audit-only tests; not silently inserted into app sliders."
+  },
+  "6035466": {
+    "temperature": 5913.0,
+    "temperatureError": 127.0,
+    "logGravity": 4.05,
+    "logGravityError": 0.21,
+    "ironAbundance": -0.12,
+    "ironAbundanceError": 0.15,
+    "source": "https://cdsarc.cds.unistra.fr/ftp/J/A+A/664/A78/table2.dat",
+    "note": "Atmosphere-model inference from spectra, not raw line measurements. For audit-only tests; not silently inserted into app sliders."
+  },
+  "10024897": {
+    "temperature": 5963.0,
+    "temperatureError": 100.0,
+    "logGravity": 4.2,
+    "logGravityError": 0.17,
+    "ironAbundance": 0.11,
+    "ironAbundanceError": 0.12,
+    "source": "https://cdsarc.cds.unistra.fr/ftp/J/A+A/664/A78/table2.dat",
+    "note": "Atmosphere-model inference from spectra, not raw line measurements. For audit-only tests; not silently inserted into app sliders."
+  },
+  "7202882": {
+    "temperature": 6117.0,
+    "temperatureError": 99.0,
+    "logGravity": 4.07,
+    "logGravityError": 0.18,
+    "ironAbundance": 0.07,
+    "ironAbundanceError": 0.12,
+    "source": "https://cdsarc.cds.unistra.fr/ftp/J/A+A/664/A78/table2.dat",
+    "note": "Atmosphere-model inference from spectra, not raw line measurements. For audit-only tests; not silently inserted into app sliders."
+  },
+  "9351601": {
+    "temperature": 5950.0,
+    "temperatureError": 142.0,
+    "logGravity": 4.04,
+    "logGravityError": 0.17,
+    "ironAbundance": -0.26,
+    "ironAbundanceError": 0.14,
+    "source": "https://cdsarc.cds.unistra.fr/ftp/J/A+A/664/A78/table2.dat",
+    "note": "Atmosphere-model inference from spectra, not raw line measurements. For audit-only tests; not silently inserted into app sliders."
+  },
+  "11253558": {
+    "temperature": 5853.0,
+    "temperatureError": 127.0,
+    "logGravity": 4.24,
+    "logGravityError": 0.12,
+    "ironAbundance": 0.0,
+    "ironAbundanceError": 0.14,
+    "source": "https://cdsarc.cds.unistra.fr/ftp/J/A+A/664/A78/table2.dat",
+    "note": "Atmosphere-model inference from spectra, not raw line measurements. For audit-only tests; not silently inserted into app sliders."
+  },
+  "8687088": {
+    "temperature": 6220.0,
+    "temperatureError": 142.0,
+    "logGravity": 3.91,
+    "logGravityError": 0.13,
+    "ironAbundance": -0.09,
+    "ironAbundanceError": 0.14,
+    "source": "https://cdsarc.cds.unistra.fr/ftp/J/A+A/664/A78/table2.dat",
+    "note": "Atmosphere-model inference from spectra, not raw line measurements. For audit-only tests; not silently inserted into app sliders."
+  },
+  "6934818": {
+    "temperature": 5922.0,
+    "temperatureError": 150.0,
+    "logGravity": 4.03,
+    "logGravityError": 0.15,
+    "ironAbundance": -0.28,
+    "ironAbundanceError": 0.15,
+    "source": "https://cdsarc.cds.unistra.fr/ftp/J/A+A/664/A78/table2.dat",
+    "note": "Atmosphere-model inference from spectra, not raw line measurements. For audit-only tests; not silently inserted into app sliders."
+  },
+  "11414369": {
+    "temperature": 6236.0,
+    "temperatureError": 131.0,
+    "logGravity": 3.92,
+    "logGravityError": 0.14,
+    "ironAbundance": -0.0,
+    "ironAbundanceError": 0.12,
+    "source": "https://cdsarc.cds.unistra.fr/ftp/J/A+A/664/A78/table2.dat",
+    "note": "Atmosphere-model inference from spectra, not raw line measurements. For audit-only tests; not silently inserted into app sliders."
+  },
+  "6268867": {
+    "temperature": 5956.0,
+    "temperatureError": 106.0,
+    "logGravity": 4.26,
+    "logGravityError": 0.13,
+    "ironAbundance": 0.08,
+    "ironAbundanceError": 0.15,
+    "source": "https://cdsarc.cds.unistra.fr/ftp/J/A+A/664/A78/table2.dat",
+    "note": "Atmosphere-model inference from spectra, not raw line measurements. For audit-only tests; not silently inserted into app sliders."
+  },
+  "6105540": {
+    "temperature": 5932.0,
+    "temperatureError": 125.0,
+    "logGravity": 4.15,
+    "logGravityError": 0.17,
+    "ironAbundance": -0.05,
+    "ironAbundanceError": 0.17,
+    "source": "https://cdsarc.cds.unistra.fr/ftp/J/A+A/664/A78/table2.dat",
+    "note": "Atmosphere-model inference from spectra, not raw line measurements. For audit-only tests; not silently inserted into app sliders."
+  }
+}
