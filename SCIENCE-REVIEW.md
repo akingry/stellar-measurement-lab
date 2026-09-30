@@ -1,3 +1,7 @@
+# Version eleven addition
+
+Exact-position candidate stages are restored from all eleven model composition grids. Candidate sets remain separate from empirical diagnostic outputs; no observational alternatives are discarded on the basis of unjoined calibrations. Guidance supplies exploratory changes and clearly marks unavailable young-star/late-stage distinctions. Combination buttons preserve unrelated measurements and do not select a hidden stage.
+
 # Version ten science review
 
 The seismic tree reproduces the existing held-out catalog benchmark, with a convex-envelope domain guard and period-spacing interval handling. JavaScript reproduces all 1,000 supported held-out predictions; 16 held-out points are rejected as outside the training envelope. Labels share seismic information and are not independent truth.

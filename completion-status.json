@@ -1,6 +1,6 @@
 {
   "version": 11,
-  "overall": "running",
+  "overall": "passed for visible-controls and guidance update",
   "implementation": {
     "status": "passed",
     "evidence": [
@@ -21,13 +21,20 @@
     "screenshotsInspected": true
   },
   "publication": {
-    "status": "running"
+    "status": "passed",
+    "publicCommit": "d14e9323dbc0977878b2182903d7a315c21c1dd3",
+    "url": "https://akingry.github.io/stellar-measurement-lab/?v=11"
   },
   "live": {
-    "status": "pending"
+    "status": "passed",
+    "evidence": [
+      "validation/v11-live.json",
+      "validation/v11-live-assets.json"
+    ]
   },
   "handoff": {
-    "status": "pending"
+    "status": "passed",
+    "limitations": "Candidate stages from exact-position model interpolation. Separate diagnostic evidence and exploratory guidance, not a universal joint fit."
   },
   "limitations": "Candidate stages from exact-position model interpolation. Separate diagnostic evidence and exploratory guidance, not a universal joint fit."
 }

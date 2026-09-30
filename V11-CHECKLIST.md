@@ -5,5 +5,5 @@
 - [x] Contextual directions and exploratory combination buttons; preserve unrelated controls.
 - [x] Explain unsupported distinctions without forcing classification.
 - [x] Test default, giant, no-match and rapidly changed points; touch and mobile layout.
-- [ ] Inspect screenshot, publish and verify live assets/interaction.
-- [ ] Record scope and hand off the link.
+- [x] Inspect screenshot, publish and verify live assets/interaction.
+- [x] Record scope and hand off the link.
