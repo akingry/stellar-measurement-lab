@@ -67,9 +67,9 @@
                             "publication_commit":  "faf6b0717701897a93074b749a961886b01a98d5"
                         },
     "spectral_measurement":  {
-                                 "status":  "running",
+                                 "status":  "passed",
                                  "calibration":  "Published 2024 magnesium wing flux index",
                                  "validation":  "passed: validation/spectral-science.json, validation/spectral-browser.json, validation/touch.json",
-                                 "publication":  "running"
+                                 "publication":  "passed: live browser verified https://akingry.github.io/stellar-measurement-lab/?v=7"
                              }
 }
