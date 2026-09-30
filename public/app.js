@@ -1,12 +1,12 @@
 import{derived,phases}from './engine.js';
 import{enhanceSliders}from './touch-sliders.js';
 import{evidence}from './evidence.js';
-import{rank}from './ranking.js?v=12';
+import{rank}from './ranking.js?v=18';
 import{decorateLithium}from './lithium-scale.js?v=13';
 import{decorateMagnesium}from './magnesium-scale.js?v=17';
 const $=id=>document.getElementById(id);
 const initial={T:5772,logL:0,tolT:0,tolL:0,useSeismic:true,useTechnetium:true,Dnu:4.45,numax:46.5,DPi1:251.2,spacingError:3,tc4238:4238.15,tc4262:4262.28};
-initial.diagnostic='none';initial.lithium=100;initial.wing=.15;
+initial.measurements=[];initial.diagnostic='none';initial.lithium=100;initial.wing=.15;
 let selected=null,ranking=null,scoreData=null;
 let q={...initial},visual=derived(q),rgb=[255,245,225],plot=[],result=null,ready=false,calibration=null,phase=0,paused=matchMedia('(prefers-reduced-motion: reduce)').matches;
 let modelReady=false,candidates=null,queryId=0,lastPoint='',pending=false;
@@ -53,23 +53,24 @@ function renderEvidence(){
  const giant=ambiguous&&ids.has(3)&&[2,4,5].some(p=>ids.has(p));
  const spectrum=ambiguous&&q.T>=3500&&q.T<=6500&&[-1,0,2,3].some(p=>ids.has(p));
  const allowed={none:true,lithium:youth,seismic:giant,spectrum};
- if(!allowed[q.diagnostic])q.diagnostic='none';
+ const enabled=new Set(q.measurements);
  for(const name of ['lithium','seismic','spectrum']){
-   $(name+'Choice').hidden=!allowed[name];
-   $(name+'Choice').setAttribute('aria-pressed',String(q.diagnostic===name));
-   $(name+'Panel').hidden=q.diagnostic!==name;
+   $(name+'Choice').hidden=!allowed[name]&&!enabled.has(name);
+   $(name+'Choice').setAttribute('aria-pressed',String(enabled.has(name)));
+   $(name+'Panel').hidden=!enabled.has(name);
  }
- $('diagnosticOptions').hidden=!ambiguous;
- $('noneChoice').setAttribute('aria-pressed',String(q.diagnostic==='none'));
+ $('diagnosticOptions').hidden=!ambiguous&&!enabled.size;
+ $('noneChoice').setAttribute('aria-pressed',String(!enabled.size));
  if(candidates===null){$('verdict').textContent='Checking this point…';$('evidenceNote').textContent='';return}
- if(q.diagnostic==='spectrum')updateMagnesiumScale(candidates,q,scoreData.spectrum);
+ if(enabled.has('spectrum'))updateMagnesiumScale(candidates,q,scoreData.spectrum);
  ranking=rank(candidates,q,scoreData);
- if(q.diagnostic==='lithium')updateLithiumScale(candidates,q,scoreData.lithium);
- $('verdict').textContent=!candidates.length?'No model match':ranking.conflict?'Measurement conflicts with models':'Possible stages';
- $('evidenceNote').textContent=q.diagnostic==='none'?'Equal starting weights — temperature and luminosity alone do not rank these stages.':'Relative fit, not calibrated probability'+(ranking.partial?' · Uncalibrated solutions remain possible.':'.');
- $('guidanceTitle').textContent=ambiguous?'Add a measurement':'Select the result to view the star';
- $('guidanceText').textContent=youth?'Lithium absorption can shift support between young and main-sequence models.':giant?'Period spacing can shift support between core-helium and shell-burning giants.':spectrum?'Magnesium absorption can constrain the compatible masses.':ambiguous?'No calibrated additional control for these stages yet.':'';
- $('actionNote').textContent=q.diagnostic==='seismic'?'Red and asymptotic giants share one seismic class; this measurement cannot separate them.':q.diagnostic==='lithium'?'Shares compare calibrated age/composition solutions only. Other solutions remain possible.':q.diagnostic==='spectrum'?'Assumed flux-index uncertainty: 0.01. Outside-calibration phases are not scored.':'';
+ if(enabled.has('lithium'))updateLithiumScale(candidates,q,scoreData.lithium);
+ $('verdict').textContent=!candidates.length?'No model match':ranking.conflict?'Measurement conflicts with models':'Overall relative fit';
+ const names={lithium:'Lithium',spectrum:'Magnesium',seismic:'Oscillations'};
+ $('evidenceNote').textContent=!enabled.size?'Temperature + luminosity · Equal starting weights.':'Temperature + luminosity + '+q.measurements.map(x=>names[x]).join(' + ')+(enabled.size>1?' · Combined fit; assumes independent measurement errors.':' · Relative fit, not calibrated probability.')+(ranking.partial?' Untested solutions remain possible.':'');
+ $('guidanceTitle').textContent='Measurements included in overall fit';
+ $('guidanceText').textContent='Enable one or more. Tap again to exclude.';
+ $('actionNote').textContent=enabled.size?'Slider colors show each measurement alone. Results below combine all enabled measurements.':'';
  const top=ranking.rows[0]?.percent;
  for(const r of ranking.rows){
   const b=document.createElement('button');b.className='candidate result-card';
@@ -84,7 +85,7 @@ function renderEvidence(){
  }
  $('selectionNote').textContent=ranking.tied?'Tied leaders: choose either to inspect.':top!==undefined&&top!==null?'Select the leading result to inspect it.':'No ranked result in calibration.';
 }
-for(const name of ['none','lithium','spectrum','seismic'])$(name+'Choice').onclick=()=>{q.diagnostic=name;apply()};
+for(const name of ['none','lithium','spectrum','seismic'])$(name+'Choice').onclick=()=>{q.measurements=name==='none'?[]:q.measurements.includes(name)?q.measurements.filter(x=>x!==name):[...q.measurements,name];q.diagnostic=q.measurements.at(-1)||'none';apply()};
 function apply(){selected=null;$('preview').hidden=true;$('readings').hidden=true;visual=derived(q);rgb=blackbody(q.T);$('actionNote').textContent='';
  fields.forEach(([id,label,unit])=>{$(id+'Slider').value=id==='T'?Math.log10(q.T):q[id];$(id).textContent=(id.startsWith('tc')?q[id].toFixed(4):fmt(id==='logL'?10**q.logL:q[id],6))+' '+unit});
  requestCandidates();renderEvidence();$('radius').textContent=fmt(visual.radius,3)+' solar radii';$('tempBadge').textContent=fmt(q.T,4)+' kelvin';drawHR();drawStar();
