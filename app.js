@@ -1,7 +1,8 @@
 import{derived,phases}from './engine.js';
 import{enhanceSliders}from './touch-sliders.js';
 import{evidence}from './evidence.js';
-import{rank}from './ranking.js?v=18';
+import{rank}from './ranking.js?v=19';
+import{decorateOscillations}from './oscillation-scale.js?v=19';
 import{decorateLithium}from './lithium-scale.js?v=13';
 import{decorateMagnesium}from './magnesium-scale.js?v=17';
 const $=id=>document.getElementById(id);
@@ -32,6 +33,7 @@ fields.forEach(([id,label,unit,group,min,max,step])=>{
 enhanceSliders();
 const updateLithiumScale=decorateLithium($('lithiumSlider'));
 const updateMagnesiumScale=decorateMagnesium($('wingSlider'));
+const updateOscillationScales=decorateOscillations();
 function requestCandidates(){
  if(!modelReady)return;
  const key=q.T+':'+q.logL;if(key===lastPoint)return;lastPoint=key;pending=true;candidates=null;
@@ -64,6 +66,8 @@ function renderEvidence(){
  if(candidates===null){$('verdict').textContent='Checking this point…';$('evidenceNote').textContent='';return}
  if(enabled.has('spectrum'))updateMagnesiumScale(candidates,q,scoreData.spectrum);
  ranking=rank(candidates,q,scoreData);
+ if(enabled.has('seismic'))updateOscillationScales(q,scoreData);
+ if(enabled.has('seismic')&&!$('oscillationExamples')){const box=document.createElement('div');box.id='oscillationExamples';box.className='diagnostic-switches';for(const e of calibration.seismic.examples){const b=document.createElement('button');b.textContent=e.label===1?'Explore shell-burning measurements':'Explore helium-burning measurements';b.title=e.Dnu+' microhertz; '+e.numax+' microhertz; '+e.DPi1+' seconds';b.onclick=()=>{q.Dnu=e.Dnu;q.numax=e.numax;q.DPi1=e.DPi1;apply()};box.append(b)}$('seismicPanel').append(box)}
  if(enabled.has('lithium'))updateLithiumScale(candidates,q,scoreData.lithium);
  $('verdict').textContent=!candidates.length?'No model match':ranking.conflict?'Measurement conflicts with models':'Overall relative fit';
  const names={lithium:'Lithium',spectrum:'Magnesium',seismic:'Oscillations'};
@@ -78,12 +82,12 @@ function renderEvidence(){
   const title=document.createElement('span');title.textContent=phases[r.phase]?.name||'Unspecified stage';
   const value=document.createElement('strong');value.textContent=pct;b.append(title,value);
   if(r.partial){const n=document.createElement('small');n.textContent='Some model solutions untested';b.append(n)}
-  b.disabled=r.percent===null||Math.abs(r.percent-top)>1e-8;
-  b.setAttribute('aria-label',title.textContent+' '+pct+(b.disabled?'':' — select leading result'));
-  b.onclick=()=>{selected=r.phase;$('preview').hidden=false;$('readings').hidden=false;$('starStage').textContent=title.textContent;$('selectedMass').textContent=fmt(r.chosen.mass,3)+' solar masses (illustrative best fit)';drawStar();$('preview').scrollIntoView({behavior:'smooth',block:'start'})};
+  const example=r.chosen||r.solutions[0];b.disabled=!example;b.setAttribute('aria-pressed',String(selected===r.phase));
+  b.setAttribute('aria-label',title.textContent+' '+pct+(b.disabled?'':' — inspect candidate'));
+  b.onclick=()=>{selected=r.phase;for(const button of $('candidateList').children)button.setAttribute('aria-pressed',String(button===b));$('preview').hidden=false;$('readings').hidden=false;$('starStage').textContent=title.textContent;$('selectedMass').textContent=fmt(example.mass,3)+' solar masses ('+(r.chosen?'illustrative fit':'untested candidate example')+')';drawStar();$('preview').scrollIntoView({behavior:'smooth',block:'start'})};
   $('candidateList').append(b);
  }
- $('selectionNote').textContent=ranking.tied?'Tied leaders: choose either to inspect.':top!==undefined&&top!==null?'Select the leading result to inspect it.':'No ranked result in calibration.';
+ $('selectionNote').textContent=candidates.length?'Select any candidate to inspect it. Selection does not change its fit.':'';
 }
 for(const name of ['none','lithium','spectrum','seismic'])$(name+'Choice').onclick=()=>{q.measurements=name==='none'?[]:q.measurements.includes(name)?q.measurements.filter(x=>x!==name):[...q.measurements,name];q.diagnostic=q.measurements.at(-1)||'none';apply()};
 function apply(){selected=null;$('preview').hidden=true;$('readings').hidden=true;visual=derived(q);rgb=blackbody(q.T);$('actionNote').textContent='';
