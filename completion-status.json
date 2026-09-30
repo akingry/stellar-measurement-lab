@@ -1,26 +1,23 @@
 {
-  "version": 19,
-  "overall": "passed",
+  "version": 20,
+  "overall": "local display checks passed; publishing",
   "implementation": {
     "status": "passed",
-    "scope": "all-candidate selection and three oscillation class-fit guides"
+    "scope": "magnesium color contrast and unavailable calibration state; no score changes"
   },
   "validation": {
     "status": "passed",
     "evidence": [
-      "validation/v19-browser.json",
-      "validation/v19-oscillations.png"
-    ]
+      "validation/v20-browser.json",
+      "validation/v20-blue.png",
+      "validation/v20-unsupported.png"
+    ],
+    "screenshotsInspected": true
   },
   "publication": {
-    "status": "passed",
-    "commit": "8d4a64656a8bd6de5f9d55337fc8c46b7ce4e174",
-    "url": "https://akingry.github.io/stellar-measurement-lab/?v=19"
+    "status": "running"
   },
   "live": {
-    "status": "passed",
-    "evidence": [
-      "validation/v19-live.json"
-    ]
+    "status": "pending"
   }
 }

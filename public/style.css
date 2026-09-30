@@ -16,3 +16,5 @@
 
 .evidence-slider{position:relative;z-index:2;appearance:none;-webkit-appearance:none;background:transparent}.evidence-slider::-webkit-slider-runnable-track{height:10px;background:transparent}.evidence-slider::-webkit-slider-thumb{-webkit-appearance:none;width:30px;height:30px;margin-top:-10px;border:2px solid white;border-radius:50%;background:#15263b;box-shadow:0 1px 4px #000}.evidence-slider::-moz-range-track{height:10px;background:transparent}.evidence-slider::-moz-range-progress{background:transparent}.evidence-slider::-moz-range-thumb{width:26px;height:26px;border:2px solid white;border-radius:50%;background:#15263b}
 .evidence-slider~.lithium-marks{z-index:1}.result-card[aria-pressed=true]{outline:2px solid #fff}
+
+#wingSlider::-webkit-slider-thumb{border-color:var(--magnesium-thumb,#fff);background:var(--magnesium-thumb,#15263b)}#wingSlider::-moz-range-thumb{border-color:var(--magnesium-thumb,#fff);background:var(--magnesium-thumb,#15263b)}
