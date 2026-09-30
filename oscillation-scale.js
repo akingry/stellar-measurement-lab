@@ -1,4 +1,4 @@
-import{seismicShares}from './ranking.js?v=19';
+import{seismicShares}from './ranking.js?v=21';
 const names=['Dnu','numax','DPi1'];
 export function oscillationScale(id,q,data,min,max){
  const at=x=>seismicShares({...q,[id]:x},data),crossings=[],stops=[];let previous=null;
@@ -17,7 +17,7 @@ export function oscillationScale(id,q,data,min,max){
 export function decorateOscillations(){
  const ui=names.map(id=>{const slider=document.getElementById(id+'Slider'),wrap=document.createElement('div');wrap.className='lithium-track-wrap';slider.before(wrap);wrap.append(slider);slider.classList.add('evidence-slider');
  const rail=document.createElement('div');rail.className='lithium-color-rail';wrap.prepend(rail);const marks=document.createElement('div');marks.className='lithium-marks';wrap.append(marks);const caption=document.createElement('div');caption.className='lithium-key';caption.id=id+'Key';slider.closest('.control').append(caption);slider.setAttribute('aria-describedby',caption.id);return{id,slider,rail,marks,caption,key:null,scale:null}});
- return(q,data)=>{for(const u of ui){const min=Number(u.slider.min),max=Number(u.slider.max),key=names.filter(id=>id!==u.id).map(id=>q[id]).join(':');
+ return(q,data)=>{for(const u of ui){const min=Number(u.slider.min),max=Number(u.slider.max),key=[min,max,...names.filter(id=>id!==u.id).map(id=>q[id])].join(':');
   if(key!==u.key){u.key=key;u.scale=oscillationScale(u.id,q,data,min,max);u.rail.style.background=u.scale.gradient;u.marks.replaceChildren();for(const x of u.scale.crossings){const mark=document.createElement('span');mark.className='lithium-crossover';mark.style.left=(x-min)/(max-min)*100+'%';mark.title='Equal oscillation-class fit at '+x.toFixed(2);u.marks.append(mark)}}
   const r=u.scale.at(q[u.id]);u.caption.replaceChildren();for(const[color,text]of [['#ffa148','Orange: shell-burning giants'],['#77dba0','Green: core helium burning']]){const label=document.createElement('span');label.style.color=color;label.textContent=text;u.caption.append(label)}
   const label=document.createElement('span');label.className='oscillation-crossing-label';label.style.width='100%';label.textContent=u.scale.crossings.length?'50 / 50 at '+u.scale.crossings.map(x=>x.toFixed(2)).join(', ')+(u.id==='DPi1'?' seconds':' microhertz'):'No crossover with the other oscillation values fixed';u.caption.append(label);
