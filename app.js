@@ -3,7 +3,7 @@ import{enhanceSliders}from './touch-sliders.js';
 import{evidence}from './evidence.js';
 import{rank}from './ranking.js?v=12';
 import{decorateLithium}from './lithium-scale.js?v=13';
-import{decorateMagnesium}from './magnesium-scale.js?v=15';
+import{decorateMagnesium}from './magnesium-scale.js?v=17';
 const $=id=>document.getElementById(id);
 const initial={T:5772,logL:0,tolT:0,tolL:0,useSeismic:true,useTechnetium:true,Dnu:4.45,numax:46.5,DPi1:251.2,spacingError:3,tc4238:4238.15,tc4262:4262.28};
 initial.diagnostic='none';initial.lithium=100;initial.wing=.15;
@@ -27,7 +27,7 @@ const fields=[
 fields.forEach(([id,label,unit,group,min,max,step])=>{
  const box=document.createElement('div');box.className='control';
  box.innerHTML='<div class="control-head"><label for="'+id+'Slider">'+label+'</label><output id="'+id+'"></output></div><input type="range" id="'+id+'Slider" aria-label="'+label+' slider" min="'+min+'" max="'+max+'" step="'+step+'" disabled>';
- $(group).append(box);$(id+'Slider').oninput=e=>{q[id]=id==='T'?10**Number(e.target.value):Number(e.target.value);apply()};
+ $(group).append(box);$(id+'Slider').oninput=e=>{q[id]=id==='T'?10**Number(e.target.value):id==='wing'?updateMagnesiumScale.decode(Number(e.target.value)):Number(e.target.value);apply()};
 });
 enhanceSliders();
 const updateLithiumScale=decorateLithium($('lithiumSlider'));
