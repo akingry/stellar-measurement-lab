@@ -1,6 +1,6 @@
 {
   "version": 19,
-  "overall": "local checks passed; publishing",
+  "overall": "passed",
   "implementation": {
     "status": "passed",
     "scope": "all-candidate selection and three oscillation class-fit guides"
@@ -13,9 +13,14 @@
     ]
   },
   "publication": {
-    "status": "running"
+    "status": "passed",
+    "commit": "8d4a64656a8bd6de5f9d55337fc8c46b7ce4e174",
+    "url": "https://akingry.github.io/stellar-measurement-lab/?v=19"
   },
   "live": {
-    "status": "pending"
+    "status": "passed",
+    "evidence": [
+      "validation/v19-live.json"
+    ]
   }
 }
