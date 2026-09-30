@@ -3,7 +3,7 @@ import{enhanceSliders}from './touch-sliders.js';
 import{evidence}from './evidence.js';
 import{rank}from './ranking.js?v=12';
 import{decorateLithium}from './lithium-scale.js?v=13';
-import{decorateMagnesium}from './magnesium-scale.js?v=14';
+import{decorateMagnesium}from './magnesium-scale.js?v=15';
 const $=id=>document.getElementById(id);
 const initial={T:5772,logL:0,tolT:0,tolL:0,useSeismic:true,useTechnetium:true,Dnu:4.45,numax:46.5,DPi1:251.2,spacingError:3,tc4238:4238.15,tc4262:4262.28};
 initial.diagnostic='none';initial.lithium=100;initial.wing=.15;
@@ -62,9 +62,9 @@ function renderEvidence(){
  $('diagnosticOptions').hidden=!ambiguous;
  $('noneChoice').setAttribute('aria-pressed',String(q.diagnostic==='none'));
  if(candidates===null){$('verdict').textContent='Checking this point…';$('evidenceNote').textContent='';return}
+ if(q.diagnostic==='spectrum')updateMagnesiumScale(candidates,q,scoreData.spectrum);
  ranking=rank(candidates,q,scoreData);
  if(q.diagnostic==='lithium')updateLithiumScale(candidates,q,scoreData.lithium);
- if(q.diagnostic==='spectrum')updateMagnesiumScale(candidates,q,scoreData.spectrum);
  $('verdict').textContent=!candidates.length?'No model match':ranking.conflict?'Measurement conflicts with models':'Possible stages';
  $('evidenceNote').textContent=q.diagnostic==='none'?'Equal starting weights — temperature and luminosity alone do not rank these stages.':'Relative fit, not calibrated probability'+(ranking.partial?' · Uncalibrated solutions remain possible.':'.');
  $('guidanceTitle').textContent=ambiguous?'Add a measurement':'Select the result to view the star';
