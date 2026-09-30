@@ -1,7 +1,8 @@
-import{buildMesh,inferPoint}from './point-inference.js';
-let meshes=[],ready=false;
+import{spectralCalibration}from './spectral.js';
+import{buildMesh,inferPoint}from './point-inference.js?v=7';
+let meshes=[],ready=false,predict;
 async function load(){try{const mr=await fetch('./data/manifest.json');if(!mr.ok)throw Error('Model manifest could not load');const manifest=await mr.json();let done=0;const plot=[];
 for(const f of manifest.files){const r=await fetch('./data/'+f.name);if(!r.ok)throw Error('A model file could not load');const zipped=await r.arrayBuffer();if(crypto.subtle){const hash=await crypto.subtle.digest('SHA-256',zipped),hex=[...new Uint8Array(hash)].map(x=>x.toString(16).padStart(2,'0')).join('');if(hex!==f.sha256)throw Error('Model data integrity check failed')}
-const stream=new Blob([zipped]).stream().pipeThrough(new DecompressionStream('gzip'));const buf=await new Response(stream).arrayBuffer(),a=new Float32Array(buf);if(a.length!==f.rows*9)throw Error('Model data length mismatch');meshes.push(buildMesh(a));done+=f.bytes;for(let i=0;i<a.length;i+=9*100)plot.push([a[i],a[i+1],a[i+7]]);postMessage({type:'progress',done,total:manifest.total_bytes,files:meshes.length})}
-ready=true;postMessage({type:'ready',manifest,plot,triangles:meshes.reduce((sum,m)=>sum+m.triangles,0)});}catch(e){postMessage({type:'error',message:e.message})}}
-onmessage=e=>{if(e.data.type==='infer'&&ready){const start=performance.now(),result=inferPoint(meshes,e.data.q);postMessage({type:'result',id:e.data.id,result,ms:performance.now()-start})}};load();
+const stream=new Blob([zipped]).stream().pipeThrough(new DecompressionStream('gzip'));const buf=await new Response(stream).arrayBuffer(),a=new Float32Array(buf);if(a.length!==f.rows*9)throw Error('Model data length mismatch');const mesh=buildMesh(a);mesh.metallicity=f.initial_feh;meshes.push(mesh);done+=f.bytes;for(let i=0;i<a.length;i+=9*100)plot.push([a[i],a[i+1],a[i+7]]);postMessage({type:'progress',done,total:manifest.total_bytes,files:meshes.length})}
+const sr=await fetch('./data/spectral-index.json');if(!sr.ok)throw Error('Spectral calibration could not load');predict=spectralCalibration(await sr.json());ready=true;postMessage({type:'ready',manifest,plot,triangles:meshes.reduce((sum,m)=>sum+m.triangles,0)});}catch(e){postMessage({type:'error',message:e.message})}}
+onmessage=e=>{if(e.data.type==='infer'&&ready){const start=performance.now(),result=inferPoint(meshes,e.data.q,predict);postMessage({type:'result',id:e.data.id,result,ms:performance.now()-start})}};load();
