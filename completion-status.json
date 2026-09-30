@@ -2,7 +2,8 @@
   "version": 8,
   "implementation": {
     "status": "passed",
-    "evidence": "public/selection.js"
+    "evidence": "public/selection.js",
+    "sourceCommit": "95cdd5f"
   },
   "science": {
     "status": "passed",
@@ -15,17 +16,29 @@
     "status": "passed",
     "evidence": [
       "validation/v8-browser.json",
+      "validation/v8-320.png",
       "validation/v8-390.png"
     ],
     "limitation": "Chromium emulation; physical iPhone and Telegram webview unverified"
   },
   "publication": {
-    "status": "running"
+    "status": "passed",
+    "branch": "gh-pages",
+    "commit": "a8bcccae352f9303f189eb15840d494d4296274f",
+    "url": "https://akingry.github.io/stellar-measurement-lab/?v=8"
   },
   "live": {
-    "status": "pending"
+    "status": "passed",
+    "evidence": [
+      "validation/v8-live.json",
+      "validation/v8-live-assets.json",
+      "validation/v8-live-390.png"
+    ],
+    "assetComparison": "All five changed runtime and page assets match after Git newline normalization"
   },
   "handoff": {
-    "status": "pending"
+    "status": "passed",
+    "openingPath": "https://akingry.github.io/stellar-measurement-lab/?v=8",
+    "limitations": "One conditional model estimate, not unique physical inference. Fixed initially solar composition, nonrotating single-star grid, only four calibrated phase flags and complete atmosphere cells. Controls snap together; selected values are model predictions. Physical iPhone not tested."
   }
 }

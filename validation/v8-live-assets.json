@@ -1,0 +1,11 @@
+{
+  "passed": true,
+  "comparison": "Git line endings normalized",
+  "files": {
+    "index.html": true,
+    "app.js": true,
+    "style.css": true,
+    "selection.js": true,
+    "details.html": true
+  }
+}

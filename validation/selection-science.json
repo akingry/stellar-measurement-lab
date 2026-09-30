@@ -1,0 +1,28 @@
+{
+  "passed": true,
+  "candidates": 22269,
+  "phases": [
+    -1,
+    3,
+    0,
+    2
+  ],
+  "ranges": [
+    [
+      3.5440890789031982,
+      3.874969005584717
+    ],
+    [
+      -1.8998348712921143,
+      5.362632751464844
+    ],
+    [
+      0.015947334694399184,
+      0.3583768062928587
+    ]
+  ],
+  "checks": 303,
+  "wingChanges": 98,
+  "spectra": 585,
+  "allCandidatesPhysicsAndSpectrumChecked": true
+}
